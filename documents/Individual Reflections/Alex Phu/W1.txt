@@ -1,0 +1,17 @@
+
+# What do I want to learn or understand better?
+This is the first time that I've worked on a team with so many members. So one goal could be 
+to learn how to cooperate effectively in such team. 
+
+# How can I help someone else, or the entire team, to learn something new?
+By introducing and explaining how some technologies work which might benefit our project.
+
+An example could be that we from the IT programme could hold a Git workshop as everyone is not familiar
+with version control.
+
+# What is my contribution towards the team’s use of Scrum?
+Nothing as we have yet to start with Scrum.
+
+# What is my contribution towards the team’s deliveries?
+By taking part in the discussion when we constructed the Social Contract. 
+
