@@ -1,0 +1,19 @@
+
+# what do I want to learn or understand better?
+for the most parts, it's still the frameworks that i want to be learn, it's 
+decided to use ReactJS and Java with SpringBoot to create this webapp, both
+frameworks are new to me so i will use the "self study" period to practice them
+
+# how can I help someone else, or the entire team, to learn something new?
+since the team has decided to learn these frameworks during the eastern, i can
+share good resources i've found online to the team
+
+# what is my contribution towards the team’s use of Scrum?
+not much so far as we haven't talked about how to use the actual scrumboard,
+we did talk about the product log which we received directly from our stakeholder,
+so i'll try to understand them better and see how much those user stories can
+be broken down
+  
+# what is my contribution towards the team’s deliveries?
+by participating in the making of the basic mockup according to the project scope
+
