@@ -1,0 +1,17 @@
+
+# What do I want to learn or understand better?
+As we have decided on the "software stack" for our project, I want to become familiar with these
+technologies such as React and Spring Boot which will serve as our front-end and back-end. 
+One approach of learning the aforementioned frameworks could be done through a mini-project during
+the easter break.
+
+# How can I help someone else, or the entire team, to learn something new?
+By sharing what I have learnt from the mini-project.
+
+# What is my contribution towards the team’s use of Scrum?
+By participating in the Minetest exercise. 
+
+# What is my contribution towards the team’s deliveries?
+We as a team decided to split up this week's task so we could work more efficiently, so I 
+mainly contributed to the mockup as I had previous experience with the software Figma.
+
