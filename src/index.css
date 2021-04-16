@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -67,29 +68,25 @@ body {
     justify-content: space-between;
 }
 
-.task {
+.invoice {
     background: #f4f4f4;
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-.task.reminder {
-    border-left: 5px solid green;
-}
-
-.task h3 {
+.invoice h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .add-form {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .form-control {
-    margin: 20px 0;
+    margin: 20px 0px;
 }
 
 .form-control label {

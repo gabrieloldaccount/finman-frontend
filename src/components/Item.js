@@ -5,10 +5,10 @@ const Item = ({item, onEdit}) => {
         <div className={'item'}
         >
             <h3>
-                {item.amount}
-                {item.unit}
-                {item.name}
-                {item.price}
+                {item.amount}{' '}
+                {item.unit}{' | '}
+                {item.name}{' | '}
+                {item.price}{' '}
                 <FaPencilAlt
                     style={{color: 'white', cursor: 'pointer', textAlign: 'right'}}
                     onClick={() => onEdit(item.id)}

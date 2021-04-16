@@ -1,5 +1,4 @@
 {
-  "tasks": [],
   "items": [
     {
       "id": 2,
@@ -8,6 +7,42 @@
       "price": 45,
       "unit": "St",
       "amount": 5
+    }
+  ],
+  "invoices": [
+    {
+      "customerName": "Sture Sturesson",
+      "customerAddress": "Stolpgatan 23",
+      "customerZipCode": "748 83",
+      "customerEmail": "sture@hotmail.com",
+      "invoiceDate": "5-10-2021",
+      "expirationDate": "12-10-2021",
+      "bankgiro": "456-56826",
+      "OCRnumber": "12121454454656",
+      "id": 1
+    },
+    {
+      "customerName": "Gabriel",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [
+        {
+          "amount": "asdf",
+          "name": "",
+          "unit": ""
+        },
+        {
+          "amount": "1337",
+          "name": "BollFan",
+          "unit": ""
+        }
+      ],
+      "id": 2
     }
   ]
 }

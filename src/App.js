@@ -1,28 +1,29 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {useState, useEffect} from 'react'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Tasks from './components/Tasks'
+import Invoices from './components/Invoices'
 import Items from './components/Items'
-import AddTask from './components/AddTask'
+import AddInvoice from './components/AddInvoice'
 import About from './components/About'
 
+//TODO: Remove Items-state here. It is in AddInvoice instead.
+
 const App = () => {
-    const [showAddTask, setShowAddTask] = useState(false)
-    const [tasks, setTasks] = useState([])
+    const [invoices, setInvoices] = useState([])
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        const getTasks = async () => {
-            const tasksFromServer = await fetchTasks()
-            setTasks(tasksFromServer)
+        const getInvoices = async () => {
+            const invoicesFromServer = await fetchInvoices()
+            setInvoices(invoicesFromServer)
         }
         const getItems = async () => {
             const itemsFromServer = await fetchItems()
             setItems(itemsFromServer)
         }
 
-        getTasks()
+        getInvoices()
         getItems()
     }, [])
 
@@ -42,39 +43,35 @@ const App = () => {
         return data
     }
 
-    // Fetch Tasks
-    const fetchTasks = async () => {
-        const res = await fetch('http://localhost:5000/tasks')
+    // Fetch previously added Invoices
+    const fetchInvoices = async () => {
+        const res = await fetch('http://localhost:5000/invoices')
         const data = await res.json()
 
         return data
     }
 
-    // Fetch Task
-    const fetchTask = async (id) => {
-        const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    // Fetch a specific Invoice
+    const fetchInvoice = async (id) => {
+        const res = await fetch(`http://localhost:5000/invoices/${id}`)
         const data = await res.json()
 
         return data
     }
 
-    // Add Task
-    const addTask = async (task) => {
-        const res = await fetch('http://localhost:5000/tasks', {
+    // Add Invoice
+    const addInvoice = async (invoice) => {
+        const res = await fetch('http://localhost:5000/invoices', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(task),
+            body: JSON.stringify(invoice),
         })
 
         const data = await res.json()
 
-        setTasks([...tasks, data])
-
-        // const id = Math.floor(Math.random() * 10000) + 1
-        // const newTask = { id, ...task }
-        // setTasks([...tasks, newTask])
+        setInvoices([...invoices, data])
     }
 
     // Delete Task
@@ -113,24 +110,20 @@ const App = () => {
     return (
         <Router>
             <div className='container'>
-                <Header
-                    onAdd={() => setShowAddTask(!showAddTask)}
-                    showAdd={showAddTask}
-                />
+                <Header/>
                 <Route
                     path='/'
                     exact
                     render={(props) => (
                         <>
-                            {showAddTask && <AddTask onAdd={addTask}/>}
-                            {tasks.length > 0 ? (
-                                <Tasks
-                                    tasks={tasks}
-                                    onDelete={deleteTask}
-                                    onToggle={toggleReminder}
+                            <AddInvoice onAddInvoice={addInvoice}/>
+                            {invoices.length > 0 ? (
+                                <Invoices
+                                    invoices={invoices}
+                                    onDelete={deleteInvoice}
                                 />
                             ) : (
-                                'No Tasks To Show'
+                                'No Invoices To Show'
                             )}
                             {
                                 <Items

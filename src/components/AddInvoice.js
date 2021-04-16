@@ -1,6 +1,7 @@
 import {useState} from 'react'
+import AddItem from "./AddItem";
 
-const AddTask = ({onAdd}) => {
+const AddInvoice = ({onAddInvoice}) => {
     const [customerName, setCustomerName] = useState('')
     const [customerAddress, setCustomerAddress] = useState('')
     const [customerZipCode, setCustomerZipCode] = useState('')
@@ -9,7 +10,7 @@ const AddTask = ({onAdd}) => {
     const [expirationDate, setExpirationDate] = useState('')
     const [bankgiro, setBankgiro] = useState('')
     const [OCRnumber, setOCRnumber] = useState('')
-    //const [reminder, setReminder] = useState(false)
+    const [items, setItems] = useState([])
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -19,7 +20,17 @@ const AddTask = ({onAdd}) => {
             return
         }
 
-        onAdd({customerName: customerName, customerAddress: customerAddress, customerZipCode: customerZipCode, customerEmail: customerEmail, invoiceDate: invoiceDate, expirationDate: expirationDate,bankgiro: bankgiro, OCRnumber: OCRnumber})
+        onAddInvoice({
+            customerName: customerName,
+            customerAddress: customerAddress,
+            customerZipCode: customerZipCode,
+            customerEmail: customerEmail,
+            invoiceDate: invoiceDate,
+            expirationDate: expirationDate,
+            bankgiro: bankgiro,
+            OCRnumber: OCRnumber,
+            items: items
+        })
 
         setCustomerName('')
         setCustomerAddress('')
@@ -29,7 +40,11 @@ const AddTask = ({onAdd}) => {
         setExpirationDate('')
         setBankgiro('')
         setOCRnumber('')
-        //setReminder(false)
+        setItems([])
+    }
+
+    const addItem = (item) => {
+        setItems([...items, item])
     }
 
     return (
@@ -106,21 +121,12 @@ const AddTask = ({onAdd}) => {
                     onChange={(e) => setOCRnumber(e.target.value)}
                 />
             </div>
-
-            {/* Commented out bc didn't need right now. */}
-            {/*      <div className='form-control form-control-check'>
-        <label>Set Reminder</label>
-        <input
-          type='checkbox'
-          checked={reminder}
-          value={reminder}
-          onChange={(e) => setReminder(e.currentTarget.checked)}
-        />
-      </div>*/}
-
+            <div className='item-input'>
+                <AddItem onAddItem={addItem}/>
+            </div>
             <input type='submit' value='Submit invoice' className='btn btn-block'/>
         </form>
     )
 }
 
-export default AddTask
+export default AddInvoice
