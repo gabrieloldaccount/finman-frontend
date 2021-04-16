@@ -3,21 +3,44 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Tasks from './components/Tasks'
+import Items from './components/Items'
 import AddTask from './components/AddTask'
 import About from './components/About'
 
 const App = () => {
     const [showAddTask, setShowAddTask] = useState(false)
     const [tasks, setTasks] = useState([])
+    const [items, setItems] = useState([])
 
     useEffect(() => {
         const getTasks = async () => {
             const tasksFromServer = await fetchTasks()
             setTasks(tasksFromServer)
         }
+        const getItems = async () => {
+            const itemsFromServer = await fetchItems()
+            setItems(itemsFromServer)
+        }
 
         getTasks()
+        getItems()
     }, [])
+
+    // Fetch the array of Items
+    const fetchItems = async () => {
+        const res = await fetch('http://localhost:5000/items')
+        const data = await res.json()
+
+        return data
+    }
+
+    // Fetch a single Item
+    const fetchItem = async (id) => {
+        const res = await fetch(`http://localhost:5000/items/${id}`)
+        const data = await res.json()
+
+        return data
+    }
 
     // Fetch Tasks
     const fetchTasks = async () => {
@@ -99,7 +122,7 @@ const App = () => {
                     exact
                     render={(props) => (
                         <>
-                            {showAddTask && <AddTask onAdd={addTask} />}
+                            {showAddTask && <AddTask onAdd={addTask}/>}
                             {tasks.length > 0 ? (
                                 <Tasks
                                     tasks={tasks}
@@ -109,6 +132,12 @@ const App = () => {
                             ) : (
                                 'No Tasks To Show'
                             )}
+                            {
+                                <Items
+                                    items={items}
+                                    /*onEdit={' '}*/
+                                />
+                            }
                         </>
                     )}
                 />

@@ -1,3 +1,13 @@
 {
-  "tasks": []
+  "tasks": [],
+  "items": [
+    {
+      "id": 2,
+      "owner": 1,
+      "name": "Hot Dog",
+      "price": 45,
+      "unit": "St",
+      "amount": 5
+    }
+  ]
 }
