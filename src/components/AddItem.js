@@ -17,8 +17,12 @@ const AddItem = ({onAddItem}) => {
             return
         }
 
+        //TODO: Fix error check with previous state of ids.
+        //Small risk of identical id's on items.
+        const id = Math.floor(Math.random()*10000000);
+
         //Passes values to AddInvoice where state is handled.
-        onAddItem({amount: amount, name: name, unit: unit})
+        onAddItem({id: id, amount: amount, name: name, unit: unit})
 
         //Resets the internal state.
         setAmount('')

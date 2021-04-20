@@ -50,6 +50,11 @@ const AddInvoice = ({onAddInvoice}) => {
         setItems([...items, item])
     }
 
+    //Deletes an item from the invoice's items list
+    const deleteItem = (id) => {
+        setItems(items.filter((item) => item.id !== id))
+    }
+
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
@@ -130,6 +135,7 @@ const AddInvoice = ({onAddInvoice}) => {
             {items.length > 0 ? (
                 <Items
                     items={items}
+                    onDelete={deleteItem}
                 />
             ) : (
                 'No Items To Show'

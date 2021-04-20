@@ -1,10 +1,10 @@
 import Item from './Item'
 
-const Items = ({items, onEdit}) => {
+const Items = ({items, onDelete}) => {
     return (
         <>
             {items.map((item, index) => (
-                <Item key={index} item={item} onEdit={onEdit}/>
+                <Item key={index} item={item} onDelete={onDelete}/>
             ))}
         </>
     )

@@ -1,17 +1,17 @@
-import {FaPencilAlt} from 'react-icons/fa'
+import {FaTimes} from 'react-icons/fa'
 
-const Item = ({item, onEdit}) => {
+const Item = ({item, onDelete}) => {
     return (
         <div className={'item'}
         >
             <h3>
-                {item.amount}{' '}
+                {item.amount}{' | '}
                 {item.unit}{' | '}
                 {item.name}{' | '}
                 {item.price}{' '}
-                <FaPencilAlt
-                    style={{color: 'white', cursor: 'pointer', textAlign: 'right'}}
-                    onClick={() => onEdit(item.id)}
+                <FaTimes
+                    style={{color: 'red', cursor: 'pointer', textAlign: 'right'}}
+                    onClick={() => onDelete(item.id)}
                 />
             </h3>
         </div>
