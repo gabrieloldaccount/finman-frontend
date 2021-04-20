@@ -43,6 +43,24 @@
         }
       ],
       "id": 2
+    },
+    {
+      "customerName": "Hafkjnk",
+      "customerAddress": "KFKjnasf",
+      "customerZipCode": "kjnkf",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [
+        {
+          "amount": "Fkjasf",
+          "name": "Kjnasf",
+          "unit": "kjasnf"
+        }
+      ],
+      "id": 3
     }
   ]
 }

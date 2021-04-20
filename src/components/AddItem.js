@@ -7,16 +7,20 @@ const AddItem = ({onAddItem}) => {
     const [name, setName] = useState('')
     const [unit, setUnit] = useState('')
 
+    //The submit method for AddItems. Checks, submits and resets the internal state.
     const addItem = (e) => {
         e.preventDefault()
 
+        //Input checking.
         if (!amount) {
             alert('Please add an amount of items')
             return
         }
 
+        //Passes values to AddInvoice where state is handled.
         onAddItem({amount: amount, name: name, unit: unit})
 
+        //Resets the internal state.
         setAmount('')
         setName('')
         setUnit('')

@@ -11,32 +11,33 @@ import About from './components/About'
 
 const App = () => {
     const [invoices, setInvoices] = useState([])
-    const [items, setItems] = useState([])
+    const [products, setProducts] = useState([])
 
     useEffect(() => {
         const getInvoices = async () => {
             const invoicesFromServer = await fetchInvoices()
             setInvoices(invoicesFromServer)
         }
-        const getItems = async () => {
-            const itemsFromServer = await fetchItems()
-            setItems(itemsFromServer)
+        const getProducts = async () => {
+            const productsFromServer = await fetchProducts()
+            setProducts(productsFromServer)
         }
 
         getInvoices()
-        getItems()
+        getProducts()
     }, [])
 
-    // Fetch the array of Items
-    const fetchItems = async () => {
+    // Fetch the array of pre-defined products
+    //TODO: Change fetch call here to get the list of pre-defined products instead of items.
+    const fetchProducts = async () => {
         const res = await fetch('http://localhost:5000/items')
         const data = await res.json()
 
         return data
     }
 
-    // Fetch a single Item
-    const fetchItem = async (id) => {
+    // Fetch a single product
+    const fetchProduct = async (id) => {
         const res = await fetch(`http://localhost:5000/items/${id}`)
         const data = await res.json()
 
@@ -117,6 +118,8 @@ const App = () => {
                     render={(props) => (
                         <>
                             <AddInvoice onAddInvoice={addInvoice}/>
+
+                            {/* TODO: Move this to another page for displaying invoices already created.
                             {invoices.length > 0 ? (
                                 <Invoices
                                     invoices={invoices}
@@ -125,12 +128,7 @@ const App = () => {
                             ) : (
                                 'No Invoices To Show'
                             )}
-                            {
-                                <Items
-                                    items={items}
-                                    /*onEdit={' '}*/
-                                />
-                            }
+                            */}
                         </>
                     )}
                 />

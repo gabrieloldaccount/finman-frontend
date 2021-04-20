@@ -15,6 +15,7 @@ const AddInvoice = ({onAddInvoice}) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        //TODO: Add more error-checking here.
         if (!customerName) {
             alert('Please fill in all info for the invoice')
             return
@@ -43,6 +44,7 @@ const AddInvoice = ({onAddInvoice}) => {
         setItems([])
     }
 
+    //Adds an item to this invoice's items list
     const addItem = (item) => {
         setItems([...items, item])
     }
