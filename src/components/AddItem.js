@@ -1,5 +1,9 @@
 import {useState} from 'react'
-import Button from "./Button";
+//import {Button} from "./Button";
+import { Button, MenuItem } from "@blueprintjs/core";
+import { Select } from "@blueprintjs/select";
+import Products from './Products'
+import Product from './Product';
 
 //TODO: Add proper CSS formatting in index.css
 const AddItem = ({onAddItem}) => {
@@ -31,17 +35,19 @@ const AddItem = ({onAddItem}) => {
 
     }
 
+    //const ProductSelect = Select.ofType<Product>();
+
     return (
         <div className='add-form'>
             <div className='form-control'>
-                <label>Amount</label>
+                <label>Product</label>
                 <input
                     type='text'
                     placeholder='Enter amount'
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                 />
-                <label>Product Name</label>
+                <label>Amount</label>
                 <input
                     type='text'
                     placeholder='Enter Customer Address'
@@ -56,7 +62,7 @@ const AddItem = ({onAddItem}) => {
                     onChange={(e) => setUnit(e.target.value)}
                 />
             </div>
-            <Button onClick={addItem} text='Add item' color='green' className='btn btn-block'/>
+            <Button onClick={addItem} text='Add item'  className='btn btn-block'/>
         </div>
     )
 }
