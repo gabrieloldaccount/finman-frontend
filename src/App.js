@@ -75,38 +75,16 @@ const App = () => {
         setInvoices([...invoices, data])
     }
 
-    // Delete Task
-    const deleteTask = async (id) => {
-        const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    // Delete Invoice
+    const deleteInvoice = async (id) => {
+        const res = await fetch(`http://localhost:5000/invoices/${id}`, {
             method: 'DELETE',
         })
-        //We should control the response status to decide if we will change the state or not.
         res.status === 200
-            ? setTasks(tasks.filter((task) => task.id !== id))
-            : alert('Error Deleting This Task')
+            ? setInvoices(invoices.filter((invoice) => invoice.id !== id))
+            : alert('Error Deleting This Invoice')
     }
 
-    // Toggle Reminder
-    const toggleReminder = async (id) => {
-        const taskToToggle = await fetchTask(id)
-        const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
-
-        const res = await fetch(`http://localhost:5000/tasks/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(updTask),
-        })
-
-        const data = await res.json()
-
-        setTasks(
-            tasks.map((task) =>
-                task.id === id ? { ...task, reminder: data.reminder } : task
-            )
-        )
-    }
 
     return (
         <Router>
