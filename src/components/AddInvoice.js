@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import AddItem from "./AddItem";
+import Items from "./Items"
 
 const AddInvoice = ({onAddInvoice}) => {
     const [customerName, setCustomerName] = useState('')
@@ -16,7 +17,7 @@ const AddInvoice = ({onAddInvoice}) => {
         e.preventDefault()
 
         //TODO: Add more error-checking here.
-        if (!customerName) {
+        if (!customerName && !customerEmail) {
             alert('Please fill in all info for the invoice')
             return
         }
@@ -126,6 +127,13 @@ const AddInvoice = ({onAddInvoice}) => {
             <div className='item-input'>
                 <AddItem onAddItem={addItem}/>
             </div>
+            {items.length > 0 ? (
+                <Items
+                    items={items}
+                />
+            ) : (
+                'No Items To Show'
+            )}
             <input type='submit' value='Submit invoice' className='btn btn-block'/>
         </form>
     )
