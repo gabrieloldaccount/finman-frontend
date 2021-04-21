@@ -6,6 +6,8 @@ import Invoices from './components/Invoices'
 import Items from './components/Items'
 import AddInvoice from './components/AddInvoice'
 import About from './components/About'
+import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -95,6 +97,18 @@ const App = () => {
                     exact
                     render={(props) => (
                         <>
+                            <Dropdown>
+                                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                    Dropdown Button
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            <Button variant='primary'>This is just a button.</Button>
                             <AddInvoice onAddInvoice={addInvoice}/>
 
                             {/* TODO: Move this to another page for displaying invoices already created.
