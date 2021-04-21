@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-
+/* Commented out when trying to implement Bootstrap CSS instead.
 * {
     box-sizing: border-box;
     margin: 0;
@@ -120,3 +120,4 @@ footer {
     margin-top: 30px;
     text-align: center;
 }
+ */

@@ -1,6 +1,10 @@
 import {useState} from 'react'
 import AddItem from "./AddItem";
 import Items from "./Items"
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 const AddInvoice = ({onAddInvoice}) => {
     const [customerName, setCustomerName] = useState('')
@@ -10,7 +14,7 @@ const AddInvoice = ({onAddInvoice}) => {
     const [invoiceDate, setInvoiceDate] = useState('')
     const [expirationDate, setExpirationDate] = useState('')
     const [bankgiro, setBankgiro] = useState('')
-    const [OCRnumber, setOCRnumber] = useState('')
+    const [ocrNumber, setOcrNumber] = useState('')
     const [items, setItems] = useState([])
 
     const onSubmit = (e) => {
@@ -30,7 +34,7 @@ const AddInvoice = ({onAddInvoice}) => {
             invoiceDate: invoiceDate,
             expirationDate: expirationDate,
             bankgiro: bankgiro,
-            OCRnumber: OCRnumber,
+            ocrNumber: ocrNumber,
             items: items
         })
 
@@ -41,7 +45,7 @@ const AddInvoice = ({onAddInvoice}) => {
         setInvoiceDate('')
         setExpirationDate('')
         setBankgiro('')
-        setOCRnumber('')
+        setOcrNumber('')
         setItems([])
     }
 
@@ -56,8 +60,42 @@ const AddInvoice = ({onAddInvoice}) => {
     }
 
     return (
-        <form className='add-form' onSubmit={onSubmit}>
-            <div className='form-control'>
+        <Form>
+            <Form.Group controlId="formCustomerName">
+                <Form.Label>Customer Name</Form.Label>
+                <Form.Control type="string" value={customerName} placeholder="Enter customer name" onChange={(e) => setCustomerName(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formCustomerAddress">
+                <Form.Label>Address</Form.Label>
+                <Form.Control type="string" value={customerAddress} placeholder="Enter Customer Address" onChange={(e) => setCustomerAddress(e.target.value)}/>
+            </Form.Group>
+            <Form.Group controlId="formCustomerZipcode">
+                <Form.Label>Zip code</Form.Label>
+                <Form.Control type="number" value={customerZipCode} placeholder="Enter Customer Zip Code" onChange={(e) => setCustomerZipCode(e.target.value)}/>
+            </Form.Group>
+            <Form.Group controlId="formCustomerEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" value={customerEmail} placeholder="Enter Customer Email" onChange={(e) => setCustomerEmail(e.target.value)}/>
+            </Form.Group>
+            <Form.Group controlId="formInvoiceDate">
+                <Form.Label>Invoice Date</Form.Label>
+                <Form.Control type="date" value={invoiceDate} onChange={(e) => setInvoiceDate(e.target.value)}/>
+            </Form.Group>
+            <Form.Group controlId="formExpirationDate">
+                <Form.Label>Expiration Date</Form.Label>
+                <Form.Control type="date" value={expirationDate} onChange={(e) => setExpirationDate(e.target.value)}/>
+            </Form.Group>
+            <Form.Group controlId="formBankgiro">
+                <Form.Label>Bank-giro</Form.Label>
+                <Form.Control type="number" value={bankgiro} placeholder="Enter Bankgiro" onChange={(e) => setBankgiro(e.target.value)}/>
+            </Form.Group>
+            <Form.Group controlId="formOCR">
+                <Form.Label>OCR</Form.Label>
+                <Form.Control type="number" value={ocrNumber} placeholder="Enter OCR" onChange={(e) => setOcrNumber(e.target.value)}/>
+            </Form.Group>
+
+{/*Implemented in better form above.*/}
+{/*            <div className='form-control'>
                 <label>Customer</label>
                 <input
                     type='text'
@@ -125,10 +163,10 @@ const AddInvoice = ({onAddInvoice}) => {
                 <input
                     type='text'
                     placeholder='Enter OCR number'
-                    value={OCRnumber}
-                    onChange={(e) => setOCRnumber(e.target.value)}
+                    value={ocrNumber}
+                    onChange={(e) => setOcrNumber(e.target.value)}
                 />
-            </div>
+            </div>*/}
             <div className='item-input'>
                 <AddItem onAddItem={addItem}/>
             </div>
@@ -140,8 +178,10 @@ const AddInvoice = ({onAddInvoice}) => {
             ) : (
                 'No Items To Show'
             )}
-            <input type='submit' value='Submit invoice' className='btn btn-block'/>
-        </form>
+            <Button variant="primary" type='submit' onClick={onSubmit}>
+                Send invoice
+            </Button>
+        </Form>
     )
 }
 

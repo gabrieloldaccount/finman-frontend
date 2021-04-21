@@ -61,6 +61,114 @@
         }
       ],
       "id": 3
+    },
+    {
+      "customerName": "agfadgfsdgfsdg",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 4
+    },
+    {
+      "customerName": "skdjngkjadf",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 5
+    },
+    {
+      "customerName": "Gabriel Brattgård",
+      "customerAddress": "Jägaregatan 10D",
+      "customerZipCode": "41702",
+      "customerEmail": "gabriel.brattgard",
+      "invoiceDate": "2021-04-16",
+      "expirationDate": "2021-04-11",
+      "bankgiro": "51132135421351",
+      "OCRnumber": "321354215641",
+      "items": [],
+      "id": 6
+    },
+    {
+      "customerName": "Gabriel Brattgård",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 7
+    },
+    {
+      "customerName": "Gabriel Brattgård",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "gabriel.brattgard@gmail.com",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 8
+    },
+    {
+      "customerName": "Gabriel Brattgård",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 9
+    },
+    {
+      "customerName": "Gabriel Brattgard",
+      "customerAddress": "Jagaregatan 10D",
+      "customerZipCode": "41702",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 10
+    },
+    {
+      "customerName": "sdfadsf",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "2021-04-17",
+      "bankgiro": "",
+      "OCRnumber": "",
+      "items": [],
+      "id": 11
+    },
+    {
+      "customerName": "asdfasdf",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "ocrNumber": "651651651",
+      "items": [],
+      "id": 12
     }
   ]
 }

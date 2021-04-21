@@ -1,7 +1,4 @@
 import {useState} from 'react'
-//import {Button} from "./Button";
-import { Button, MenuItem } from "@blueprintjs/core";
-import { Select } from "@blueprintjs/select";
 import Products from './Products'
 import Product from './Product';
 
@@ -62,7 +59,9 @@ const AddItem = ({onAddItem}) => {
                     onChange={(e) => setUnit(e.target.value)}
                 />
             </div>
-            <Button onClick={addItem} text='Add item'  className='btn btn-block'/>
+
+            {/* Temporary out for testing. <Button onClick={addItem} text='Add item'  className='btn btn-block'/>
+            */}
         </div>
     )
 }
