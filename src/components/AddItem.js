@@ -31,6 +31,7 @@ const AddItem = ({productList, onAddItem}) => {
 
         //Resets the internal state.
         setQuantity('')
+        setSelectedProduct('')
     }
 
     return (
