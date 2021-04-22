@@ -30,9 +30,8 @@ const App = () => {
     }, [])
 
     // Fetch the array of pre-defined products
-    //TODO: Change fetch call here to get the list of pre-defined products instead of items.
     const fetchProducts = async () => {
-        const res = await fetch('http://localhost:5000/items')
+        const res = await fetch('http://localhost:5000/products')
         const data = await res.json()
 
         return data
@@ -40,7 +39,7 @@ const App = () => {
 
     // Fetch a single product
     const fetchProduct = async (id) => {
-        const res = await fetch(`http://localhost:5000/items/${id}`)
+        const res = await fetch(`http://localhost:5000/products/${id}`)
         const data = await res.json()
 
         return data
@@ -97,19 +96,8 @@ const App = () => {
                     exact
                     render={(props) => (
                         <>
-                            <Dropdown>
-                                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                    Dropdown Button
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                            <Button variant='primary'>This is just a button.</Button>
-                            <AddInvoice onAddInvoice={addInvoice}/>
+                            <Button variant='primary'>This is just a test button.</Button>
+                            <AddInvoice productList={products} onAddInvoice={addInvoice}/>
 
                             {/* TODO: Move this to another page for displaying invoices already created.
                             {invoices.length > 0 ? (

@@ -1,12 +1,25 @@
 {
-  "items": [
+  "products": [
+    {
+      "id": 1,
+      "owner": 1,
+      "name": "Hot Dog",
+      "price": 15,
+      "unit": "st"
+    },
     {
       "id": 2,
       "owner": 1,
-      "name": "Hot Dog",
-      "price": 45,
-      "unit": "St",
-      "amount": 5
+      "name": "Hamburger",
+      "price": 30,
+      "unit": "st"
+    },
+    {
+      "id": 3,
+      "owner": 1,
+      "name": "Soda",
+      "price": 10,
+      "unit": "st"
     }
   ],
   "invoices": [

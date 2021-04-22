@@ -1,9 +1,11 @@
 import {useState} from 'react'
 import Products from './Products'
 import Product from './Product';
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
 
 //TODO: Add proper CSS formatting in index.css
-const AddItem = ({onAddItem}) => {
+const AddItem = ({productList, onAddItem}) => {
     const [amount, setAmount] = useState('')
     const [name, setName] = useState('')
     const [unit, setUnit] = useState('')
@@ -32,10 +34,30 @@ const AddItem = ({onAddItem}) => {
 
     }
 
-    //const ProductSelect = Select.ofType<Product>();
-
     return (
-        <div className='add-form'>
+        //TODO: Implement proper product list read-in from db here.
+        <Form className='addItem-form'>
+            <div>
+                <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Select product
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+            </div>
+
+            <Form.Group controlId="formQuantity">
+                <Form.Control type="number"
+                              placeholder='Enter amount'
+                              value={amount}
+                              onChange={(e) => setAmount(e.target.value)}/>
+            </Form.Group>
+
             <div className='form-control'>
                 <label>Product</label>
                 <input
@@ -59,10 +81,7 @@ const AddItem = ({onAddItem}) => {
                     onChange={(e) => setUnit(e.target.value)}
                 />
             </div>
-
-            {/* Temporary out for testing. <Button onClick={addItem} text='Add item'  className='btn btn-block'/>
-            */}
-        </div>
+        </Form>
     )
 }
 

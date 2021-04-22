@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
-const AddInvoice = ({onAddInvoice}) => {
+const AddInvoice = ({productList, onAddInvoice}) => {
     const [customerName, setCustomerName] = useState('')
     const [customerAddress, setCustomerAddress] = useState('')
     const [customerZipCode, setCustomerZipCode] = useState('')
@@ -168,7 +168,7 @@ const AddInvoice = ({onAddInvoice}) => {
                 />
             </div>*/}
             <div className='item-input'>
-                <AddItem onAddItem={addItem}/>
+                <AddItem productList={productList} onAddItem={addItem}/>
             </div>
             {items.length > 0 ? (
                 <Items
