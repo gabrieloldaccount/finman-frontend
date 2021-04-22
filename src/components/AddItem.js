@@ -3,6 +3,8 @@ import Products from './Products'
 import Product from './Product';
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Invoice from "./Invoice";
 
 //TODO: Add proper CSS formatting in index.css
 const AddItem = ({productList, onAddItem}) => {
@@ -37,11 +39,10 @@ const AddItem = ({productList, onAddItem}) => {
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {selectedProduct === '' ? "Select Product" : selectedProduct.name}
                 </Dropdown.Toggle>
-
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">{testText}</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    {productList.map((product, index) => (
+                        <Dropdown.Item onClick={() => setSelectedProduct(product)}>{product.name}</Dropdown.Item>
+                    ))}
                 </Dropdown.Menu>
             </Dropdown>
 
