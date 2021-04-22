@@ -34,6 +34,8 @@ const AddItem = ({productList, onAddItem}) => {
 
     }
 
+    const testText = productList.json.stringify();
+
     return (
         //TODO: Implement proper product list read-in from db here.
         <Form className='addItem-form'>
@@ -44,7 +46,7 @@ const AddItem = ({productList, onAddItem}) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1">{testText}</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                 </Dropdown.Menu>
