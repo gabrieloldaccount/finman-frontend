@@ -6,16 +6,15 @@ import Form from "react-bootstrap/Form";
 
 //TODO: Add proper CSS formatting in index.css
 const AddItem = ({productList, onAddItem}) => {
-    const [amount, setAmount] = useState('')
-    const [name, setName] = useState('')
-    const [unit, setUnit] = useState('')
+    const [selectedProduct, setSelectedProduct] = useState('')
+    const [quantity, setQuantity] = useState('')
 
     //The submit method for AddItems. Checks, submits and resets the internal state.
     const addItem = (e) => {
         e.preventDefault()
 
         //Input checking.
-        if (!amount) {
+        if (!quantity) {
             alert('Please add an amount of items')
             return
         }
@@ -25,24 +24,18 @@ const AddItem = ({productList, onAddItem}) => {
         const id = Math.floor(Math.random()*10000000);
 
         //Passes values to AddInvoice where state is handled.
-        onAddItem({id: id, amount: amount, name: name, unit: unit})
+        onAddItem({id: id, quantity: quantity, name: selectedProduct.name, price: selectedProduct.price, unit: selectedProduct.unit})
 
         //Resets the internal state.
-        setAmount('')
-        setName('')
-        setUnit('')
-
+        setQuantity('')
     }
-
-    const testText = productList.json.stringify();
 
     return (
         //TODO: Implement proper product list read-in from db here.
         <Form className='addItem-form'>
-            <div>
-                <Dropdown>
+            <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Select product
+                    {selectedProduct === '' ? "Select Product" : selectedProduct.name}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -51,38 +44,14 @@ const AddItem = ({productList, onAddItem}) => {
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-            </div>
 
             <Form.Group controlId="formQuantity">
                 <Form.Control type="number"
-                              placeholder='Enter amount'
-                              value={amount}
-                              onChange={(e) => setAmount(e.target.value)}/>
+                              placeholder='Enter quantity'
+                              value={quantity}
+                              onChange={(e) => setQuantity(e.target.value)}/>
             </Form.Group>
-
-            <div className='form-control'>
-                <label>Product</label>
-                <input
-                    type='text'
-                    placeholder='Enter amount'
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                />
-                <label>Amount</label>
-                <input
-                    type='text'
-                    placeholder='Enter Customer Address'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <label>Unit</label>
-                <input
-                    type='text'
-                    placeholder='Enter Customer Zip Code'
-                    value={unit}
-                    onChange={(e) => setUnit(e.target.value)}
-                />
-            </div>
+            <Button onClick={(e) => addItem(e)}>Add item</Button>
         </Form>
     )
 }

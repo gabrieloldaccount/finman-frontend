@@ -5,10 +5,11 @@ const Product = ({product, onDelete}) => {
         <div className={'product'}
         >
             <h3>
-                {product.amount}{' | '}
-                {product.unit}{' | '}
+                {product.id}{' | '}
+                {product.owner}{' | '}
                 {product.name}{' | '}
-                {product.price}{' '}
+                {product.price}{' | '}
+                {product.unit}{' '}
                 <FaTimes
                     style={{color: 'red', cursor: 'pointer', textAlign: 'right'}}
                     onClick={() => onDelete(product.id)}

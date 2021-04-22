@@ -5,9 +5,9 @@ const Item = ({item, onDelete}) => {
         <div className={'item'}
         >
             <h3>
+                {item.name}{' | '}
                 {item.amount}{' | '}
                 {item.unit}{' | '}
-                {item.name}{' | '}
                 {item.price}{' '}
                 <FaTimes
                     style={{color: 'red', cursor: 'pointer', textAlign: 'right'}}
