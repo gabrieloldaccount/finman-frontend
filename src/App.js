@@ -96,7 +96,6 @@ const App = () => {
                     exact
                     render={(props) => (
                         <>
-                            <Button variant='primary'>This is just a test button.</Button>
                             <AddInvoice productList={products} onAddInvoice={addInvoice}/>
 
                             {/* TODO: Move this to another page for displaying invoices already created.

@@ -2,13 +2,12 @@ import {FaTimes} from 'react-icons/fa'
 
 const Item = ({item, onDelete}) => {
     return (
-        <div className={'item'}
-        >
+        <div className={'item'}>
             <h3>
                 {item.name}{' | '}
-                {item.amount}{' | '}
-                {item.unit}{' | '}
-                {item.price}{' '}
+                {item.price}{`kr/${item.unit}  `}{' | '}
+                {item.quantity}
+                {item.unit}{' '}
                 <FaTimes
                     style={{color: 'red', cursor: 'pointer', textAlign: 'right'}}
                     onClick={() => onDelete(item.id)}

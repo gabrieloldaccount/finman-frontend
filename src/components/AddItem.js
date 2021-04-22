@@ -5,6 +5,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Invoice from "./Invoice";
+import {Container, Row} from "react-bootstrap";
 
 //TODO: Add proper CSS formatting in index.css
 const AddItem = ({productList, onAddItem}) => {
@@ -34,17 +35,18 @@ const AddItem = ({productList, onAddItem}) => {
 
     return (
         //TODO: Implement proper product list read-in from db here.
-        <Form className='addItem-form'>
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    {selectedProduct === '' ? "Select Product" : selectedProduct.name}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                    {productList.map((product, index) => (
-                        <Dropdown.Item onClick={() => setSelectedProduct(product)}>{product.name}</Dropdown.Item>
-                    ))}
-                </Dropdown.Menu>
-            </Dropdown>
+        <Container>
+            <Row>
+                <Dropdown>
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                        {selectedProduct === '' ? "Select Product" : selectedProduct.name}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {productList.map((product, index) => (
+                            <Dropdown.Item onClick={() => setSelectedProduct(product)}>{product.name}</Dropdown.Item>
+                        ))}
+                    </Dropdown.Menu>
+                </Dropdown>
 
             <Form.Group controlId="formQuantity">
                 <Form.Control type="number"
@@ -52,8 +54,9 @@ const AddItem = ({productList, onAddItem}) => {
                               value={quantity}
                               onChange={(e) => setQuantity(e.target.value)}/>
             </Form.Group>
-            <Button onClick={(e) => addItem(e)}>Add item</Button>
-        </Form>
+            <Button variant='primary' onClick={(e) => addItem(e)}>Add item</Button>
+            </Row>
+        </Container>
     )
 }
 
