@@ -8,6 +8,7 @@ import AddInvoice from './components/AddInvoice'
 import About from './components/About'
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
+import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -108,6 +109,14 @@ const App = () => {
                                 'No Invoices To Show'
                             )}
                             */}
+                        </>
+                    )}
+                />
+                <Route
+                    path='/all-invoices'
+                    render={() => (
+                        <>
+                            <InvoiceList invoiceList={invoices}/>
                         </>
                     )}
                 />
