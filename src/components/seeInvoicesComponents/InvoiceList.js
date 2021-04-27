@@ -1,5 +1,10 @@
 const InvoiceList = ({invoiceList}) => {
 
+    const sumOfProducts = (items) => {
+        let sum = 0;
+        items.forEach(product => sum += product.price * product.quantity);
+        return sum;
+    }
 
     return (
         <table className="table table-striped table-bordered">
@@ -22,10 +27,12 @@ const InvoiceList = ({invoiceList}) => {
                             <td>{invoice.id}</td>
                             <td>{invoice.customerName}</td>
 
-                            {/*TODO: add seller and price */}
+                            {/*TODO: add seller*/}
                             <td>A. Finman</td>
-                            <td>999 SEK</td>
-                            <td><button className="btn btn-info">Preview</button></td>
+                            <td>{sumOfProducts(invoice.items)}</td>
+                            <td>
+                                <button className="btn btn-info">Preview</button>
+                            </td>
                         </tr>
                     )
                 )
