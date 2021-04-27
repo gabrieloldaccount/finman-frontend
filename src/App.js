@@ -8,6 +8,7 @@ import AddInvoice from './components/AddInvoice'
 import About from './components/About'
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
+import './index.css';
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
