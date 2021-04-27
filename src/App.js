@@ -109,7 +109,6 @@ const App = () => {
                     exact
                     render={(props) => (
                         <>
-                            <h2>Welcome to A.Finman</h2>
                         </>
                     )}
                 />

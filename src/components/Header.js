@@ -2,19 +2,29 @@ import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import Button from './Button'
 
-const Header = ({title}) => {
-  const location = useLocation()
+const Header = () => {
+    const location = useLocation()
 
-  return (
-      <header className='header'>
-        <h1>
-            {
-                /*TODO: Make header well formatted for each page and not just pathname. Perhaps just use case and test for all pathnames to get right title.*/
-                location.pathname
-            }
-        </h1>
-      </header>
-  )
+    function titleSwitch() {
+        switch(location.pathname) {
+            case '/':
+                return 'Welcome to A.Finman';
+            case '/products':
+                return 'Product Catalog';
+            case '/NewInvoice':
+                return 'Create a New Invoice';
+        }
+    }
+
+    return (
+        <header className='header'>
+            <h1>
+                {
+                    titleSwitch()
+                }
+            </h1>
+        </header>
+    );
 }
 
 Header.defaultProps = {
