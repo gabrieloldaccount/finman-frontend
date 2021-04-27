@@ -14,7 +14,7 @@ const NavBar = (props) => {
                     <NavLink href="/products">Product Catalog</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="/NewInvoice">New Invoice</NavLink>
+                    <NavLink href="/newinvoice">New Invoice</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#">All Invoices</NavLink>

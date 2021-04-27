@@ -101,7 +101,7 @@ const App = () => {
 
     return (
         <Router>
-            <div className='container'>
+            <div className='container-md'>
                 <NavBar/>
                 <Header/>
                 <Route

@@ -60,8 +60,9 @@ const AddInvoice = ({productList, onAddInvoice}) => {
     }
 
     return (
-        <Form>
-            <Container>
+        <Container fluid>
+            {/*TODO: Format this whole Form-thing into just plain stuff instead. Don't think we gain anything from the form format.*/}
+            <Form>
                 <Row>
                     <Col>
                         <Form.Group controlId="formCustomerName">
@@ -109,7 +110,7 @@ const AddInvoice = ({productList, onAddInvoice}) => {
                         </Form.Group>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="row-create-item">
                     <AddItem productList={productList} onAddItem={addItem}/>
                 </Row>
                 <Row>
@@ -127,11 +128,9 @@ const AddInvoice = ({productList, onAddInvoice}) => {
                         Send invoice
                     </Button>
                 </Row>
-            </Container>
-
-
-        </Form>
-    )
+            </Form>
+        </Container>
+    );
 }
 
 export default AddInvoice
