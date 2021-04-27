@@ -3,7 +3,6 @@ import AddItem from "./AddItem";
 import Items from "./Items"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Dropdown from 'react-bootstrap/Dropdown';
 import {Col, Container, Row} from "react-bootstrap";
 
 

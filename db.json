@@ -1,27 +1,5 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "owner": 1,
-      "name": "Hot Dog",
-      "price": 15,
-      "unit": "st"
-    },
-    {
-      "id": 2,
-      "owner": 1,
-      "name": "Hamburger",
-      "price": 30,
-      "unit": "st"
-    },
-    {
-      "id": 3,
-      "owner": 1,
-      "name": "Soda",
-      "price": 10,
-      "unit": "st"
-    }
-  ],
+  "products": [],
   "invoices": [
     {
       "customerName": "Sture Sturesson",

@@ -7,13 +7,18 @@ const Header = ({title}) => {
 
   return (
       <header className='header'>
-        <h1>{title}</h1>
+        <h1>
+            {
+                /*TODO: Make header well formatted for each page and not just pathname. Perhaps just use case and test for all pathnames to get right title.*/
+                location.pathname
+            }
+        </h1>
       </header>
   )
 }
 
 Header.defaultProps = {
-  title: 'New Invoice',
+  title: 'Welcome to A.Finman ',
 }
 
 Header.propTypes = {

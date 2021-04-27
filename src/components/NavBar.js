@@ -8,13 +8,13 @@ const NavBar = (props) => {
             <p></p>
             <Nav>
                 <NavItem>
-                    <NavLink href="#">Home</NavLink>
+                    <NavLink href="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#">Product Catalog</NavLink>
+                    <NavLink href="/products">Product Catalog</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#">New Invoice</NavLink>
+                    <NavLink href="/NewInvoice">New Invoice</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#">All Invoices</NavLink>
