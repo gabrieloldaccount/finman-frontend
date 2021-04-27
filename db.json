@@ -39,6 +39,13 @@
           "name": "Soda",
           "price": 10,
           "unit": "st"
+        },
+        {
+          "id": 2052931,
+          "quantity": "3",
+          "name": "Soda",
+          "price": 1,
+          "unit": "st"
         }
       ],
       "id": 7

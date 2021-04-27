@@ -60,6 +60,12 @@ const AddInvoice = ({productList, onAddInvoice}) => {
         setItems(items.filter((item) => item.id !== id))
     }
 
+    const sumOfProducts = (items) => {
+        let sum = 0;
+        items.forEach(product => sum += product.price * product.quantity);
+        return sum;
+    }
+
     return (
         <Form>
             <Container>
@@ -123,6 +129,11 @@ const AddInvoice = ({productList, onAddInvoice}) => {
                         'No Items To Show '
                     )}
                 </Row>
+
+                <Row>
+                        {"Total: " + sumOfProducts(items)}
+                </Row>
+
                 <Row>
                     <Button variant="primary" type='submit' onClick={onSubmit}>
                         Send invoice

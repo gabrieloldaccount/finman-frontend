@@ -16,7 +16,7 @@ const InvoiceList = ({invoiceList}) => {
             <tbody>
             {
                 invoiceList.map(
-                    (invoice) =>(
+                    (invoice) => (
                         <tr key={invoice.id}>
                             <td>{invoice.invoiceDate}</td>
                             <td>{invoice.id}</td>
