@@ -24,184 +24,24 @@
   ],
   "invoices": [
     {
-      "customerName": "Sture Sturesson",
-      "customerAddress": "Stolpgatan 23",
-      "customerZipCode": "748 83",
-      "customerEmail": "sture@hotmail.com",
-      "invoiceDate": "5-10-2021",
-      "expirationDate": "12-10-2021",
-      "bankgiro": "456-56826",
-      "OCRnumber": "12121454454656",
-      "id": 1
-    },
-    {
-      "customerName": "Gabriel",
-      "customerAddress": "",
+      "customerName": "Hedy Pettersson",
+      "customerAddress": "Elliots väg 15",
       "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [
-        {
-          "amount": "asdf",
-          "name": "",
-          "unit": ""
-        },
-        {
-          "amount": "1337",
-          "name": "BollFan",
-          "unit": ""
-        }
-      ],
-      "id": 2
-    },
-    {
-      "customerName": "Hafkjnk",
-      "customerAddress": "KFKjnasf",
-      "customerZipCode": "kjnkf",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [
-        {
-          "amount": "Fkjasf",
-          "name": "Kjnasf",
-          "unit": "kjasnf"
-        }
-      ],
-      "id": 3
-    },
-    {
-      "customerName": "agfadgfsdgfsdg",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 4
-    },
-    {
-      "customerName": "skdjngkjadf",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 5
-    },
-    {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "Jägaregatan 10D",
-      "customerZipCode": "41702",
-      "customerEmail": "gabriel.brattgard",
-      "invoiceDate": "2021-04-16",
-      "expirationDate": "2021-04-11",
-      "bankgiro": "51132135421351",
-      "OCRnumber": "321354215641",
-      "items": [],
-      "id": 6
-    },
-    {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 7
-    },
-    {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "gabriel.brattgard@gmail.com",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 8
-    },
-    {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 9
-    },
-    {
-      "customerName": "Gabriel Brattgard",
-      "customerAddress": "Jagaregatan 10D",
-      "customerZipCode": "41702",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 10
-    },
-    {
-      "customerName": "sdfadsf",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "2021-04-17",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 11
-    },
-    {
-      "customerName": "asdfasdf",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "ocrNumber": "651651651",
-      "items": [],
-      "id": 12
-    },
-    {
-      "customerName": "hedy",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
+      "customerEmail": "hedypet@hotmail.com",
       "invoiceDate": "",
       "expirationDate": "",
       "bankgiro": "",
       "ocrNumber": "",
       "items": [
         {
-          "id": 8167408,
-          "quantity": "10",
-          "name": "Hot Dog",
-          "price": 15,
+          "id": 2052930,
+          "quantity": "3",
+          "name": "Soda",
+          "price": 10,
           "unit": "st"
         }
       ],
-      "id": 13
+      "id": 7
     }
   ]
 }
