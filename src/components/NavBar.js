@@ -1,29 +1,32 @@
 
-import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap'
+import './NavBar.css'
+import logo from '/Users/elinfredriksson/WebstormProjects/finman-frontend/src/logo.png'
 
-const NavBar = (props) => {
+
+const NavBar = () => {
     return (
         <div>
-            <p></p>
-            <Nav>
-                <NavItem>
-                    <NavLink href="/">Home</NavLink>
+
+            <Nav  className='navbar'>
+                <img src={logo} alt="logo" className='logo'/>
+                <NavItem className='navItem'>
+                    <NavLink className='navLink' href="/">Home</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink href="/products">Product Catalog</NavLink>
+                <NavItem className='navItem'>
+                    <NavLink className='navLink' href="/products">Product Catalog</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink href="/NewInvoice">New Invoice</NavLink>
+                <NavItem className='navItem'>
+                    <NavLink className='navLink' href="/NewInvoice">New Invoice</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink href="#">All Invoices</NavLink>
+                <NavItem className='navItem'>
+                    <NavLink className='navLink' href="#">All Invoices</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink href="#">Profile</NavLink>
+                <NavItem className='navItem'>
+                    <NavLink className='navLink' href="#">Profile</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink href="#">Sign out</NavLink>
+                <NavItem className='navItem'>
+                    <NavLink className='navLink' href="#">Sign out</NavLink>
                 </NavItem>
 
             </Nav>

@@ -1,0 +1,23 @@
+
+.navbar {
+    background-color: #2F3038;
+    font-family: inherit;
+    height: 120px;
+    text-align: right;
+}
+
+.navItem {
+    padding: 10px;
+}
+
+.navLink {
+    color: antiquewhite;
+}
+
+.logo {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    left: 61px;
+    top: 12px;
+}
