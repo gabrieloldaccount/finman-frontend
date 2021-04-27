@@ -114,9 +114,9 @@ const App = () => {
                 />
                 <Route
                     path='/all-invoices'
-                    render={() => (
+                    render={(props) => (
                         <>
-                            <InvoiceList invoiceList={invoices}/>
+                            <InvoiceList props={props} invoiceList={invoices}/>
                         </>
                     )}
                 />
