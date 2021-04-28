@@ -1,5 +1,19 @@
+.title {
+    color: antiquewhite;
+    font-size: 40px;
+}
+
+.title:hover {
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.dot {
+    position: absolute;
+    left: 80px;
+}
+
 .navbar {
-    background-color: #2F3038;
     font-family: inherit;
     height: 120px;
 }
@@ -7,7 +21,13 @@
 .navLink {
     color: antiquewhite;
     font-size: 12px;
-    width: fit-content;
+    width: 130px;
+    text-align: center;
+}
+
+.navLink:hover {
+    color: #DC3A80;
+    text-decoration: none;
 }
 
 .navItem {
