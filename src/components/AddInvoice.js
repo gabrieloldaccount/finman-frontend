@@ -60,7 +60,7 @@ const AddInvoice = ({productList, onAddInvoice}) => {
     }
 
     return (
-        <Container fluid>
+        <Container>
             {/*TODO: Format this whole Form-thing into just plain stuff instead. Don't think we gain anything from the form format.*/}
             <Form>
                 <Row>
