@@ -14,7 +14,7 @@ const InvoiceList = ({props, invoiceList}) => {
 
     return (
         <div>
-            <table className="table table-striped table-bordered">
+            <Table striped bordered hover variant="dark">
                 <thead>
                 <tr>
                     <th>Sent</th>
@@ -38,9 +38,6 @@ const InvoiceList = ({props, invoiceList}) => {
                                 <td>PENDING</td>
                                 <td>{invoice.id}</td>
                                 <td>{invoice.customerName}</td>
-
-                                {/*TODO: add seller*/}
-                                <td>A. Finman</td>
                                 <td>{sumOfProducts(invoice.items)}</td>
                                 <td>
                                     <button className="btn btn-info">Preview</button>
@@ -50,7 +47,7 @@ const InvoiceList = ({props, invoiceList}) => {
                     )
                 }
                 </tbody>
-            </table>
+            </Table>
 
             <button onClick={goBackToHomePage} className="btn btn-info">Return</button>
         </div>
