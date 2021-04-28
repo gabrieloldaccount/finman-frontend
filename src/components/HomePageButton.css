@@ -1,9 +1,53 @@
+.homebuttons {
+    display: inline-flex;
+    /* align-items items in column */
+    flex-direction: column;
+    /* center items horizontally */
+    align-items: center;
+    /* center items vertically */
+    justify-content: center;
+    place-content: space-between;
+}
 
 .homepagebutton {
     font-family: inherit;
-    border: 2px blue;
+    background-color: rgba(47, 48, 56, 0.7);
+    width: 450px;
+    margin: 10px;
+    overflow: auto;
+    max-height: 80px;
+    border: 3px solid #1762A7;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+    left: 300px;
+    text-align: center;
 }
 
-.versal {
-    color: #DC3A80;
+.bigpart {
+    position: relative;
+    color: rgba(220, 58, 128, 0.6);
+    text-transform: uppercase;
+    font-size: 50px;
+    bottom: 2px;
+}
+
+.bigpart:hover {
+    color: rgba(220, 58, 128, 0.6);
+    text-decoration: none;
+}
+
+.smallpart {
+    position: relative;
+    color: antiquewhite;
+    text-transform: uppercase;
+    font-size: 30px;
+    left: 10px;
+    bottom: 2px;
+}
+
+.smallpart:hover {
+    color: antiquewhite;
+    text-decoration: none;
 }
