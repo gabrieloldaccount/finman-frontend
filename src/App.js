@@ -9,6 +9,7 @@ import About from './components/About'
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
+import PreviewInvoice from './components/seeInvoicesComponents/PreviewInvoice'
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
 import dot from "./dot.png";
@@ -119,7 +120,7 @@ const App = () => {
                 <Route
                     path='/all-invoices'
                     render={(props) => (
-                        <>
+                        <>u
                             <InvoiceList props={props} invoiceList={invoices}/>
                         </>
                     )}
@@ -134,6 +135,12 @@ const App = () => {
                        render={() => (
                            <AddInvoice productList={products} onAddInvoice={addInvoice}/>
                        )}/>
+                <Route path='/preview'
+                       exact
+                       render={() => (
+                           <PreviewInvoice productList={products} />
+                       )}/>
+
                 <Route path='/about' component={About}/>
                 <Footer/>
             </div>
