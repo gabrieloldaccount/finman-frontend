@@ -1,5 +1,27 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": 1,
+      "owner": 1,
+      "name": "Hot Dog",
+      "price": 15,
+      "unit": "st"
+    },
+    {
+      "id": 2,
+      "owner": 1,
+      "name": "Hamburger",
+      "price": 30,
+      "unit": "st"
+    },
+    {
+      "id": 3,
+      "owner": 1,
+      "name": "Soda",
+      "price": 10,
+      "unit": "st"
+    }
+  ],
   "invoices": [
     {
       "customerName": "Hedy Pettersson",
@@ -27,6 +49,85 @@
         }
       ],
       "id": 7
+    },
+    {
+      "customerName": "bear",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "2021-04-30",
+      "expirationDate": "",
+      "bankgiro": "",
+      "ocrNumber": "",
+      "items": [
+        {
+          "id": 3191620,
+          "quantity": "4",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 3892886,
+          "quantity": "2",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "customerName": "jjj",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "ocrNumber": "",
+      "items": [],
+      "id": 9
+    },
+    {
+      "customerName": "Polarbear",
+      "customerAddress": "Elliots väg 15",
+      "customerZipCode": "",
+      "customerEmail": "hedypet@hotmail.com",
+      "invoiceDate": "2021-04-29",
+      "expirationDate": "2021-05-01",
+      "bankgiro": "",
+      "ocrNumber": "",
+      "items": [
+        {
+          "id": 2827684,
+          "quantity": "11",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "customerName": "error",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "",
+      "expirationDate": "",
+      "bankgiro": "",
+      "ocrNumber": "",
+      "items": [
+        {
+          "id": 3503118,
+          "quantity": "-5",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        }
+      ],
+      "id": 11
     }
   ]
 }

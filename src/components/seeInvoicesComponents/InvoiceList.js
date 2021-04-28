@@ -1,3 +1,5 @@
+import {Table} from "react-bootstrap";
+
 const InvoiceList = ({props, invoiceList}) => {
 
     const sumOfProducts = (items) => {
@@ -15,10 +17,11 @@ const InvoiceList = ({props, invoiceList}) => {
             <table className="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Sent</th>
+                    <th>Expires</th>
+                    <th>Status</th>
                     <th>Serial Number</th>
                     <th>Buyer</th>
-                    <th>Seller</th>
                     <th>Price</th>
                 </tr>
                 </thead>
@@ -29,6 +32,10 @@ const InvoiceList = ({props, invoiceList}) => {
                         (invoice) => (
                             <tr key={invoice.id}>
                                 <td>{invoice.invoiceDate}</td>
+                                {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
+                                <td>{invoice.expirationDate}</td>
+                                {/*TODO: Add status when backend has it*/}
+                                <td>PENDING</td>
                                 <td>{invoice.id}</td>
                                 <td>{invoice.customerName}</td>
 
