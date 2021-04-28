@@ -101,7 +101,7 @@ const App = () => {
 
     return (
         <Router>
-            <div className='container-md'>
+            <div className='background'>
                 <NavBar/>
                 <Header/>
                 <Route

@@ -2,12 +2,17 @@
 
 .container {
     max-width: 500px;
+    background-color: #4F3246;
     margin: 30px auto;
     overflow: auto;
     min-height: 300px;
-    border: 1px solid steelblue;
+    /*border: 1px solid steelblue;*/
     padding: 30px;
     border-radius: 5px;
+}
+
+.background {
+    background-color: #2F3038;
 }
 
 /* Commented out when trying to implement Bootstrap CSS instead.
