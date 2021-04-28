@@ -5,7 +5,9 @@ import Items from "./Items";
 
 const ProductPage = ({products, onDelete}) => {
     return (
-        <Container>
+
+
+        <Container className="container">
             {products.length > 0 ? (
                 <Products products={products} onDelete={onDelete}/>
             ) :

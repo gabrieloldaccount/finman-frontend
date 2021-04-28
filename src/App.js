@@ -101,7 +101,7 @@ const App = () => {
 
     return (
         <Router>
-            <div className='container'>
+            <div className='container-md'>
                 <NavBar/>
                 <Header/>
                 <Route
@@ -109,7 +109,6 @@ const App = () => {
                     exact
                     render={(props) => (
                         <>
-                            <h2>Welcome to A.Finman</h2>
                         </>
                     )}
                 />
