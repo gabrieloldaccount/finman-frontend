@@ -11,6 +11,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
 import dot from "./dot.png";
+import HomePageButton from "./components/HomePageButton";
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -109,8 +110,8 @@ const App = () => {
                     path='/'
                     exact
                     render={(props) => (
-                        <>
-                        </>
+                        <HomePageButton text1={'CREATE'} text2={'invoice'} />
+
                     )}
                 />
                 <Route path='/products'

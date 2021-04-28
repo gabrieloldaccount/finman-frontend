@@ -18,6 +18,10 @@ const NavBar = () => {
                 return 'product catalog';
             case '/NewInvoice':
                 return 'newinvoice';
+            case '/see-invoices':
+                return 'see-invoices';
+            case '/profile':
+                return 'profile';
         }
     }
 
@@ -43,11 +47,11 @@ const NavBar = () => {
                     {dotSwitch()=='newinvoice' && <img src={dot} alt="dot" className='dot'/>}
                 </NavItem>
                 <NavItem className='navItem'>
-                    <NavLink className='navLink' href="#">All Invoices</NavLink>
-                    {dotSwitch()=='seeinvoices' && <img src={dot} alt="dot" className='dot'/>}
+                    <NavLink className='navLink' href="/see-invoices">All Invoices</NavLink>
+                    {dotSwitch()=='see-invoices' && <img src={dot} alt="dot" className='dot'/>}
                 </NavItem>
                 <NavItem className='navItem'>
-                    <NavLink className='navLink' href="#">Profile</NavLink>
+                    <NavLink className='navLink' href="/profile">Profile</NavLink>
                     {dotSwitch()=='profile' && <img src={dot} alt="dot" className='dot'/>}
                 </NavItem>
                 <NavItem className='navItem'>
