@@ -1,7 +1,7 @@
 
 import { Nav, NavItem, NavLink } from 'reactstrap'
 import './NavBar.css'
-import logo from '/Users/elinfredriksson/WebstormProjects/finman-frontend/src/logo.png'
+import logo from '../logo.png'
 
 
 const NavBar = () => {
@@ -9,7 +9,7 @@ const NavBar = () => {
             <Nav  className='navbar'>
                 <img src={logo} alt="logo" className='logo'/>
                 <NavItem className='navItem'>
-                    <h1>A. Finman</h1>
+                    <h1>A.Finman</h1>
                 </NavItem>
 
                 <NavItem className='navItem'>
