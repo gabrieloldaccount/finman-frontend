@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
+import dot from "./dot.png";
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 

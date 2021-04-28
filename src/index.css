@@ -2,7 +2,7 @@
 
 .container {
     max-width: 500px;
-    background-color: #4F3246;
+    background-color: rgba(217,59,129,0.1);
     margin: 30px auto;
     overflow: auto;
     min-height: 300px;
@@ -13,6 +13,16 @@
 
 .background {
     background-color: #2F3038;
+    background-image: url("bubbles.png");
+    background-size: 1100px 853px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+}
+
+h1 {
+    color: antiquewhite;
+    padding: 30px;
 }
 
 /* Commented out when trying to implement Bootstrap CSS instead.

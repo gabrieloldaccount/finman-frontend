@@ -12,7 +12,7 @@ const Header = () => {
                 return 'Welcome to A.Finman';
             case '/products':
                 return 'Product Catalog';
-            case '/newinvoice':
+            case '/NewInvoice':
                 return 'Create a New Invoice';
         }
     }
