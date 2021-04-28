@@ -120,7 +120,7 @@ const App = () => {
                 <Route
                     path='/all-invoices'
                     render={(props) => (
-                        <>u
+                        <>
                             <InvoiceList props={props} invoiceList={invoices}/>
                         </>
                     )}
