@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Invoices from './components/Invoices'
@@ -9,6 +9,9 @@ import About from './components/About'
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
+import NavBar from './components/NavBar'
+import ProductPage from "./components/ProductPage";
+
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -44,6 +47,16 @@ const App = () => {
         const data = await res.json()
 
         return data
+    }
+
+    // Delete a product
+    const deleteProduct = async (id) => {
+        const res = await fetch(`http://localhost:5000/products/${id}`, {
+            method: 'DELETE',
+        })
+        res.status === 200
+            ? setProducts(products.filter((product) => product.id !== id))
+            : alert('Error Deleting This Product')
     }
 
     // Fetch previously added Invoices
@@ -90,25 +103,14 @@ const App = () => {
 
     return (
         <Router>
-            <div className='container'>
+            <div className='container-md'>
+                <NavBar/>
                 <Header/>
                 <Route
                     path='/'
                     exact
                     render={(props) => (
                         <>
-                            <AddInvoice productList={products} onAddInvoice={addInvoice}/>
-
-                            {/* TODO: Move this to another page for displaying invoices already created.
-                            {invoices.length > 0 ? (
-                                <Invoices
-                                    invoices={invoices}
-                                    onDelete={deleteInvoice}
-                                />
-                            ) : (
-                                'No Invoices To Show'
-                            )}
-                            */}
                         </>
                     )}
                 />
@@ -120,11 +122,21 @@ const App = () => {
                         </>
                     )}
                 />
-                <Route path='/about' component={About} />
-                <Footer />
+                <Route path='/products'
+                       exact
+                       render={() => (
+                           <ProductPage products={products} onDelete={deleteProduct}/>
+                       )}/>
+                <Route path='/newinvoice'
+                       exact
+                       render={() => (
+                           <AddInvoice productList={products} onAddInvoice={addInvoice}/>
+                       )}/>
+                <Route path='/about' component={About}/>
+                <Footer/>
             </div>
         </Router>
-    )
+    );
 }
 
 export default App

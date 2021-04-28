@@ -2,18 +2,34 @@ import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import Button from './Button'
 
-const Header = ({title}) => {
-  const location = useLocation()
+const Header = () => {
+    const location = useLocation()
 
-  return (
-      <header className='header'>
-        <h1>{title}</h1>
-      </header>
-  )
+    // Switches title to correspond to tab selected in NavBar
+    function titleSwitch() {
+        switch(location.pathname) {
+            case '/':
+                return 'Welcome to A.Finman';
+            case '/products':
+                return 'Product Catalog';
+            case '/newinvoice':
+                return 'Create a New Invoice';
+        }
+    }
+
+    return (
+        <header className='header'>
+            <h1>
+                {
+                    titleSwitch()
+                }
+            </h1>
+        </header>
+    );
 }
 
 Header.defaultProps = {
-  title: 'New Invoice',
+  title: 'Welcome to A.Finman ',
 }
 
 Header.propTypes = {
