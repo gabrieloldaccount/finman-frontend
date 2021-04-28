@@ -1,17 +1,41 @@
+.navbar {
+    background-color: #2F3038;
+    font-family: inherit;
+    height: 120px;
+}
+
+.navLink {
+    color: antiquewhite;
+    font-size: 12px;
+    width: fit-content;
+}
+
+.navItem {
+    position: relative;
+    padding: 20px;
+}
+
+/*
 
 .navbar {
     background-color: #2F3038;
     font-family: inherit;
     height: 120px;
-    text-align: right;
 }
 
 .navItem {
-    padding: 10px;
+    position: relative;
+    top: 12px;
+    left: 2px;
+    padding: 5px;
+    border: 3px solid green;
+    width: 120px;
+    float: left;
 }
 
 .navLink {
     color: antiquewhite;
+    font-size: 12px;
 }
 
 .logo {
@@ -21,3 +45,5 @@
     left: 61px;
     top: 12px;
 }
+
+ */

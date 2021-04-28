@@ -6,10 +6,12 @@ import logo from '/Users/elinfredriksson/WebstormProjects/finman-frontend/src/lo
 
 const NavBar = () => {
     return (
-        <div>
-
             <Nav  className='navbar'>
                 <img src={logo} alt="logo" className='logo'/>
+                <NavItem className='navItem'>
+                    <h1>A. Finman</h1>
+                </NavItem>
+
                 <NavItem className='navItem'>
                     <NavLink className='navLink' href="/">Home</NavLink>
                 </NavItem>
@@ -26,11 +28,13 @@ const NavBar = () => {
                     <NavLink className='navLink' href="#">Profile</NavLink>
                 </NavItem>
                 <NavItem className='navItem'>
+                </NavItem>
+                <NavItem className='navItem'>
                     <NavLink className='navLink' href="#">Sign out</NavLink>
                 </NavItem>
 
             </Nav>
-        </div>
+
     );
 }
 
