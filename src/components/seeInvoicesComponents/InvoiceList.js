@@ -10,6 +10,7 @@ import './pdfStyling.css'
 const InvoiceList = ({props, invoiceList}) => {
 
     const [open, setOpen] = useState(false);
+    const [currentInvoice, setCurrentInvoice] = useState({});
 
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
@@ -24,6 +25,11 @@ const InvoiceList = ({props, invoiceList}) => {
         props.history.push('/');
     }
 
+    const loadPreview = (invoice) => {
+        setCurrentInvoice(invoice);
+        onOpenModal()
+    }
+
     return (
         <div>
             <button onClick={onOpenModal}>Open modal</button>
@@ -31,7 +37,7 @@ const InvoiceList = ({props, invoiceList}) => {
                 overlay: 'customOverlay',
                 modal: 'customModal',
             }}>
-                <PreviewInvoice/>
+                <PreviewInvoice data={currentInvoice}/>
             </Modal>
             <Table striped bordered hover variant="dark">
                 <thead>
@@ -59,7 +65,9 @@ const InvoiceList = ({props, invoiceList}) => {
                                 <td>{invoice.customerName}</td>
                                 <td>{sumOfProducts(invoice.items)}</td>
                                 <td>
-                                    <button className="btn btn-info">Preview</button>
+                                    <button className="btn btn-info" onClick={() => loadPreview(invoice)}>
+                                        Preview
+                                    </button>
                                 </td>
                             </tr>
                         )

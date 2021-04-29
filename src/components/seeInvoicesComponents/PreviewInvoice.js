@@ -52,7 +52,7 @@ const invoice = {
     ],
 };
 
-const PreviewInvoice = () => (
+const PreviewInvoice = (data) => (
     <div>
         <PDFViewer style={{
             minHeight: "800px",
