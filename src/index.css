@@ -25,6 +25,10 @@ h1 {
     padding: 30px;
 }
 
+tr {
+    color: antiquewhite;
+}
+
 /* Commented out when trying to implement Bootstrap CSS instead.
 * {
     box-sizing: border-box;

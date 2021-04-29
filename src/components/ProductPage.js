@@ -1,13 +1,13 @@
 import React from 'react';
 import Products from "./Products";
 import {Container, Row} from "react-bootstrap";
-import Items from "./Items";
+import AddProduct from "./AddProduct";
 
-const ProductPage = ({products, onDelete}) => {
+const ProductPage = ({products, onAdd, onDelete}) => {
     return (
-
-
         <Container className="container">
+            <AddProduct onAdd={onAdd}/>
+
             {products.length > 0 ? (
                 <Products products={products} onDelete={onDelete}/>
             ) :

@@ -1,20 +1,20 @@
-import {FaTimes} from 'react-icons/fa'
-import {Container} from "reactstrap";
-import {Col, Row} from "react-bootstrap";
+import {FaTimes, FaPencilAlt} from 'react-icons/fa'
 
 const Product = ({product, onDelete}) => {
     return (
-        <Row>
-            <Col>{product.id}</Col>
-            <Col>{product.owner}</Col>
-            <Col>{product.name}</Col>
-            <Col>{product.price}</Col>
-            <Col>{product.unit}</Col>
-            <Col><FaTimes
-                style={{color: 'red', cursor: 'pointer', textAlign: 'right'}}
+        <tr>
+            <td>{product.name}</td>
+            <td>{product.price}{'kr/'}{product.unit}</td>
+            <td>
+            <FaTimes
+                style={{color: 'red', cursor: 'pointer', margin: 3}}
                 onClick={() => onDelete(product.id)}
-            /></Col>
-        </Row>
+            />
+            <FaPencilAlt
+                style={{cursor: 'pointer', margin: 3}}
+            />
+            </td>
+        </tr>
     );
 };
 

@@ -49,6 +49,21 @@ const App = () => {
         return data
     }
 
+    // Add a product
+    const addProduct = async (product) => {
+        const res = await fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+
+        const data = await res.json()
+
+        setProducts([...products, data])
+    }
+
     // Delete a product
     const deleteProduct = async (id) => {
         const res = await fetch(`http://localhost:5000/products/${id}`, {
@@ -122,7 +137,7 @@ const App = () => {
                 <Route path='/products'
                        exact
                        render={() => (
-                           <ProductPage products={products} onDelete={deleteProduct}/>
+                           <ProductPage products={products} onAdd={addProduct} onDelete={deleteProduct}/>
                        )}/>
                 <Route path='/newinvoice'
                        exact
