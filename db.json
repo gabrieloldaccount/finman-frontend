@@ -78,18 +78,6 @@
       "id": 8
     },
     {
-      "customerName": "jjj",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "ocrNumber": "",
-      "items": [],
-      "id": 9
-    },
-    {
       "customerName": "Polarbear",
       "customerAddress": "Elliots väg 15",
       "customerZipCode": "",
