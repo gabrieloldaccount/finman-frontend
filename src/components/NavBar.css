@@ -1,4 +1,6 @@
 .title {
+    position: absolute;
+    left: 150px;
     color: antiquewhite;
     font-size: 40px;
 }
@@ -8,62 +10,54 @@
     text-decoration: none;
 }
 
-.dot {
-    position: absolute;
-    left: 80px;
-}
-
-.navbar {
-    font-family: inherit;
-    height: 120px;
-}
-
-.navLink {
+.link {
+    position: relative;
+    left: 300px;
+    top: 10px;
     color: antiquewhite;
     font-size: 12px;
-    width: 130px;
     text-align: center;
+    padding-left: 20px;
 }
 
-.navLink:hover {
+.link:hover {
     color: #DC3A80;
     text-decoration: none;
 }
 
-.navItem {
-    position: relative;
-    padding: 20px;
+.collapsebar {
+    background-color: #DC3A80;
 }
 
-/*
-
-.navbar {
-    background-color: #2F3038;
-    font-family: inherit;
-    height: 120px;
-}
-
-.navItem {
-    position: relative;
-    top: 12px;
-    left: 2px;
-    padding: 5px;
-    border: 3px solid green;
-    width: 120px;
-    float: left;
-}
-
-.navLink {
+.signout {
+    position: absolute;
+    top: 60px;
+    right: 50px;
     color: antiquewhite;
     font-size: 12px;
+    text-align: center;
+}
+
+.signout:hover {
+    color: #DC3A80;
+    text-decoration: none;
+}
+
+.dot {
+    position: relative;
+    top: 11px;
+    left: 305px;
+}
+
+.navbar {
+    font-family: inherit;
+    height: 140px;
 }
 
 .logo {
     position: absolute;
     width: 95px;
     height: 95px;
-    left: 61px;
+    left: 40px;
     top: 12px;
 }
-
- */

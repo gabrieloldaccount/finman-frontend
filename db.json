@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": 2,
-      "owner": 1,
-      "name": "Hamburger",
-      "price": 30,
-      "unit": "st"
-    },
-    {
       "id": 3,
       "owner": 1,
       "name": "Soda",
