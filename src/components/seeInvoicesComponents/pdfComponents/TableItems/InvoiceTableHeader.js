@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
 const InvoiceTableHeader = () => (
     <View style={styles.container}>
-        <Text style={styles.description}>Item Description</Text>
+        <Text style={styles.description}>Product</Text>
         <Text style={styles.qty}>Qty</Text>
         <Text style={styles.rate}>@</Text>
         <Text style={styles.amount}>Amount</Text>

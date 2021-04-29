@@ -96,6 +96,40 @@
         }
       ],
       "id": 11
+    },
+    {
+      "customerName": "Karl Svensson",
+      "customerAddress": "Svenssongatan 41",
+      "customerZipCode": "43134",
+      "customerEmail": "karl@svennsson.se",
+      "invoiceDate": "2021-04-29",
+      "expirationDate": "2021-05-02",
+      "bankgiro": "2891390812903",
+      "ocrNumber": "2131251",
+      "items": [
+        {
+          "id": 1946662,
+          "quantity": "13",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 9010561,
+          "quantity": "2",
+          "name": "Soda",
+          "price": 10,
+          "unit": "st"
+        },
+        {
+          "id": 5168388,
+          "quantity": "1",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        }
+      ],
+      "id": 12
     }
   ]
 }

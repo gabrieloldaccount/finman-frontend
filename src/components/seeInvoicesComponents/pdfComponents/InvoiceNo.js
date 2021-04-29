@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         fontStyle: 'bold',
     },
     label: {
-        width: 60
+        width: 200
     }
 
 });
@@ -26,11 +26,15 @@ const InvoiceNo = ({invoice}) => (
     <Fragment>
         <View style={styles.invoiceNoContainer}>
             <Text style={styles.label}>Invoice No:</Text>
-            <Text style={styles.invoiceDate}>{invoice.invoice_no}</Text>
+            <Text style={styles.invoiceDate}>{invoice.id}</Text>
         </View >
         <View style={styles.invoiceDateContainer}>
-            <Text style={styles.label}>Date: </Text>
-            <Text >{invoice.trans_date}</Text>
+            <Text style={styles.label}>Invoice Date: </Text>
+            <Text >{invoice.invoiceDate}</Text>
+        </View >
+        <View style={styles.invoiceDateContainer}>
+            <Text style={styles.label}>Expiration Date: </Text>
+            <Text >{invoice.expirationDate}</Text>
         </View >
     </Fragment>
 );
