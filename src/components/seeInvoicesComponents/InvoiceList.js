@@ -9,6 +9,11 @@ import './pdfStyling.css'
 
 const InvoiceList = ({props, invoiceList}) => {
 
+    const [open, setOpen] = useState(false);
+
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
+
     const sumOfProducts = (items) => {
         let sum = 0;
         items.forEach(product => sum += product.price * product.quantity);
@@ -21,6 +26,13 @@ const InvoiceList = ({props, invoiceList}) => {
 
     return (
         <div>
+            <button onClick={onOpenModal}>Open modal</button>
+            <Modal open={open} onClose={onCloseModal} center classNames={{
+                overlay: 'customOverlay',
+                modal: 'customModal',
+            }}>
+                <PreviewInvoice/>
+            </Modal>
             <Table striped bordered hover variant="dark">
                 <thead>
                 <tr>
