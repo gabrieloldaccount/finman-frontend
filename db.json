@@ -78,38 +78,6 @@
       "id": 8
     },
     {
-      "customerName": "jjj",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "ocrNumber": "",
-      "items": [],
-      "id": 9
-    },
-    {
-      "customerName": "Polarbear",
-      "customerAddress": "Elliots väg 15",
-      "customerZipCode": "",
-      "customerEmail": "hedypet@hotmail.com",
-      "invoiceDate": "2021-04-29",
-      "expirationDate": "2021-05-01",
-      "bankgiro": "",
-      "ocrNumber": "",
-      "items": [
-        {
-          "id": 2827684,
-          "quantity": "11",
-          "name": "Hot Dog",
-          "price": 15,
-          "unit": "st"
-        }
-      ],
-      "id": 10
-    },
-    {
       "customerName": "error",
       "customerAddress": "",
       "customerZipCode": "",

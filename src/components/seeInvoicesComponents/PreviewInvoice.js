@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import logo from "../../logo.png";
 
@@ -17,7 +17,7 @@ import InvoiceNo from "./pdfComponents/InvoiceNo";
 import BillTo from "./pdfComponents/BillTo";
 import InvoiceItemsTable from "./pdfComponents/InvoiceItemsTable2";
 
-const invoice = {
+const invoice1 = {
   id: "5df3180a09ea16dc4b95f910",
   invoice_no: "201906-28",
   balance: "$2,283.74",
@@ -84,13 +84,33 @@ const styles = StyleSheet.create({
   },
 });
 
-const PreviewInvoice = (props) => {
-  {
-    /* TODO: You can now access the the the invoice details through props.
-        i.e <div>CUSTOMER NAME: {props.customerName}</div>
-            <div>CUSTOMER EMAIL: {props.customerEmail}</div>
-    */
-  }
+// Will crash if len(invoice.items) == 0
+const PreviewInvoice = ({ invoiceId }) => {
+  const [tempInvoice, setTempInvoice] = useState({});
+
+  // Fetch a specific Invoice
+  const fetchInvoice = async (id) => {
+    if (id === -1) return;
+    const res = await fetch(`http://localhost:5000/invoices/${id}`);
+    const data = await res.json();
+
+    console.log("DATA > " + JSON.stringify(data));
+    console.log("ADDRESS > " + data.customerAddress);
+    console.log("NAME > " + data.customerName);
+    console.log("ITEMS > " + JSON.stringify(data.items));
+
+    if (data.items !== undefined) {
+      console.log("ITEM NAME [0] > " + data.items[0].name);
+      data.items.forEach((item) => console.log(item.name));
+    }
+
+    setTempInvoice(data);
+    return data;
+  };
+
+  useEffect(() => {
+    fetchInvoice(invoiceId);
+  }, []);
 
   return (
     <div>
@@ -107,11 +127,15 @@ const PreviewInvoice = (props) => {
       >
         <Document>
           <Page size="A4" style={styles.page}>
-            <Image style={styles.logo} src={logo} />
-            <InvoiceTitle title="Invoice" />
-            <InvoiceNo invoice={invoice} />
-            <BillTo invoice={invoice} />
-            <InvoiceItemsTable invoice={invoice} />
+            {tempInvoice.items !== undefined ? (
+              <div>
+                <Image style={styles.logo} src={logo} />
+                <InvoiceTitle title="Invoice" />
+                <InvoiceNo invoice={tempInvoice} />
+                <BillTo invoice={tempInvoice} />
+                <InvoiceItemsTable invoice={invoice1} />
+              </div>
+            ) : null}
           </Page>
         </Document>
       </PDFViewer>

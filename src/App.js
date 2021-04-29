@@ -2,17 +2,11 @@ import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Invoices from './components/Invoices'
-import Items from './components/Items'
 import AddInvoice from './components/AddInvoice'
 import About from './components/About'
-import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
-import PreviewInvoice from './components/seeInvoicesComponents/PreviewInvoice'
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
-import dot from "./dot.png";
 import HomePageButton from "./components/HomePageButton";
 
 
@@ -135,12 +129,6 @@ const App = () => {
                        render={() => (
                            <AddInvoice productList={products} onAddInvoice={addInvoice}/>
                        )}/>
-                <Route path='/preview'
-                       exact
-                       render={() => (
-                           <PreviewInvoice productList={products} />
-                       )}/>
-
                 <Route path='/about' component={About}/>
                 <Footer/>
             </div>
