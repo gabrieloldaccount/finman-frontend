@@ -12,6 +12,7 @@ import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
 import dot from "./dot.png";
 import HomePageButton from "./components/HomePageButton";
+import HomePage from "./components/HomePage";
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -125,13 +126,7 @@ const App = () => {
                     path='/'
                     exact
                     render={(props) => (
-                        // TODO create a component with this?
-                        <container className='homebuttons'>
-                            <HomePageButton text1={'create'} text2={'new invoice'}/>
-                            <HomePageButton text1={'product'} text2={'catalog'} />
-                            <HomePageButton text1={'all'} text2={'invoices'} />
-                            <HomePageButton text1={'my'} text2={'profile'} />
-                        </container>
+                        <HomePage/>
                     )}
                 />
                 <Route path='/products'
