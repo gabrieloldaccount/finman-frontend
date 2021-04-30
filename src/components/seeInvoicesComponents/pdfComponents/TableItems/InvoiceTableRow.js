@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Text, View, StyleSheet } from '@react-pdf/renderer';
+import {StyleSheet, Text, View} from '@react-pdf/renderer';
 
 const borderColor = '#90e5fc'
 const styles = StyleSheet.create({
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
 
 const InvoiceTableRow = ({items}) => {
-    const rows = items.map( item =>
+    const rows = items.map(item =>
         <View style={styles.row} key={item.id}>
             <Text style={styles.description}>{item.name}</Text>
             <Text style={styles.qty}>{item.quantity}</Text>
@@ -49,7 +49,7 @@ const InvoiceTableRow = ({items}) => {
             <Text style={styles.amount}>{(item.quantity * item.price).toFixed(2)}</Text>
         </View>
     )
-    return (<Fragment>{rows}</Fragment> )
+    return (<Fragment>{rows}</Fragment>)
 };
 
 export default InvoiceTableRow

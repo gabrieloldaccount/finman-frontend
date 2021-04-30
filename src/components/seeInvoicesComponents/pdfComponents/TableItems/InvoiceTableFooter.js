@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet } from '@react-pdf/renderer';
+import {StyleSheet, Text, View} from '@react-pdf/renderer';
 
 const borderColor = '#90e5fc'
 const styles = StyleSheet.create({
@@ -29,11 +29,11 @@ const styles = StyleSheet.create({
 
 const InvoiceTableFooter = ({items}) => {
     const total = items.map(item => item.quantity * item.price)
-        .reduce((accumulator, currentValue) => accumulator + currentValue , 0)
-    return(
+        .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    return (
         <View style={styles.row}>
             <Text style={styles.description}>TOTAL</Text>
-            <Text style={styles.total}>{ Number.parseFloat(total).toFixed(2)}</Text>
+            <Text style={styles.total}>{Number.parseFloat(total).toFixed(2)}</Text>
         </View>
     )
 };

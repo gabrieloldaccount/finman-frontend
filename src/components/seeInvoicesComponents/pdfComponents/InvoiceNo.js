@@ -4,19 +4,28 @@ import {Text, View, StyleSheet } from '@react-pdf/renderer';
 const styles = StyleSheet.create({
     invoiceNoContainer: {
         flexDirection: 'row',
-        marginTop: 36,
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-start',
     },
     invoiceDateContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-start'
     },
     invoiceDate: {
         fontSize: 12,
         fontStyle: 'bold',
     },
     label: {
-        width: 200
+        width: 100
+    },
+    customBorder: {
+        padding: '10px',
+        borderColor: '#bff0fd',
+        borderWidth: 3,
+        height: 60,
+        width: 250,
+        fontStyle: 'bold',
+        borderStyle: 'double',
+        borderRadius: '5px',
     }
 
 });

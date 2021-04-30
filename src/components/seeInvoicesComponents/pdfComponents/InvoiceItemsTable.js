@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet } from '@react-pdf/renderer';
+import {StyleSheet, View} from '@react-pdf/renderer';
 import InvoiceTableHeader from "./TableItems/InvoiceTableHeader.js";
 import InvoiceTableRow from "./TableItems/InvoiceTableRow";
 import InvoiceTableBlankSpace from "./TableItems/InvoiceTableBlankSpace";
@@ -13,17 +13,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginTop: 24,
-        borderWidth: 1,
+        borderWidth: 2.5,
         borderColor: '#bff0fd',
     },
 });
 
 const InvoiceItemsTable = ({invoice}) => (
     <View style={styles.tableContainer}>
-        <InvoiceTableHeader />
-        <InvoiceTableRow items={invoice.items} />
-        <InvoiceTableBlankSpace rowsCount={ tableRowsCount - invoice.items.length} />
-        <InvoiceTableFooter items={invoice.items} />
+        <InvoiceTableHeader/>
+        <InvoiceTableRow items={invoice.items}/>
+        <InvoiceTableBlankSpace rowsCount={tableRowsCount - invoice.items.length}/>
+        <InvoiceTableFooter items={invoice.items}/>
     </View>
 );
 

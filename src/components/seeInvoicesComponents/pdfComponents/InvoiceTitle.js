@@ -1,13 +1,13 @@
 import React from 'react';
-import {Text, View, StyleSheet } from '@react-pdf/renderer';
+import {StyleSheet, Text, View} from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
 
-    titleContainer:{
+    titleContainer: {
         flexDirection: 'row',
         marginTop: 24,
     },
-    reportTitle:{
+    reportTitle: {
         color: '#61dafb',
         letterSpacing: 4,
         fontSize: 25,
