@@ -76,33 +76,19 @@ const styles = StyleSheet.create({
   },
 });
 
-// Will crash if len(invoice.items) == 0
-const PreviewInvoice = ({ invoiceId }) => {
-  const [tempInvoice, setTempInvoice] = useState({});
-
-  // Fetch a specific Invoice
-  const fetchInvoice = async (id) => {
-    if (id === -1) return;
-    const res = await fetch(`http://localhost:5000/invoices/${id}`);
-    const data = await res.json();
-
-    console.log("DATA > " + JSON.stringify(data));
-    console.log("ADDRESS > " + data.customerAddress);
-    console.log("NAME > " + data.customerName);
-    console.log("ITEMS > " + JSON.stringify(data.items));
-
-    if (data.items !== undefined) {
-      console.log("ITEM NAME [0] > " + data.items[0].name);
-      data.items.forEach((item) => console.log(item.name));
-    }
-
-    setTempInvoice(data);
-    return data;
-  };
+const PreviewInvoice = ({ invoice }) => {
+  const [tempInvoice, setTempInvoice] = useState("");
 
   useEffect(() => {
-    fetchInvoice(invoiceId);
+    setTempInvoice(invoice);
   }, []);
+
+  /*if (tempInvoice !== undefined && tempInvoice.items !== undefined && tempInvoice.items[0] !== undefined) {
+    console.log("DATA 1" + JSON.stringify(tempInvoice));
+    console.log("DATA 2" + tempInvoice.customerName);
+    console.log("DATA 3" + tempInvoice.items[0].name);
+    tempInvoice.items.forEach((item) => console.log(item.name));
+  }*/
 
   return (
     <div>
@@ -119,13 +105,16 @@ const PreviewInvoice = ({ invoiceId }) => {
       >
         <Document>
           <Page size="A4" style={styles.page}>
-            {tempInvoice.items !== undefined ? (
+            {/* Temporary solution */}
+            {tempInvoice !== undefined &&
+            tempInvoice.items !== undefined &&
+            tempInvoice.items[0] !== undefined ? (
               <div>
                 <Image style={styles.logo} src={logo} />
                 <InvoiceTitle title="Invoice" />
                 <InvoiceNo invoice={tempInvoice} />
                 <BillTo invoice={tempInvoice} />
-                <InvoiceItemsTable invoice={invoice1} />
+                <InvoiceItemsTable invoice={tempInvoice} />
               </div>
             ) : null}
           </Page>

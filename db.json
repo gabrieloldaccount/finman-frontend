@@ -130,6 +130,47 @@
         }
       ],
       "id": 12
+    },
+    {
+      "customerName": "Anders Andersson",
+      "customerAddress": "Pixbovägen 23",
+      "customerZipCode": "",
+      "customerEmail": "anders.andersson@hotmail.com",
+      "invoiceDate": "2021-05-01",
+      "expirationDate": "2021-05-08",
+      "bankgiro": "12345",
+      "ocrNumber": "12354",
+      "items": [
+        {
+          "id": 201835,
+          "quantity": "3",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 3594003,
+          "quantity": "1",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 754608,
+          "quantity": "3",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        },
+        {
+          "id": 6708859,
+          "quantity": "9",
+          "name": "Soda",
+          "price": 10,
+          "unit": "st"
+        }
+      ],
+      "id": 13
     }
   ]
 }

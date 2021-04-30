@@ -8,7 +8,19 @@ import "./pdfStyling.css";
 
 const InvoiceList = ({ props, invoiceList }) => {
   const [open, setOpen] = useState(false);
-  const [invoiceId, setInvoiceId] = useState(-1);
+  //const [invoiceId, setInvoiceId] = useState(-1);
+  const [invoice, setInvoice] = useState({
+    customerName: "",
+    customerAddress: "",
+    customerZipCode: "",
+    customerEmail: "",
+    invoiceDate: "",
+    expirationDate: "",
+    bankgiro: "",
+    ocrNumber: "",
+    items: [],
+    id: "",
+  });
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -23,18 +35,12 @@ const InvoiceList = ({ props, invoiceList }) => {
     props.history.push("/");
   };
 
-  // This is needed since setState is asynchronous, must wait for it to update
-  // before sending currentInvoice
-  /*useEffect(() => {
-    onOpenModal();
-  }, [invoiceId]);*/
-
-  const loadPreview = (id) => {
-    setInvoiceId(id);
+  const loadPreview = (invoice) => {
+    //setInvoiceId(id);
+    setInvoice(invoice);
     onOpenModal();
   };
 
-  console.log(open)
   return (
     <div>
       <button onClick={onOpenModal}>Open modal</button>
@@ -47,7 +53,12 @@ const InvoiceList = ({ props, invoiceList }) => {
           modal: "customModal",
         }}
       >
-        { open ? <PreviewInvoice  invoiceId={invoiceId}/> : console.log("PREVIEW_INVOICE HIDDEN") }
+        {}
+        {open ? (
+          <PreviewInvoice invoice={invoice} />
+        ) : (
+          console.log("PREVIEW_INVOICE HIDDEN")
+        )}
       </Modal>
       <Table striped bordered hover variant="dark">
         <thead>
@@ -75,7 +86,7 @@ const InvoiceList = ({ props, invoiceList }) => {
               <td>
                 <button
                   className="btn btn-info"
-                  onClick={() => loadPreview(invoice.id)}
+                  onClick={() => loadPreview(invoice)}
                 >
                   Preview
                 </button>
