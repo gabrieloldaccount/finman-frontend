@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         height: 24,
         fontStyle: 'bold',
     },
-    description: {
+    name: {
         width: '60%',
         textAlign: 'left',
         borderRightColor: borderColor,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         paddingRight: 8,
     },
-    rate: {
+    price: {
         width: '15%',
         borderRightColor: borderColor,
         borderRightWidth: 1,
@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
 const InvoiceTableRow = ({items}) => {
     const rows = items.map(item =>
         <View style={styles.row} key={item.id}>
-            <Text style={styles.description}>{item.name}</Text>
+            <Text style={styles.name}>{item.name}</Text>
             <Text style={styles.qty}>{item.quantity}</Text>
-            <Text style={styles.rate}>{item.price}</Text>
+            <Text style={styles.price}>{item.price}</Text>
             <Text style={styles.amount}>{(item.quantity * item.price).toFixed(2)}</Text>
         </View>
     )

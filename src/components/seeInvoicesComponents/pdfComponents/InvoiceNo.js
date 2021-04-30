@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import {Text, View, StyleSheet } from '@react-pdf/renderer';
+import React, {Fragment} from 'react';
+import {StyleSheet, Text, View} from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
     invoiceNoContainer: {
@@ -27,24 +27,25 @@ const styles = StyleSheet.create({
         borderStyle: 'double',
         borderRadius: '5px',
     }
-
 });
 
 
 const InvoiceNo = ({invoice}) => (
     <Fragment>
-        <View style={styles.invoiceNoContainer}>
-            <Text style={styles.label}>Invoice No:</Text>
-            <Text style={styles.invoiceDate}>{invoice.id}</Text>
-        </View >
-        <View style={styles.invoiceDateContainer}>
-            <Text style={styles.label}>Invoice Date: </Text>
-            <Text >{invoice.invoiceDate}</Text>
-        </View >
-        <View style={styles.invoiceDateContainer}>
-            <Text style={styles.label}>Expiration Date: </Text>
-            <Text >{invoice.expirationDate}</Text>
-        </View >
+        <view style={styles.customBorder}>
+            <View style={styles.invoiceNoContainer}>
+                <Text style={styles.label}>Invoice No:</Text>
+                <Text style={styles.invoiceDate}>{invoice.id}</Text>
+            </View>
+            <View style={styles.invoiceDateContainer}>
+                <Text style={styles.label}>Invoice Date: </Text>
+                <Text>{invoice.invoiceDate}</Text>
+            </View>
+            <View style={styles.invoiceDateContainer}>
+                <Text style={styles.label}>Expiration Date: </Text>
+                <Text>{invoice.expirationDate}</Text>
+            </View>
+        </view>
     </Fragment>
 );
 

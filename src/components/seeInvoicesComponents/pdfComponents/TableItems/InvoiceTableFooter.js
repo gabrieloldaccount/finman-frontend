@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         borderBottomColor: '#bff0fd',
-        borderBottomWidth: 1,
+        borderBottomWidth: 0, // since InvoiceItemsTable already has border-width
         alignItems: 'center',
         height: 24,
         fontSize: 12,
