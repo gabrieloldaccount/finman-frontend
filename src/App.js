@@ -1,17 +1,14 @@
 import {useState, useEffect} from 'react'
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Invoices from './components/Invoices'
-import Items from './components/Items'
 import AddInvoice from './components/AddInvoice'
 import About from './components/About'
-import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
-import dot from "./dot.png";
 import HomePageButton from "./components/HomePageButton";
+import axios from "./api-services/axios"
+import InvoiceService from "./api-services/InvoiceService";
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -21,12 +18,16 @@ const App = () => {
 
     useEffect(() => {
         const getInvoices = async () => {
-            const invoicesFromServer = await fetchInvoices()
-            setInvoices(invoicesFromServer)
+            axios.get("./Invoices").then(res => {
+                setInvoices(res.data)
+            })
         }
+
         const getProducts = async () => {
-            const productsFromServer = await fetchProducts()
-            setProducts(productsFromServer)
+            axios.get("./Products").then(res => {
+/*                console.log(JSON.stringify(res.data));*/
+                setProducts(res.data)
+            })
         }
 
         getInvoices()
@@ -110,7 +111,7 @@ const App = () => {
                     path='/'
                     exact
                     render={(props) => (
-                        <HomePageButton text1={'CREATE'} text2={'invoice'} />
+                        <HomePageButton text1={'CREATE'} text2={'invoice'}/>
 
                     )}
                 />
