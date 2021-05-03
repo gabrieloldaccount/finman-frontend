@@ -8,8 +8,10 @@ class InvoiceService {
     }
 
     getInvoice(email) {
-        return axios.get(INVOICE_API_BASE_URL + email).then(res => {
-            console.log(JSON.stringify(res.data));
+        return axios.get(INVOICE_API_BASE_URL + email, {
+            validateStatus: function (status) {
+                return status < 400; // Resolve only if the status code is less than 400
+            }
         });
     }
 }

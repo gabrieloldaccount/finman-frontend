@@ -7,8 +7,10 @@ import About from './components/About'
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
 import HomePageButton from "./components/HomePageButton";
-import axios from "./api-services/axios"
 import InvoiceService from "./api-services/InvoiceService";
+import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
+import ProductService from "./api-services/ProductService";
+
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -17,21 +19,12 @@ const App = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        const getInvoices = async () => {
-            axios.get("./Invoices").then(res => {
-                setInvoices(res.data)
-            })
-        }
-
-        const getProducts = async () => {
-            axios.get("./Products").then(res => {
-/*                console.log(JSON.stringify(res.data));*/
-                setProducts(res.data)
-            })
-        }
-
-        getInvoices()
-        getProducts()
+        InvoiceService.getInvoice("appa@gmail.se").then(res => {
+           setInvoices(res.data);
+        });
+        ProductService.getProducts("appa@gmail.se").then(res => {
+            setProducts(res.data);
+        })
     }, [])
 
     // Fetch the array of pre-defined products
@@ -48,6 +41,21 @@ const App = () => {
         const data = await res.json()
 
         return data
+    }
+
+    // Add a product
+    const addProduct = async (product) => {
+        const res = await fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+
+        const data = await res.json()
+
+        setProducts([...products, data])
     }
 
     // Delete a product
@@ -112,13 +120,20 @@ const App = () => {
                     exact
                     render={(props) => (
                         <HomePageButton text1={'CREATE'} text2={'invoice'}/>
-
+                    )}
+                />
+                <Route
+                    path='/all-invoices'
+                    render={(props) => (
+                        <>
+                            <InvoiceList props={props} invoiceList={invoices}/>
+                        </>
                     )}
                 />
                 <Route path='/products'
                        exact
                        render={() => (
-                           <ProductPage products={products} onDelete={deleteProduct}/>
+                           <ProductPage products={products} onAdd={addProduct} onDelete={deleteProduct}/>
                        )}/>
                 <Route path='/newinvoice'
                        exact
@@ -130,6 +145,6 @@ const App = () => {
             </div>
         </Router>
     );
-}
+};
 
 export default App
