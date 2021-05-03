@@ -7,7 +7,6 @@ import "./pdfStyling.css";
 
 const InvoiceList = ({props, invoiceList}) => {
     const [open, setOpen] = useState(false);
-    //const [invoiceId, setInvoiceId] = useState(-1);
     const [invoice, setInvoice] = useState({
         customerName: "",
         customerAddress: "",
@@ -35,7 +34,6 @@ const InvoiceList = ({props, invoiceList}) => {
     };
 
     const loadPreview = (invoice) => {
-        //setInvoiceId(id);
         setInvoice(invoice);
         onOpenModal();
     };
