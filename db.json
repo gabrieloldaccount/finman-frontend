@@ -73,7 +73,7 @@
       "items": [
         {
           "id": 3191620,
-          "quantity": "4",
+          "quantity": "4"
         }
       ],
       "id": 7
@@ -188,7 +188,7 @@
           "quantity": "2",
           "name": "Hamburger",
           "price": 30,
-          "unit": "st"
+          "unit": "st",
           "id": 754608,
           "quantity": "3",
           "name": "Hamburger",
