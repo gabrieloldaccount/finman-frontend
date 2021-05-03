@@ -3,7 +3,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Container, Row} from "react-bootstrap";
-import { v4 as uuidv4 } from 'uuid';
 
 const AddItem = ({owner, productList, onAddItem}) => {
     const [selectedProduct, setSelectedProduct] = useState('')
@@ -18,8 +17,6 @@ const AddItem = ({owner, productList, onAddItem}) => {
             alert('Please add an amount of items')
             return
         }
-
-        const id = uuidv4();
 
         //Passes values to AddInvoice where state is handled.
         onAddItem({owner: owner, amount: amount, name: selectedProduct.name, price: selectedProduct.price})
@@ -44,13 +41,13 @@ const AddItem = ({owner, productList, onAddItem}) => {
                     </Dropdown.Menu>
                 </Dropdown>
 
-            <Form.Group controlId="formQuantity">
-                <Form.Control type="number"
-                              placeholder='Enter quantity'
-                              value={amount}
-                              onChange={(e) => setAmount(e.target.value)}/>
-            </Form.Group>
-            <Button variant='primary' onClick={(e) => addItem(e)}>Add item</Button>
+                <Form.Group controlId="formQuantity">
+                    <Form.Control type="number"
+                                  placeholder='Enter quantity'
+                                  value={amount}
+                                  onChange={(e) => setAmount(e.target.value)}/>
+                </Form.Group>
+                <Button variant='primary' onClick={(e) => addItem(e)}>Add item</Button>
             </Row>
         </Container>
     )

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -10,7 +10,6 @@ import HomePageButton from "./components/HomePageButton";
 import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
 import ProductService from "./api-services/ProductService";
-
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -46,33 +45,10 @@ const App = () => {
 
     // Add Invoice
     const addInvoice = async (invoice) => {
-        /*const res = await fetch('http://localhost:5000/invoices', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(invoice),
-        })
-
-        const data = await res.json()*/
-
         await InvoiceService.createInvoice(invoice).then(res => {
             res.status === 201 ? setInvoices([...invoices, invoice]) : alert('Error creating this product');
         });
-
-        //setInvoices([...invoices, data])
     }
-
-    // Delete Invoice
-    const deleteInvoice = async (id) => {
-        const res = await fetch(`http://localhost:5000/invoices/${id}`, {
-            method: 'DELETE',
-        })
-        res.status === 200
-            ? setInvoices(invoices.filter((invoice) => invoice.id !== id))
-            : alert('Error Deleting This Invoice')
-    }
-
 
     return (
         <Router>
