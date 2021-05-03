@@ -1,168 +1,84 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": 1,
+      "owner": 1,
+      "name": "Hot Dog",
+      "price": 15,
+      "unit": "st"
+    },
+    {
+      "id": 2,
+      "owner": 1,
+      "name": "Hamburger",
+      "price": 30,
+      "unit": "st"
+    },
+    {
+      "id": 3,
+      "owner": 1,
+      "name": "Soda",
+      "price": 10,
+      "unit": "st"
+    }
+  ],
   "invoices": [
     {
-      "customerName": "Sture Sturesson",
-      "customerAddress": "Stolpgatan 23",
-      "customerZipCode": "748 83",
-      "customerEmail": "sture@hotmail.com",
-      "invoiceDate": "5-10-2021",
-      "expirationDate": "12-10-2021",
-      "bankgiro": "456-56826",
-      "OCRnumber": "12121454454656",
-      "id": 1
-    },
-    {
-      "customerName": "Gabriel",
-      "customerAddress": "",
+      "customerName": "Hedy Pettersson",
+      "customerAddress": "Elliots väg 15",
       "customerZipCode": "",
-      "customerEmail": "",
+      "customerEmail": "hedypet@hotmail.com",
       "invoiceDate": "",
       "expirationDate": "",
       "bankgiro": "",
-      "OCRnumber": "",
+      "ocrNumber": "",
       "items": [
         {
-          "amount": "asdf",
-          "name": "",
-          "unit": ""
+          "id": 2052930,
+          "quantity": "3",
+          "name": "Soda",
+          "price": 10,
+          "unit": "st"
         },
         {
-          "amount": "1337",
-          "name": "BollFan",
-          "unit": ""
+          "id": 2052931,
+          "quantity": "3",
+          "name": "Soda",
+          "price": 1,
+          "unit": "st"
         }
       ],
-      "id": 2
-    },
-    {
-      "customerName": "Hafkjnk",
-      "customerAddress": "KFKjnasf",
-      "customerZipCode": "kjnkf",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [
-        {
-          "amount": "Fkjasf",
-          "name": "Kjnasf",
-          "unit": "kjasnf"
-        }
-      ],
-      "id": 3
-    },
-    {
-      "customerName": "agfadgfsdgfsdg",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 4
-    },
-    {
-      "customerName": "skdjngkjadf",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 5
-    },
-    {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "Jägaregatan 10D",
-      "customerZipCode": "41702",
-      "customerEmail": "gabriel.brattgard",
-      "invoiceDate": "2021-04-16",
-      "expirationDate": "2021-04-11",
-      "bankgiro": "51132135421351",
-      "OCRnumber": "321354215641",
-      "items": [],
-      "id": 6
-    },
-    {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
       "id": 7
     },
     {
-      "customerName": "Gabriel Brattgård",
+      "customerName": "bear",
       "customerAddress": "",
       "customerZipCode": "",
-      "customerEmail": "gabriel.brattgard@gmail.com",
-      "invoiceDate": "",
+      "customerEmail": "",
+      "invoiceDate": "2021-04-30",
       "expirationDate": "",
       "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
+      "ocrNumber": "",
+      "items": [
+        {
+          "id": 3191620,
+          "quantity": "4",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 3892886,
+          "quantity": "2",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        }
+      ],
       "id": 8
     },
     {
-      "customerName": "Gabriel Brattgård",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 9
-    },
-    {
-      "customerName": "Gabriel Brattgard",
-      "customerAddress": "Jagaregatan 10D",
-      "customerZipCode": "41702",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 10
-    },
-    {
-      "customerName": "sdfadsf",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "2021-04-17",
-      "bankgiro": "",
-      "OCRnumber": "",
-      "items": [],
-      "id": 11
-    },
-    {
-      "customerName": "asdfasdf",
-      "customerAddress": "",
-      "customerZipCode": "",
-      "customerEmail": "",
-      "invoiceDate": "",
-      "expirationDate": "",
-      "bankgiro": "",
-      "ocrNumber": "651651651",
-      "items": [],
-      "id": 12
-    },
-    {
-      "customerName": "hedy",
+      "customerName": "error",
       "customerAddress": "",
       "customerZipCode": "",
       "customerEmail": "",
@@ -172,10 +88,85 @@
       "ocrNumber": "",
       "items": [
         {
-          "id": 8167408,
-          "quantity": "10",
+          "id": 3503118,
+          "quantity": "-5",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "customerName": "Karl Svensson",
+      "customerAddress": "Svenssongatan 41",
+      "customerZipCode": "43134",
+      "customerEmail": "karl@svennsson.se",
+      "invoiceDate": "2021-04-29",
+      "expirationDate": "2021-05-02",
+      "bankgiro": "2891390812903",
+      "ocrNumber": "2131251",
+      "items": [
+        {
+          "id": 1946662,
+          "quantity": "13",
           "name": "Hot Dog",
           "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 9010561,
+          "quantity": "2",
+          "name": "Soda",
+          "price": 10,
+          "unit": "st"
+        },
+        {
+          "id": 5168388,
+          "quantity": "1",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        }
+      ],
+      "id": 12
+    },
+    {
+      "customerName": "Anders Andersson",
+      "customerAddress": "Pixbovägen 23",
+      "customerZipCode": "",
+      "customerEmail": "anders.andersson@hotmail.com",
+      "invoiceDate": "2021-05-01",
+      "expirationDate": "2021-05-08",
+      "bankgiro": "12345",
+      "ocrNumber": "12354",
+      "items": [
+        {
+          "id": 201835,
+          "quantity": "3",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 3594003,
+          "quantity": "1",
+          "name": "Hot Dog",
+          "price": 15,
+          "unit": "st"
+        },
+        {
+          "id": 754608,
+          "quantity": "3",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
+        },
+        {
+          "id": 6708859,
+          "quantity": "9",
+          "name": "Soda",
+          "price": 10,
           "unit": "st"
         }
       ],
