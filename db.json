@@ -1,6 +1,17 @@
 {
   "products": [
     {
+
+      "id": 3,
+      "owner": 1,
+      "name": "Soda",
+      "price": 10,
+      "unit": "st"
+    }
+  ],
+  "invoices": [
+    {
+
       "id": 1,
       "owner": 1,
       "name": "Hot Dog",
@@ -46,6 +57,23 @@
           "name": "Soda",
           "price": 1,
           "unit": "st"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "customerName": "bear",
+      "customerAddress": "",
+      "customerZipCode": "",
+      "customerEmail": "",
+      "invoiceDate": "2021-04-30",
+      "expirationDate": "",
+      "bankgiro": "",
+      "ocrNumber": "",
+      "items": [
+        {
+          "id": 3191620,
+          "quantity": "4",
         }
       ],
       "id": 7
@@ -156,6 +184,11 @@
           "unit": "st"
         },
         {
+          "id": 3892886,
+          "quantity": "2",
+          "name": "Hamburger",
+          "price": 30,
+          "unit": "st"
           "id": 754608,
           "quantity": "3",
           "name": "Hamburger",
@@ -170,7 +203,7 @@
           "unit": "st"
         }
       ],
-      "id": 13
+      "id": 8
     }
   ]
 }
