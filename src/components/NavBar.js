@@ -17,8 +17,8 @@ const NavBar = () => {
                 return 'product catalog';
             case '/NewInvoice':
                 return 'newinvoice';
-            case '/see-invoices':
-                return 'see-invoices';
+            case '/all-invoices':
+                return 'all-invoices';
             case '/profile':
                 return 'profile';
         }
@@ -50,8 +50,8 @@ const NavBar = () => {
                     </a>
 
                     <a>
-                    <a className='link' href="/see-invoices">All Invoices</a>
-                    {dotSwitch()=='see-invoices' && <img src={dot} alt="dot" className='dot'/>}
+                    <a className='link' href="/all-invoices">All Invoices</a>
+                    {dotSwitch()=='all-invoices' && <img src={dot} alt="dot" className='dot'/>}
                     </a>
 
                     <a>
