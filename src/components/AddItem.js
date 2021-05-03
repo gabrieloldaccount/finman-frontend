@@ -1,36 +1,31 @@
 import {useState} from 'react'
-import Products from './Products'
-import Product from './Product';
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Invoice from "./Invoice";
 import {Container, Row} from "react-bootstrap";
+import { v4 as uuidv4 } from 'uuid';
 
-//TODO: Add proper CSS formatting in index.css
-const AddItem = ({productList, onAddItem}) => {
+const AddItem = ({owner, productList, onAddItem}) => {
     const [selectedProduct, setSelectedProduct] = useState('')
-    const [quantity, setQuantity] = useState('')
+    const [amount, setAmount] = useState('')
 
     //The submit method for AddItems. Checks, submits and resets the internal state.
     const addItem = (e) => {
         e.preventDefault()
 
         //Input checking.
-        if (!quantity) {
+        if (!amount) {
             alert('Please add an amount of items')
             return
         }
 
-        //TODO: Fix error check with previous state of ids.
-        //Small risk of identical id's on items.
-        const id = Math.floor(Math.random()*10000000);
+        const id = uuidv4();
 
         //Passes values to AddInvoice where state is handled.
-        onAddItem({id: id, quantity: quantity, name: selectedProduct.name, price: selectedProduct.price, unit: selectedProduct.unit})
+        onAddItem({owner: owner, amount: amount, name: selectedProduct.name, price: selectedProduct.price})
 
         //Resets the internal state.
-        setQuantity('')
+        setAmount('')
         setSelectedProduct('')
     }
 
@@ -52,8 +47,8 @@ const AddItem = ({productList, onAddItem}) => {
             <Form.Group controlId="formQuantity">
                 <Form.Control type="number"
                               placeholder='Enter quantity'
-                              value={quantity}
-                              onChange={(e) => setQuantity(e.target.value)}/>
+                              value={amount}
+                              onChange={(e) => setAmount(e.target.value)}/>
             </Form.Group>
             <Button variant='primary' onClick={(e) => addItem(e)}>Add item</Button>
             </Row>

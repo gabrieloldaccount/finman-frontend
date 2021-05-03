@@ -8,16 +8,25 @@ import "./pdfStyling.css";
 const InvoiceList = ({props, invoiceList}) => {
     const [open, setOpen] = useState(false);
     const [invoice, setInvoice] = useState({
-        customerName: "",
-        customerAddress: "",
-        customerZipCode: "",
-        customerEmail: "",
+        source: "",
+        serialNumber: "",
+        vat: "",
+        ocr: "",
         invoiceDate: "",
-        expirationDate: "",
+        expiryDate: "",
         bankgiro: "",
-        ocrNumber: "",
+        seller: "",
+        customer: {
+            name: "",
+            address: "",
+            zipCode: "",
+            city: "",
+            country: "",
+            telephone: "",
+            email: ""
+        },
+        isPaid: "",
         items: [],
-        id: "",
     });
 
     const onOpenModal = () => setOpen(true);
@@ -25,7 +34,7 @@ const InvoiceList = ({props, invoiceList}) => {
 
     const sumOfProducts = (items) => {
         let sum = 0;
-        items.forEach((product) => (sum += product.price * product.quantity));
+        items.forEach((product) => (sum += product.price * product.amount));
         return sum;
     };
 
@@ -70,14 +79,14 @@ const InvoiceList = ({props, invoiceList}) => {
 
                 <tbody>
                 {invoiceList.map((invoice) => (
-                    <tr key={invoice.id}>
+                    <tr key={invoice.source}>
                         <td>{invoice.invoiceDate}</td>
                         {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
-                        <td>{invoice.expirationDate}</td>
+                        <td>{invoice.expiryDate}</td>
                         {/*TODO: Add status when backend has it*/}
                         <td>PENDING</td>
-                        <td>{invoice.id}</td>
-                        <td>{invoice.customerName}</td>
+                        <td>{invoice.serialNumber}</td>
+                        <td>{invoice.customer.name}</td>
                         <td>{sumOfProducts(invoice.items)}</td>
                         <td>
                             <button
