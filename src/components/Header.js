@@ -13,7 +13,9 @@ const Header = () => {
             case '/products':
                 return 'Product ';
             case '/NewInvoice':
-                return 'Create a New Invoice';
+                return 'Create ';
+            case '/all-invoices':
+                return 'All'
         }
     }
 
