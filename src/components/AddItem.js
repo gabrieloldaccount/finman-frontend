@@ -28,7 +28,7 @@ const AddItem = ({owner, productList, onAddItem}) => {
 
     return (
         //TODO: Implement proper product list read-in from db here.
-        <Container>
+        <div className='additem'>
             <Row>
                 <Dropdown>
                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -49,7 +49,7 @@ const AddItem = ({owner, productList, onAddItem}) => {
                 </Form.Group>
                 <Button variant='primary' onClick={(e) => addItem(e)}>Add item</Button>
             </Row>
-        </Container>
+        </div>
     )
 }
 
