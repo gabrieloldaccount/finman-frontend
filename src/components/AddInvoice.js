@@ -1,10 +1,11 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import AddItem from "./AddItem";
 import Items from "./Items"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Col, Container, Row} from "react-bootstrap";
 import '../index.css'
+import {Table} from "react-bootstrap";
 
 
 const AddInvoice = ({owner, productList, onAddInvoice}) => {
@@ -141,17 +142,40 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                 </Row>
                 <Row>
                     {items.length > 0 ? (
-                        <Items
-                            items={items}
-                            onDelete={deleteItem}
-                        />
+                        <Table striped bordered hover variant="dark">
+                            <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {items.map((item) =>(
+                                <tr>
+                                    <td>{item.name}</td>
+                                    <td>{item.amount}</td>
+                                    <td>{item.price}</td>
+                                </tr>
+
+                            ))}
+                            </tbody>
+                        </Table>
+
                     ) : (
-                        'No Items To Show '
+                        <p className={'invoice-label'}>
+                            No Items To Show
+                        </p>
+
                     )}
                 </Row>
 
                 <Row>
-                    {"Total: " + sumOfProducts(items)}
+                    <p className={'invoice-label'}>
+                        {"Total: " + sumOfProducts(items)}
+                    </p>
+
                 </Row>
 
                 <Row>
