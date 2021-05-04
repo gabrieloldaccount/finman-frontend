@@ -23,20 +23,21 @@ const AddProduct = ({owner, onAdd}) => {
     }
 
     return (
-        <>
-            <input
-                type="text" value={name}
+        <div>
+            <input  className={'addItem'}
+                type="text"
+                value={name}
                 placeholder="Enter Product Name"
                 onChange={(e) => setName(e.target.value)}
             />
-            <input
+            <input  className={'addItem'}
                 type="number"
                 value={price}
                 placeholder="Enter Product Price"
                 onChange={(e) => setPrice(e.target.value)}
             />
             <Button variant="primary" onClick={onSubmit}>Add product</Button>
-        </>
+        </div>
     );
 }
 

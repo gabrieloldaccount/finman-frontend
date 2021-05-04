@@ -34,9 +34,19 @@ tr {
     color: antiquewhite;
 }
 
-.additem {
-    padding-left: 20px;
+.addItem {
+    margin-right: 20px;
+    margin-bottom: 8px;
+    border: 0px solid #1762A7;
+    border-radius: 5px;
+    min-height: 38px;
+    align-self: auto;
 }
+
+.marginLeft {
+    margin-left: 20px;
+}
+
 
 /* Commented out when trying to implement Bootstrap CSS instead.
 * {

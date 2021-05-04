@@ -28,9 +28,9 @@ const AddItem = ({owner, productList, onAddItem}) => {
 
     return (
         //TODO: Implement proper product list read-in from db here.
-        <div className='additem'>
+        <div className={'marginLeft'}>
             <Row>
-                <Dropdown>
+                <Dropdown className={'addItem'}>
                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                         {selectedProduct === '' ? "Select Product" : selectedProduct.name}
                     </Dropdown.Toggle>
@@ -41,8 +41,9 @@ const AddItem = ({owner, productList, onAddItem}) => {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <Form.Group controlId="formQuantity">
-                    <Form.Control type="number"
+                <Form.Group className={'addItem'} controlId="formQuantity">
+                    <Form.Control
+                                  type="number"
                                   placeholder='Enter quantity'
                                   value={amount}
                                   onChange={(e) => setAmount(e.target.value)}/>
