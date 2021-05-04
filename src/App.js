@@ -11,7 +11,7 @@ import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
 import ProductService from "./api-services/ProductService";
 
-//TODO: Remove Items-state here. It is in AddInvoice instead.
+//TODO: Remove Items-state here. It is in AddInvoice instead .
 
 const App = () => {
     const [owner, setOwner] = useState('appa@gmail.se')
