@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
 const BillTo = ({invoice}) => (
     <View style={styles.customBorder}>
         <Text style={styles.billTo}>Bill To:</Text>
-        <Text>{invoice.customerName}</Text>
-        <Text>{invoice.customerEmail}</Text>
-        <Text>{invoice.customerAddress}</Text>
-        <Text>{invoice.customerZipCode}</Text>
+        <Text>{invoice.customer.name}</Text>
+        <Text>{invoice.customer.email}</Text>
+        <Text>{invoice.customer.address}</Text>
+        <Text>{invoice.customer.zipCode}</Text>
     </View>
 );
 

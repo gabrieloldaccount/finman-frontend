@@ -29,13 +29,12 @@ const styles = StyleSheet.create({
     }
 });
 
-
 const InvoiceNo = ({invoice}) => (
     <Fragment>
         <view style={styles.customBorder}>
             <View style={styles.invoiceNoContainer}>
                 <Text style={styles.label}>Invoice No:</Text>
-                <Text style={styles.invoiceDate}>{invoice.id}</Text>
+                <Text style={styles.invoiceDate}>{invoice.serialNumber}</Text>
             </View>
             <View style={styles.invoiceDateContainer}>
                 <Text style={styles.label}>Invoice Date: </Text>
@@ -43,7 +42,7 @@ const InvoiceNo = ({invoice}) => (
             </View>
             <View style={styles.invoiceDateContainer}>
                 <Text style={styles.label}>Expiration Date: </Text>
-                <Text>{invoice.expirationDate}</Text>
+                <Text>{invoice.expiryDate}</Text>
             </View>
         </view>
     </Fragment>

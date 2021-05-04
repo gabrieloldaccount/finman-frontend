@@ -1,7 +1,9 @@
 import Product from './Product'
 import {Table} from "react-bootstrap";
+import {useEffect, useState} from "react";
 
 const Products = ({products, onDelete}) => {
+
     return (
             <Table striped bordered hover size="sm" variant="dark">
                 <thead>

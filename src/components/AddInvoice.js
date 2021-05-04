@@ -6,46 +6,53 @@ import Form from 'react-bootstrap/Form';
 import {Col, Container, Row} from "react-bootstrap";
 
 
-const AddInvoice = ({productList, onAddInvoice}) => {
-    const [customerName, setCustomerName] = useState('')
-    const [customerAddress, setCustomerAddress] = useState('')
-    const [customerZipCode, setCustomerZipCode] = useState('')
-    const [customerEmail, setCustomerEmail] = useState('')
-    const [invoiceDate, setInvoiceDate] = useState('')
-    const [expirationDate, setExpirationDate] = useState('')
-    const [bankgiro, setBankgiro] = useState('')
-    const [ocrNumber, setOcrNumber] = useState('')
+const AddInvoice = ({owner, productList, onAddInvoice}) => {
+    const [name, setName] = useState('TestPerson Persson')
+    const [address, setAddress] = useState('Hellroad')
+    const [zipcode, setZipCode] = useState('54512')
+    const [email, setEmail] = useState('hellmail@devil.com')
+    const [invoiceDate, setInvoiceDate] = useState('2021-04-30')
+    const [expirationDate, setExpirationDate] = useState('2021-05-02')
     const [items, setItems] = useState([])
+    const [city, setCity] = useState('Gothenburg')
+    const [country, setCountry] = useState('Norway')
+    const [telephone, setTelephone] = useState('06535342')
 
     const onSubmit = (e) => {
         e.preventDefault()
 
         //TODO: Add more error-checking here.
-        if (!customerName && !customerEmail) {
+        if (!name && !city) {
             alert('Please fill in all info for the invoice')
             return
         }
 
         onAddInvoice({
-            customerName: customerName,
-            customerAddress: customerAddress,
-            customerZipCode: customerZipCode,
-            customerEmail: customerEmail,
+            source: owner,
             invoiceDate: invoiceDate,
-            expirationDate: expirationDate,
-            bankgiro: bankgiro,
-            ocrNumber: ocrNumber,
+            expiryDate: expirationDate,
+            seller: "finman@block.chain",
+            customer: {
+                name: name,
+                address: address,
+                zipCode: zipcode,
+                city: city,
+                country: country,
+                telephone: telephone,
+                email: email,
+            },
             items: items
-        })
+        });
 
-        setCustomerName('')
-        setCustomerAddress('')
-        setCustomerZipCode('')
-        setCustomerEmail('')
+        setName('')
+        setAddress('')
+        setZipCode('')
+        setEmail('')
         setInvoiceDate('')
         setExpirationDate('')
-        setBankgiro('')
-        setOcrNumber('')
+        setTelephone('')
+        setCountry('')
+        setCity('')
         setItems([])
     }
 
@@ -61,7 +68,7 @@ const AddInvoice = ({productList, onAddInvoice}) => {
 
     const sumOfProducts = (items) => {
         let sum = 0;
-        items.forEach(product => sum += product.price * product.quantity);
+        items.forEach(product => sum += product.price * product.amount);
         return sum;
     }
 
@@ -73,25 +80,35 @@ const AddInvoice = ({productList, onAddInvoice}) => {
                     <Col>
                         <Form.Group controlId="formCustomerName">
                             <Form.Label>Customer Name</Form.Label>
-                            <Form.Control type="string" value={customerName} placeholder="Enter customer name"
-                                          onChange={(e) => setCustomerName(e.target.value)}/>
-                        </Form.Group>
-                        <Form.Group controlId="formCustomerAddress">
-                            <Form.Label>Address</Form.Label>
-                            <Form.Control type="string" value={customerAddress} placeholder="Enter Customer Address"
-                                          onChange={(e) => setCustomerAddress(e.target.value)}/>
+                            <Form.Control type="string" value={name} placeholder="Enter customer name"
+                                          onChange={(e) => setName(e.target.value)}/>
                         </Form.Group>
 
-                        <Form.Group controlId="formCustomerZipcode">
-                            <Form.Label>Zip code</Form.Label>
-                            <Form.Control type="number" value={customerZipCode} placeholder="Enter Customer Zip Code"
-                                          onChange={(e) => setCustomerZipCode(e.target.value)}/>
-                        </Form.Group>
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" value={customerEmail} placeholder="Enter Customer Email"
-                                          onChange={(e) => setCustomerEmail(e.target.value)}/>
+                            <Form.Label>Address</Form.Label>
+                            <Form.Control type="string" value={address} placeholder="Enter address"
+                                          onChange={(e) => setAddress(e.target.value)}/>
                         </Form.Group>
+
+                        <Form.Group controlId="formCustomerEmail">
+                            <Form.Label>Zipcode</Form.Label>
+                            <Form.Control type="number" value={zipcode} placeholder="Enter zip code"
+                                          onChange={(e) => setZipCode(e.target.value)}/>
+                        </Form.Group>
+
+                        <Form.Group controlId="formCustomerEmail">
+                            <Form.Label>City</Form.Label>
+                            <Form.Control type="string" value={city} placeholder="Enter city"
+                                          onChange={(e) => setCity(e.target.value)}/>
+                        </Form.Group>
+
+                        <Form.Group controlId="formCustomerEmail">
+                            <Form.Label>Telephone</Form.Label>
+                            <Form.Control type="number" value={telephone} placeholder="Enter telephone number"
+                                          onChange={(e) => setTelephone(e.target.value)}/>
+                        </Form.Group>
+
+
                     </Col>
                     <Col>
                         <Form.Group controlId="formInvoiceDate">
@@ -104,20 +121,22 @@ const AddInvoice = ({productList, onAddInvoice}) => {
                             <Form.Control type="date" value={expirationDate}
                                           onChange={(e) => setExpirationDate(e.target.value)}/>
                         </Form.Group>
-                        <Form.Group controlId="formBankgiro">
-                            <Form.Label>Bank-giro</Form.Label>
-                            <Form.Control type="number" value={bankgiro} placeholder="Enter Bankgiro"
-                                          onChange={(e) => setBankgiro(e.target.value)}/>
+
+                        <Form.Group controlId="formCustomerEmail">
+                            <Form.Label>Country</Form.Label>
+                            <Form.Control type="string" value={country} placeholder="Enter country"
+                                          onChange={(e) => setCountry(e.target.value)}/>
                         </Form.Group>
-                        <Form.Group controlId="formOCR">
-                            <Form.Label>OCR</Form.Label>
-                            <Form.Control type="number" value={ocrNumber} placeholder="Enter OCR"
-                                          onChange={(e) => setOcrNumber(e.target.value)}/>
+
+                        <Form.Group controlId="formCustomerEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" value={email} placeholder="Enter Customer Email"
+                                          onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
                     </Col>
                 </Row>
                 <Row className="row-create-item">
-                    <AddItem productList={productList} onAddItem={addItem}/>
+                    <AddItem owner={owner} productList={productList} onAddItem={addItem}/>
                 </Row>
                 <Row>
                     {items.length > 0 ? (
@@ -131,7 +150,7 @@ const AddInvoice = ({productList, onAddInvoice}) => {
                 </Row>
 
                 <Row>
-                        {"Total: " + sumOfProducts(items)}
+                    {"Total: " + sumOfProducts(items)}
                 </Row>
 
                 <Row>

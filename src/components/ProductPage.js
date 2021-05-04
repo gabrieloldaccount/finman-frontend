@@ -1,16 +1,16 @@
 import React from 'react';
 import Products from "./Products";
-import {Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import AddProduct from "./AddProduct";
 
-const ProductPage = ({products, onAdd, onDelete}) => {
+const ProductPage = ({owner, products, onAdd, onDelete}) => {
     return (
         <Container className="container">
-            <AddProduct onAdd={onAdd}/>
+            <AddProduct owner={owner} onAdd={onAdd}/>
 
             {products.length > 0 ? (
-                <Products products={products} onDelete={onDelete}/>
-            ) :
+                    <Products products={products} onDelete={onDelete}/>
+                ) :
                 ('No Products To Show')
             }
         </Container>
