@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import {useLocation} from 'react-router-dom'
+import './Title.css'
 
 const Header = () => {
     const location = useLocation()

@@ -7,6 +7,11 @@
     /* center items vertically */
     justify-content: center;
     place-content: space-between;
+    position: fixed;
+    left: 30%;
+    /*top: 10%;*/
+    margin-top: -50px;
+    margin-left: -225px;
 }
 
 .homepagebutton {
@@ -15,14 +20,15 @@
     width: 450px;
     margin: 10px;
     overflow: auto;
-    max-height: 80px;
+    height: 100px;
     border: 3px solid #1762A7;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     position: relative;
-    left: 300px;
-    text-align: center;
+    left: 20%;
+    text-align: left;
+
 }
 
 .bigpart {

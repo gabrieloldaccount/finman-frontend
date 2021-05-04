@@ -59,7 +59,9 @@ const App = () => {
                     path='/'
                     exact
                     render={(props) => (
-                        <HomePageButton text1={'CREATE'} text2={'invoice'}/>
+                        <>
+                            <HomePage props={props}/>
+                        </>
                     )}
                 />
                 <Route
