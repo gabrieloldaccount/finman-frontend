@@ -6,10 +6,10 @@ import AddInvoice from './components/AddInvoice'
 import About from './components/About'
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
-import HomePageButton from "./components/HomePageButton";
 import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
 import ProductService from "./api-services/ProductService";
+import HomePage from "./components/HomePage";
 
 //TODO: Remove Items-state here. It is in AddInvoice instead.
 
@@ -59,7 +59,7 @@ const App = () => {
                     path='/'
                     exact
                     render={(props) => (
-                        <HomePageButton text1={'CREATE'} text2={'invoice'}/>
+                        <HomePage/>
                     )}
                 />
                 <Route
