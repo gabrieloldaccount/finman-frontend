@@ -10,6 +10,8 @@ on:
 
 jobs:
   build:
+    # Unnecessary to check the build twice
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     name: Build
     runs-on: ubuntu-latest
 
