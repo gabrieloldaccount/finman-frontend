@@ -4,6 +4,7 @@ import Items from "./Items"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Col, Container, Row} from "react-bootstrap";
+import '../index.css'
 
 
 const AddInvoice = ({owner, productList, onAddInvoice}) => {
@@ -79,31 +80,31 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                 <Row>
                     <Col>
                         <Form.Group controlId="formCustomerName">
-                            <Form.Label>Customer Name</Form.Label>
+                            <Form.Label className={'invoice-label'}>Customer Name</Form.Label>
                             <Form.Control type="string" value={name} placeholder="Enter customer name"
                                           onChange={(e) => setName(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>Address</Form.Label>
+                            <Form.Label className={'invoice-label'}>Address</Form.Label>
                             <Form.Control type="string" value={address} placeholder="Enter address"
                                           onChange={(e) => setAddress(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>Zipcode</Form.Label>
+                            <Form.Label className={'invoice-label'}>Zipcode</Form.Label>
                             <Form.Control type="number" value={zipcode} placeholder="Enter zip code"
                                           onChange={(e) => setZipCode(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>City</Form.Label>
+                            <Form.Label className={'invoice-label'}>City</Form.Label>
                             <Form.Control type="string" value={city} placeholder="Enter city"
                                           onChange={(e) => setCity(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>Telephone</Form.Label>
+                            <Form.Label className={'invoice-label'}>Telephone</Form.Label>
                             <Form.Control type="number" value={telephone} placeholder="Enter telephone number"
                                           onChange={(e) => setTelephone(e.target.value)}/>
                         </Form.Group>
@@ -112,24 +113,24 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                     </Col>
                     <Col>
                         <Form.Group controlId="formInvoiceDate">
-                            <Form.Label>Invoice Date</Form.Label>
+                            <Form.Label className={'invoice-label'}>Invoice Date</Form.Label>
                             <Form.Control type="date" value={invoiceDate}
                                           onChange={(e) => setInvoiceDate(e.target.value)}/>
                         </Form.Group>
                         <Form.Group controlId="formExpirationDate">
-                            <Form.Label>Expiration Date</Form.Label>
+                            <Form.Label className={'invoice-label'}>Expiration Date</Form.Label>
                             <Form.Control type="date" value={expirationDate}
                                           onChange={(e) => setExpirationDate(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>Country</Form.Label>
+                            <Form.Label className={'invoice-label'}>Country</Form.Label>
                             <Form.Control type="string" value={country} placeholder="Enter country"
                                           onChange={(e) => setCountry(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="formCustomerEmail">
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label className={'invoice-label'}>Email</Form.Label>
                             <Form.Control type="email" value={email} placeholder="Enter Customer Email"
                                           onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>

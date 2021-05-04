@@ -6,7 +6,7 @@ import AddInvoice from './components/AddInvoice'
 import About from './components/About'
 import NavBar from './components/NavBar'
 import ProductPage from "./components/ProductPage";
-import HomePageButton from "./components/HomePageButton";
+import HomePage from "./components/HomePage";
 import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
 import ProductService from "./api-services/ProductService";
