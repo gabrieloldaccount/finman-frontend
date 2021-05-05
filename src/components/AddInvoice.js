@@ -75,7 +75,7 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
     }
 
     return (
-        <Container>
+        <Container className={'container'}>
             {/*TODO: Format this whole Form-thing into just plain stuff instead. Don't think we gain anything from the form format.*/}
             <Form>
                 <Row>
@@ -147,6 +147,7 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                             <tr>
                                 <th>Product Name</th>
                                 <th>Amount</th>
+                                <th>Unit Price</th>
                                 <th>Price</th>
                             </tr>
                             </thead>
@@ -156,7 +157,8 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                                 <tr>
                                     <td>{item.name}</td>
                                     <td>{item.amount}</td>
-                                    <td>{item.price}</td>
+                                    <td>{item.price} kr/st</td>
+                                    <td>{item.price * item.amount} kr</td>
                                 </tr>
 
                             ))}
@@ -173,7 +175,7 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
 
                 <Row>
                     <p className={'invoice-label'}>
-                        {"Total: " + sumOfProducts(items)}
+                        {"Total: " + sumOfProducts(items) + " kr"}
                     </p>
 
                 </Row>

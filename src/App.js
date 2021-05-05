@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage";
 import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from './components/seeInvoicesComponents/InvoiceList'
 import ProductService from "./api-services/ProductService";
+import './index.css'
 
 //TODO: Remove Items-state here. It is in AddInvoice instead .
 
