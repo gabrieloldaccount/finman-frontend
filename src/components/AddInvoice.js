@@ -54,12 +54,12 @@ const AddInvoice = ({ owner, productList, onAddInvoice }) => {
       return;
     }
 
-    // Send JSON data 
+    // Send JSON data
     onAddInvoice(invoiceData);
     // Send pdf
     let blob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
     blob = blobToPdf(blob, "invoice.pdf");
-    EmailService.sendPdf(blob, "Invoice");
+    EmailService.sendPdf(blob, invoiceData.customer.email);
 
     setName("");
     setAddress("");

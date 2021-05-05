@@ -3,11 +3,11 @@ import axios from "axios";
 const EMAIL_API_BASE_URL = "https://finman-api.herokuapp.com/api/send-invoice/";
 
 class EmailService {
-  sendPdf(blob) {
+  sendPdf(blob, email) {
     let formData = new FormData();
 
     formData.append("file", blob);
-    formData.append("to", "alex.phu@live.com");
+    formData.append("to", email);
 
     axios({
       url: EMAIL_API_BASE_URL,
