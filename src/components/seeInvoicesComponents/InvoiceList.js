@@ -5,6 +5,7 @@ import {Modal} from "react-responsive-modal";
 import PreviewInvoice from "./PreviewInvoice";
 import "./pdfStyling.css";
 import {Col, Container, Row} from "react-bootstrap";
+import ReturnButton from "../ReturnButton";
 
 const InvoiceList = ({props, invoiceList}) => {
     const [open, setOpen] = useState(false);
@@ -102,11 +103,8 @@ const InvoiceList = ({props, invoiceList}) => {
                     ))}
                     </tbody>
                 </Table>
+                <ReturnButton className="returnButton" />
             </Container>
-
-            <button onClick={goBackToHomePage} className="btn btn-info">
-                Return
-            </button>
         </div>
     );
 };

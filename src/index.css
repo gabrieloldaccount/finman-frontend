@@ -50,6 +50,23 @@ tr {
     margin-left: 20px;
 }
 
+.marginBottom {
+    margin-bottom: 20px;
+}
+
+.returnButton {
+    position: relative;
+    left: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.returnArrow {
+    width: 30px;
+    height: 47px;
+
+}
+
 
 
 

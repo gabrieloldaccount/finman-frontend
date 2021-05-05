@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import {Col, Container, Row} from "react-bootstrap";
 import '../index.css'
 import {Table} from "react-bootstrap";
+import ReturnButton from "./ReturnButton";
 
 
 const AddInvoice = ({owner, productList, onAddInvoice}) => {
@@ -75,118 +76,121 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
     }
 
     return (
-        <Container className={'container'}>
-            {/*TODO: Format this whole Form-thing into just plain stuff instead. Don't think we gain anything from the form format.*/}
-            <Form>
-                <Row>
-                    <Col>
-                        <Form.Group controlId="formCustomerName">
-                            <Form.Label className={'invoice-label'}>Customer Name</Form.Label>
-                            <Form.Control type="string" value={name} placeholder="Enter customer name"
-                                          onChange={(e) => setName(e.target.value)}/>
-                        </Form.Group>
+            <Container className={'container'}>
+                {/*TODO: Format this whole Form-thing into just plain stuff instead. Don't think we gain anything from the form format.*/}
+                <Form>
+                    <Row>
+                        <Col>
+                            <Form.Group controlId="formCustomerName">
+                                <Form.Label className={'invoice-label'}>Customer Name</Form.Label>
+                                <Form.Control type="string" value={name} placeholder="Enter customer name"
+                                              onChange={(e) => setName(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="formCustomerEmail">
-                            <Form.Label className={'invoice-label'}>Address</Form.Label>
-                            <Form.Control type="string" value={address} placeholder="Enter address"
-                                          onChange={(e) => setAddress(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="formCustomerEmail">
+                                <Form.Label className={'invoice-label'}>Address</Form.Label>
+                                <Form.Control type="string" value={address} placeholder="Enter address"
+                                              onChange={(e) => setAddress(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="formCustomerEmail">
-                            <Form.Label className={'invoice-label'}>Zipcode</Form.Label>
-                            <Form.Control type="number" value={zipcode} placeholder="Enter zip code"
-                                          onChange={(e) => setZipCode(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="formCustomerEmail">
+                                <Form.Label className={'invoice-label'}>Zipcode</Form.Label>
+                                <Form.Control type="number" value={zipcode} placeholder="Enter zip code"
+                                              onChange={(e) => setZipCode(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="formCustomerEmail">
-                            <Form.Label className={'invoice-label'}>City</Form.Label>
-                            <Form.Control type="string" value={city} placeholder="Enter city"
-                                          onChange={(e) => setCity(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="formCustomerEmail">
+                                <Form.Label className={'invoice-label'}>City</Form.Label>
+                                <Form.Control type="string" value={city} placeholder="Enter city"
+                                              onChange={(e) => setCity(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="formCustomerEmail">
-                            <Form.Label className={'invoice-label'}>Telephone</Form.Label>
-                            <Form.Control type="number" value={telephone} placeholder="Enter telephone number"
-                                          onChange={(e) => setTelephone(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="formCustomerEmail">
+                                <Form.Label className={'invoice-label'}>Telephone</Form.Label>
+                                <Form.Control type="number" value={telephone} placeholder="Enter telephone number"
+                                              onChange={(e) => setTelephone(e.target.value)}/>
+                            </Form.Group>
 
 
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="formInvoiceDate">
-                            <Form.Label className={'invoice-label'}>Invoice Date</Form.Label>
-                            <Form.Control type="date" value={invoiceDate}
-                                          onChange={(e) => setInvoiceDate(e.target.value)}/>
-                        </Form.Group>
-                        <Form.Group controlId="formExpirationDate">
-                            <Form.Label className={'invoice-label'}>Expiration Date</Form.Label>
-                            <Form.Control type="date" value={expirationDate}
-                                          onChange={(e) => setExpirationDate(e.target.value)}/>
-                        </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group controlId="formInvoiceDate">
+                                <Form.Label className={'invoice-label'}>Invoice Date</Form.Label>
+                                <Form.Control type="date" value={invoiceDate}
+                                              onChange={(e) => setInvoiceDate(e.target.value)}/>
+                            </Form.Group>
+                            <Form.Group controlId="formExpirationDate">
+                                <Form.Label className={'invoice-label'}>Expiration Date</Form.Label>
+                                <Form.Control type="date" value={expirationDate}
+                                              onChange={(e) => setExpirationDate(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="formCustomerEmail">
-                            <Form.Label className={'invoice-label'}>Country</Form.Label>
-                            <Form.Control type="string" value={country} placeholder="Enter country"
-                                          onChange={(e) => setCountry(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="formCustomerEmail">
+                                <Form.Label className={'invoice-label'}>Country</Form.Label>
+                                <Form.Control type="string" value={country} placeholder="Enter country"
+                                              onChange={(e) => setCountry(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="formCustomerEmail">
-                            <Form.Label className={'invoice-label'}>Email</Form.Label>
-                            <Form.Control type="email" value={email} placeholder="Enter Customer Email"
-                                          onChange={(e) => setEmail(e.target.value)}/>
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row className="row-create-item">
-                    <AddItem owner={owner} productList={productList} onAddItem={addItem}/>
-                </Row>
-                <Row>
-                    {items.length > 0 ? (
-                        <Table striped bordered hover variant="dark">
-                            <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Amount</th>
-                                <th>Unit Price</th>
-                                <th>Price</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            {items.map((item) =>(
+                            <Form.Group controlId="formCustomerEmail">
+                                <Form.Label className={'invoice-label'}>Email</Form.Label>
+                                <Form.Control type="email" value={email} placeholder="Enter Customer Email"
+                                              onChange={(e) => setEmail(e.target.value)}/>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row className="row-create-item">
+                        <AddItem owner={owner} productList={productList} onAddItem={addItem}/>
+                    </Row>
+                    <Row>
+                        {items.length > 0 ? (
+                            <Table striped bordered hover variant="dark">
+                                <thead>
                                 <tr>
-                                    <td>{item.name}</td>
-                                    <td>{item.amount}</td>
-                                    <td>{item.price} kr/st</td>
-                                    <td>{item.price * item.amount} kr</td>
+                                    <th>Product Name</th>
+                                    <th>Amount</th>
+                                    <th>Unit Price</th>
+                                    <th>Price</th>
                                 </tr>
+                                </thead>
 
-                            ))}
-                            </tbody>
-                        </Table>
+                                <tbody>
+                                {items.map((item) =>(
+                                    <tr>
+                                        <td>{item.name}</td>
+                                        <td>{item.amount}</td>
+                                        <td>{item.price} kr/st</td>
+                                        <td>{item.price * item.amount} kr</td>
+                                    </tr>
 
-                    ) : (
+                                ))}
+                                </tbody>
+                            </Table>
+
+                        ) : (
+                            <p className={'invoice-label'}>
+                                No Items To Show
+                            </p>
+
+                        )}
+                    </Row>
+
+                    <Row>
                         <p className={'invoice-label'}>
-                            No Items To Show
+                            {"Total: " + sumOfProducts(items) + " kr"}
                         </p>
 
-                    )}
-                </Row>
+                    </Row>
 
-                <Row>
-                    <p className={'invoice-label'}>
-                        {"Total: " + sumOfProducts(items) + " kr"}
-                    </p>
+                    <Row>
+                        <Button variant="primary" type='submit' onClick={onSubmit} className={'marginBottom'}>
+                            Send invoice
+                        </Button>
+                    </Row>
+                </Form>
+                <ReturnButton className="returnButton" />
+            </Container>
 
-                </Row>
 
-                <Row>
-                    <Button variant="primary" type='submit' onClick={onSubmit}>
-                        Send invoice
-                    </Button>
-                </Row>
-            </Form>
-        </Container>
     );
 }
 
