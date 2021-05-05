@@ -7,10 +7,10 @@
     /* center items vertically */
     justify-content: center;
     place-content: space-between;
-    position: fixed;
+    position: relative;
     left: 30%;
     /*top: 10%;*/
-    margin-top: -50px;
+    /*margin-top: 10px;*/
     margin-left: -225px;
 }
 

@@ -83,7 +83,6 @@ const App = () => {
                            <AddInvoice owner={owner} productList={products} onAddInvoice={addInvoice}/>
                        )}/>
                 <Route path='/about' component={About}/>
-                <Footer/>
             </div>
         </Router>
     );
