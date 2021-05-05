@@ -1,13 +1,13 @@
-import Item from './Item'
+import Item from "./Item";
 
-const Items = ({items, onDelete}) => {
-    return (
-        <>
-            {items.map((item, index) => (
-                <Item key={index} item={item} onDelete={onDelete}/>
-            ))}
-        </>
-    )
-}
+const Items = ({ items, onDelete }) => {
+  return (
+    <>
+      {items.map((item, index) => (
+        <Item key={index} item={item} onDelete={onDelete} />
+      ))}
+    </>
+  );
+};
 
-export default Items
+export default Items;

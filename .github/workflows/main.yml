@@ -16,21 +16,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 13.x
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
 
-    - name: Install NPM packages
-      run: npm ci
-    
-    - name: Build project
-      run: CI=false npm run build
- 
-    - name: Run tests
-      run: npm run test -- --passWithNoTests
-      # Remove "--passWithNoTests" when tests are added
+      - name: Install NPM packages
+        run: npm ci
 
+      - name: Build project
+        run: CI=false npm run build
+
+      - name: Run tests
+        run: npm run test -- --passWithNoTests
+        # Remove "--passWithNoTests" when tests are added
