@@ -4,6 +4,7 @@ import "react-responsive-modal/styles.css";
 import {Modal} from "react-responsive-modal";
 import PreviewInvoice from "./PreviewInvoice";
 import "./pdfStyling.css";
+import {Col, Container, Row} from "react-bootstrap";
 
 const InvoiceList = ({props, invoiceList}) => {
     const [open, setOpen] = useState(false);
@@ -65,41 +66,43 @@ const InvoiceList = ({props, invoiceList}) => {
                     console.log("PREVIEW_INVOICE HIDDEN")
                 )}
             </Modal>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                <tr>
-                    <th>Sent</th>
-                    <th>Expires</th>
-                    <th>Status</th>
-                    <th>Serial Number</th>
-                    <th>Buyer</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                {invoiceList.map((invoice) => (
-                    <tr key={invoice.source}>
-                        <td>{invoice.invoiceDate}</td>
-                        {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
-                        <td>{invoice.expiryDate}</td>
-                        {/*TODO: Add status when backend has it*/}
-                        <td>PENDING</td>
-                        <td>{invoice.serialNumber}</td>
-                        <td>{invoice.customer.name}</td>
-                        <td>{sumOfProducts(invoice.items)}</td>
-                        <td>
-                            <button
-                                className="btn btn-info"
-                                onClick={() => loadPreview(invoice)}
-                            >
-                                Preview
-                            </button>
-                        </td>
+            <Container>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                    <tr>
+                        <th>Sent</th>
+                        <th>Expires</th>
+                        <th>Status</th>
+                        <th>Serial Number</th>
+                        <th>Buyer</th>
+                        <th>Price</th>
                     </tr>
-                ))}
-                </tbody>
-            </Table>
+                    </thead>
+
+                    <tbody>
+                    {invoiceList.map((invoice) => (
+                        <tr key={invoice.source}>
+                            <td>{invoice.invoiceDate}</td>
+                            {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
+                            <td>{invoice.expiryDate}</td>
+                            {/*TODO: Add status when backend has it*/}
+                            <td>PENDING</td>
+                            <td>{invoice.serialNumber}</td>
+                            <td>{invoice.customer.name}</td>
+                            <td>{sumOfProducts(invoice.items)}</td>
+                            <td>
+                                <button
+                                    className="btn btn-info"
+                                    onClick={() => loadPreview(invoice)}
+                                >
+                                    Preview
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </Table>
+            </Container>
 
             <button onClick={goBackToHomePage} className="btn btn-info">
                 Return
