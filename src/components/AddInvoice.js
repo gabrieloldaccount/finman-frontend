@@ -7,6 +7,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import '../index.css'
 import {Table} from "react-bootstrap";
 import ReturnButton from "./ReturnButton";
+import {FaTimes} from "react-icons/fa";
 
 
 const AddInvoice = ({owner, productList, onAddInvoice}) => {
@@ -150,6 +151,7 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                                     <th>Amount</th>
                                     <th>Unit Price</th>
                                     <th>Price</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
 
@@ -160,6 +162,12 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                                         <td>{item.amount}</td>
                                         <td>{item.price} kr/st</td>
                                         <td>{item.price * item.amount} kr</td>
+                                        <td>
+                                            <FaTimes
+                                                style={{color: 'red', cursor: 'pointer', margin: 3}}
+                                                onClick={() => deleteItem(item.id)}
+                                            />
+                                        </td>
                                     </tr>
 
                                 ))}
@@ -182,7 +190,12 @@ const AddInvoice = ({owner, productList, onAddInvoice}) => {
                     </Row>
 
                     <Row>
-                        <Button variant="primary" type='submit' onClick={onSubmit} className={'marginBottom'}>
+                        <Button disabled={!(name && city &&
+                                address && zipcode &&
+                                email && country &&
+                                invoiceDate && expirationDate
+                                && telephone && (items.length !== 0))}
+                                variant="primary" type='submit' onClick={onSubmit} className={'marginBottom'}>
                             Send invoice
                         </Button>
                     </Row>
