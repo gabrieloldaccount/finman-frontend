@@ -4,6 +4,17 @@ import Items from "./Items";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Col, Container, Row } from "react-bootstrap";
+import EmailService from "../api-services/EmailService";
+import { pdf } from "@react-pdf/renderer";
+import PdfDocument from "./seeInvoicesComponents/pdfComponents/PdfDocument";
+
+const blobToPdf = (blob, fileName) => {
+  blob.lastModifiedDate = new Date();
+  blob.name = fileName;
+  console.log("SIZE: " + blob.size);
+  console.log("TYPE: " + blob.type);
+  return blob;
+};
 
 const AddInvoice = ({ owner, productList, onAddInvoice }) => {
   const [name, setName] = useState("TestPerson Persson");
@@ -17,7 +28,24 @@ const AddInvoice = ({ owner, productList, onAddInvoice }) => {
   const [country, setCountry] = useState("Norway");
   const [telephone, setTelephone] = useState("06535342");
 
-  const onSubmit = (e) => {
+  const invoiceData = {
+    source: owner,
+    invoiceDate: invoiceDate,
+    expiryDate: expirationDate,
+    seller: "finman@block.chain",
+    customer: {
+      name: name,
+      address: address,
+      zipCode: zipcode,
+      city: city,
+      country: country,
+      telephone: telephone,
+      email: email,
+    },
+    items: items,
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     //TODO: Add more error-checking here.
@@ -26,22 +54,12 @@ const AddInvoice = ({ owner, productList, onAddInvoice }) => {
       return;
     }
 
-    onAddInvoice({
-      source: owner,
-      invoiceDate: invoiceDate,
-      expiryDate: expirationDate,
-      seller: "finman@block.chain",
-      customer: {
-        name: name,
-        address: address,
-        zipCode: zipcode,
-        city: city,
-        country: country,
-        telephone: telephone,
-        email: email,
-      },
-      items: items,
-    });
+    // Send JSON data 
+    onAddInvoice(invoiceData);
+    // Send pdf
+    let blob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
+    blob = blobToPdf(blob, "invoice.pdf");
+    EmailService.sendPdf(blob, "Invoice");
 
     setName("");
     setAddress("");
