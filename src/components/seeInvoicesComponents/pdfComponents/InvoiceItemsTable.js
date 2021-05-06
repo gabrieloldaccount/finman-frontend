@@ -4,6 +4,7 @@ import InvoiceTableHeader from "./TableItems/InvoiceTableHeader.js";
 import InvoiceTableRow from "./TableItems/InvoiceTableRow";
 import InvoiceTableBlankSpace from "./TableItems/InvoiceTableBlankSpace";
 import InvoiceTableFooter from "./TableItems/InvoiceTableFooter";
+import InvoiceTableMoms from "./TableItems/InvoiceTableMoms";
 
 
 const tableRowsCount = 11;
@@ -23,6 +24,7 @@ const InvoiceItemsTable = ({invoice}) => (
         <InvoiceTableHeader/>
         <InvoiceTableRow items={invoice.items}/>
         <InvoiceTableBlankSpace rowsCount={tableRowsCount - invoice.items.length}/>
+        <InvoiceTableMoms items={invoice.items}/>
         <InvoiceTableFooter items={invoice.items}/>
     </View>
 );

@@ -8,6 +8,7 @@ import InvoiceTitle from "./pdfComponents/InvoiceTitle";
 import InvoiceNo from "./pdfComponents/InvoiceNo";
 import BillTo from "./pdfComponents/BillTo";
 import InvoiceItemsTable from "./pdfComponents/InvoiceItemsTable";
+import Prefilled from "./pdfComponents/Prefilled";
 
 Font.register({
     family: "Oswald",
@@ -71,6 +72,7 @@ const PreviewInvoice = ({invoice}) => {
                                 <InvoiceNo invoice={tempInvoice}/>
                                 <BillTo invoice={tempInvoice}/>
                                 <InvoiceItemsTable invoice={tempInvoice}/>
+                                <Prefilled invoice={tempInvoice}/>
                             </div>
                         ) : null}
                     </Page>

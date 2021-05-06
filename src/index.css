@@ -16,7 +16,7 @@
 body > #root > div {
     background-color: #2f3038;
     background-image: url("bubbles.png");
-    height: 100vh;
+    min-height: 100vh;
 }
 
 h1 {
