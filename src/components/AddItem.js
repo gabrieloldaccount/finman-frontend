@@ -13,7 +13,7 @@ const AddItem = ({ owner, productList, onAddItem }) => {
     e.preventDefault();
 
     //Input checking.
-    if (!amount) {
+    if (!amount || amount < 0) {
       alert("Please add an amount of items");
       return;
     }
