@@ -4,6 +4,8 @@ import Items from "./Items";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import {Col, Container, Row} from "react-bootstrap";
+import {number} from "prop-types";
+import InvoiceService from "../api-services/InvoiceService";
 
 const blobToPdf = (blob, fileName) => {
     blob.lastModifiedDate = new Date();
@@ -12,6 +14,14 @@ const blobToPdf = (blob, fileName) => {
     console.log("TYPE: " + blob.type);
     return blob;
 };
+
+const hasNumber = (text) => {
+    return /\d/.test(text);
+}
+
+const hasLetters = (text) => {
+    return /[a-zA-Z]/.test(text);
+}
 
 const validateEmail = (email) => {
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
@@ -31,12 +41,14 @@ const validateZipcode = (zipcode) => {
     return false
 }
 
-const hasNumber = (text) => {
-    return /\d/.test(text);
-}
+const validateTelephone = (number) => {
+    const formatted = number.toString().trim().replace(/[-]/g, "").replaceAll(" ", "");
 
-const hasLetters = (text) => {
-    return /[a-zA-Z]/.test(text);
+    if (hasLetters(formatted))
+        return true;
+
+    alert("You have entered an invalid email address!")
+    return false
 }
 
 const AddInvoice = ({owner, productList}) => {
@@ -72,9 +84,9 @@ const AddInvoice = ({owner, productList}) => {
         e.preventDefault();
 
         //TODO: Add more error-checking here.
-        if (validateZipcode(zipcode)) {
+        if (validateEmail(email) && validateZipcode(zipcode) && validateTelephone(number) && !hasNumber(name) && !hasNumber(country) && !hasNumber(city)) {
             // Extract pdf
-            /*let pdfBlob = await pdf(<PdfDocument invoice={invoiceData}/>).toBlob();
+            let pdfBlob = await pdf(<PdfDocument invoice={invoiceData}/>).toBlob();
             pdfBlob = blobToPdf(pdfBlob, "invoice.pdf");
 
             // Create and send Invoice
@@ -82,7 +94,7 @@ const AddInvoice = ({owner, productList}) => {
                 invoiceData,
                 pdfBlob,
                 invoiceData.customer.email
-            );*/
+            );
 
             setName("");
             setAddress("");
@@ -94,6 +106,8 @@ const AddInvoice = ({owner, productList}) => {
             setCountry("");
             setCity("");
             setItems([]);
+        } else {
+            alert('Please fill in the correct input')
         }
 
     };
