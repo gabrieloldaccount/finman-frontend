@@ -57,7 +57,7 @@ const App = () => {
 
     return (
         <Router>
-            <div>
+            <div className="background">
                 <NavBar/>
                 <Header/>
                 <Route path="/" exact render={(props) => <HomePage/>}/>
