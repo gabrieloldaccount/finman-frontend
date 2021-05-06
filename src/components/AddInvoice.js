@@ -4,9 +4,9 @@ import Items from "./Items";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Col, Container, Row } from "react-bootstrap";
-import EmailService from "../api-services/EmailService";
 import { pdf } from "@react-pdf/renderer";
 import PdfDocument from "./seeInvoicesComponents/pdfComponents/PdfDocument";
+import InvoiceService from "../api-services/InvoiceService";
 
 const blobToPdf = (blob, fileName) => {
   blob.lastModifiedDate = new Date();
@@ -16,7 +16,7 @@ const blobToPdf = (blob, fileName) => {
   return blob;
 };
 
-const AddInvoice = ({ owner, productList, onAddInvoice }) => {
+const AddInvoice = ({ owner, productList }) => {
   const [name, setName] = useState("TestPerson Persson");
   const [address, setAddress] = useState("Hellroad");
   const [zipcode, setZipCode] = useState("54512");
@@ -54,12 +54,16 @@ const AddInvoice = ({ owner, productList, onAddInvoice }) => {
       return;
     }
 
-    // Send JSON data
-    onAddInvoice(invoiceData);
-    // Send pdf
-    let blob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
-    blob = blobToPdf(blob, "invoice.pdf");
-    EmailService.sendPdf(blob, invoiceData.customer.email);
+    // Extract pdf
+    let pdfBlob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
+    pdfBlob = blobToPdf(pdfBlob, "invoice.pdf");
+
+    // Create and send Invoice
+    InvoiceService.createInvoice(
+      invoiceData,
+      pdfBlob,
+      invoiceData.customer.email
+    );
 
     setName("");
     setAddress("");

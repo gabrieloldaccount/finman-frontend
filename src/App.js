@@ -41,14 +41,19 @@ const App = () => {
     });
   };
 
-  // Add Invoice
-  const addInvoice = async (invoice) => {
-    await InvoiceService.createInvoice(invoice).then((res) => {
-      res.status === 201
-        ? setInvoices([...invoices, invoice])
-        : alert("Error creating this product");
-    });
-  };
+  // Add Invoice (is handled by components directly)
+  /*  const addInvoice = async (invoiceJson, pdfBlob, email) => {
+    console.log("JSON: " + JSON.stringify(invoiceJson));
+    console.log("EMAIL: " + email);
+
+    await InvoiceService.createInvoice(invoiceJson, pdfBlob, email).then(
+      (res) => {
+        res.status === 201
+          ? setInvoices([...invoices, invoiceJson])
+          : alert("Error creating this product");
+      }
+    );
+  };*/
 
   return (
     <Router>
@@ -83,7 +88,6 @@ const App = () => {
             <AddInvoice
               owner={owner}
               productList={products}
-              onAddInvoice={addInvoice}
             />
           )}
         />
