@@ -48,11 +48,30 @@ const AddInvoice = ({ owner, productList }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    //TODO: Add more error-checking here.
-    if (!name && !city) {
-      alert("Please fill in all info for the invoice");
-      return;
-    }
+        //TODO: Add more error-checking here.
+        if (ValidateEmail(email)) {
+            // Extract pdf
+            /*let pdfBlob = await pdf(<PdfDocument invoice={invoiceData}/>).toBlob();
+            pdfBlob = blobToPdf(pdfBlob, "invoice.pdf");
+
+            // Create and send Invoice
+            InvoiceService.createInvoice(
+                invoiceData,
+                pdfBlob,
+                invoiceData.customer.email
+            );*/
+
+            setName("");
+            setAddress("");
+            setZipCode("");
+            setEmail("");
+            setInvoiceDate("");
+            setExpirationDate("");
+            setTelephone("");
+            setCountry("");
+            setCity("");
+            setItems([]);
+        }
 
     // Extract pdf
     let pdfBlob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
