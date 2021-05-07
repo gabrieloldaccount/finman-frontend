@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, View } from "@react-pdf/renderer";
+import {StyleSheet, View} from "@react-pdf/renderer";
 import InvoiceTableHeader from "./TableItems/InvoiceTableHeader.js";
 import InvoiceTableRow from "./TableItems/InvoiceTableRow";
 import InvoiceTableBlankSpace from "./TableItems/InvoiceTableBlankSpace";
 import InvoiceTableFooter from "./TableItems/InvoiceTableFooter";
+import InvoiceTableMoms from "./TableItems/InvoiceTableMoms";
 
 const tableRowsCount = 11;
 
@@ -17,13 +18,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const InvoiceItemsTable = ({ invoice }) => (
-  <View style={styles.tableContainer}>
-    <InvoiceTableHeader />
-    <InvoiceTableRow items={invoice.items} />
-    <InvoiceTableBlankSpace rowsCount={tableRowsCount - invoice.items.length} />
-    <InvoiceTableFooter items={invoice.items} />
-  </View>
+const InvoiceItemsTable = ({invoice}) => (
+    <View style={styles.tableContainer}>
+        <InvoiceTableHeader/>
+        <InvoiceTableRow items={invoice.items}/>
+        <InvoiceTableBlankSpace rowsCount={tableRowsCount - invoice.items.length}/>
+        <InvoiceTableMoms items={invoice.items}/>
+        <InvoiceTableFooter items={invoice.items}/>
+    </View>
 );
 
 export default InvoiceItemsTable;

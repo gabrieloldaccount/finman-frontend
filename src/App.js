@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import AddInvoice from "./components/AddInvoice";
 import About from "./components/About";
 import NavBar from "./components/NavBar";
 import ProductPage from "./components/ProductPage";
+import HomePage from "./components/HomePage";
 import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from "./components/seeInvoicesComponents/InvoiceList";
 import ProductService from "./api-services/ProductService";
-import HomePage from "./components/HomePage";
+import './index.css'
+
+//TODO: Remove Items-state here. It is in AddInvoice instead .
 
 const App = () => {
   const [owner, setOwner] = useState("appa@gmail.se");
@@ -60,7 +62,7 @@ const App = () => {
       <div className="background">
         <NavBar />
         <Header />
-        <Route path="/" exact render={(props) => <HomePage />} />
+        <Route path="/" exact render={(props) => <HomePage props={props}/>} />
         <Route
           path="/all-invoices"
           render={(props) => (
@@ -87,7 +89,7 @@ const App = () => {
           render={() => <AddInvoice owner={owner} productList={products} />}
         />
         <Route path="/about" component={About} />
-        <Footer />
+
       </div>
     </Router>
   );

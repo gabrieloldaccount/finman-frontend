@@ -1,23 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 .container {
-  max-width: 500px;
-  background-color: rgba(217, 59, 129, 0.1);
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  /*border: 1px solid steelblue;*/
-  padding: 30px;
-  border-radius: 5px;
+    max-width: 500px;
+    background-color: rgba(217,59,129,0.1);
+    overflow: auto;
+    min-height: 300px;
+    /*border: 1px solid steelblue;*/
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
 }
 
-.background {
-  background-color: #2f3038;
-  background-image: url("bubbles.png");
-  background-size: 1100px 853px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: right;
+body > #root > div {
+    background-color: #2f3038;
+    background-image: url("bubbles.png");
+    min-height: 100vh;
 }
 
 h1 {
@@ -29,124 +26,36 @@ tr {
   color: antiquewhite;
 }
 
-/* Commented out when trying to implement Bootstrap CSS instead.
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.invoice-label {
+    color: antiquewhite;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    max-width: 500px;
-    margin: 30px auto;
-    overflow: auto;
-    min-height: 300px;
-    border: 1px solid steelblue;
-    padding: 30px;
+.addItem {
+    margin-right: 20px;
+    margin-bottom: 8px;
+    border: 0px solid #1762A7;
     border-radius: 5px;
+    min-height: 38px;
+    align-self: auto;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.marginLeft {
+    margin-left: 20px;
+}
+
+.marginBottom {
     margin-bottom: 20px;
 }
 
-.btn {
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: inherit;
+.returnButton {
+    position: relative;
+    left: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.btn:focus {
-    outline: none;
-}
+.returnArrow {
+    width: 30px;
+    height: 47px;
 
-.btn:active {
-    transform: scale(0.98);
 }
-
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-.item {
-    background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.item h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.invoice {
-    background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.invoice h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.add-form {
-    margin-bottom: 20px;
-}
-
-.form-control {
-    margin: 20px 0px;
-}
-
-.form-control label {
-    display: block;
-}
-
-.form-control input {
-    width: 100%;
-    height: 40px;
-    margin: 5px;
-    padding: 3px 7px;
-    font-size: 17px;
-}
-
-.form-control-check {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.form-control-check label {
-    flex: 1;
-}
-
-.form-control-check input {
-    flex: 2;
-    height: 20px;
-}
-
-footer {
-    margin-top: 30px;
-    text-align: center;
-}
- */

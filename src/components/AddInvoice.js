@@ -1,13 +1,14 @@
-import { useState } from "react";
+import React, {useState} from 'react'
 import AddItem from "./AddItem";
-import Items from "./Items";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Col, Container, Row } from "react-bootstrap";
-import { number } from "prop-types";
+import {Col, Container, Row, Table} from "react-bootstrap";
+import {number} from "prop-types";
 import InvoiceService from "../api-services/InvoiceService";
-import { pdf } from "@react-pdf/renderer";
+import {pdf} from "@react-pdf/renderer";
 import PdfDocument from "./seeInvoicesComponents/pdfComponents/PdfDocument";
+import '../index.css'
+import {FaTimes} from "react-icons/fa";
 
 const blobToPdf = (blob, fileName) => {
   blob.lastModifiedDate = new Date();
@@ -20,6 +21,7 @@ const blobToPdf = (blob, fileName) => {
 const hasNumber = (text) => {
   return /\d/.test(text);
 };
+
 
 const hasLetters = (text) => {
   return /[a-zA-Z]/.test(text);
@@ -60,7 +62,7 @@ const validateTelephone = (number) => {
   return false;
 };
 
-const AddInvoice = ({ owner, productList }) => {
+const AddInvoice = ({owner, productList}) => {
   const [name, setName] = useState("TestPerson Persson");
   const [address, setAddress] = useState("Hellroad");
   const [zipcode, setZipCode] = useState("54512");
@@ -102,7 +104,7 @@ const AddInvoice = ({ owner, productList }) => {
       !hasNumber(city)
     ) {
       // Extract pdf
-      let pdfBlob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
+      let pdfBlob = await pdf(<PdfDocument invoice={invoiceData}/>).toBlob();
       pdfBlob = blobToPdf(pdfBlob, "invoice.pdf");
 
       // Create and send Invoice
@@ -133,8 +135,8 @@ const AddInvoice = ({ owner, productList }) => {
   };
 
   //Deletes an item from the invoice's items list
-  const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+  const deleteItem = (name) => {
+    setItems(items.filter((item) => item.name !== name))
   };
 
   const sumOfProducts = (items) => {
@@ -150,7 +152,7 @@ const AddInvoice = ({ owner, productList }) => {
         <Row>
           <Col>
             <Form.Group controlId="formCustomerName">
-              <Form.Label>Customer Name</Form.Label>
+              <Form.Label className="invoice-label">Customer Name</Form.Label>
               <Form.Control
                 type="string"
                 value={name}
@@ -160,7 +162,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
 
             <Form.Group controlId="formCustomerEmail">
-              <Form.Label>Address</Form.Label>
+              <Form.Label className="invoice-label">Address</Form.Label>
               <Form.Control
                 type="string"
                 value={address}
@@ -170,7 +172,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
 
             <Form.Group controlId="formCustomerEmail">
-              <Form.Label>Zipcode</Form.Label>
+              <Form.Label className="invoice-label">Zipcode</Form.Label>
               <Form.Control
                 type="string"
                 value={zipcode}
@@ -180,7 +182,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
 
             <Form.Group controlId="formCustomerEmail">
-              <Form.Label>City</Form.Label>
+              <Form.Label className="invoice-label">City</Form.Label>
               <Form.Control
                 type="string"
                 value={city}
@@ -190,7 +192,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
 
             <Form.Group controlId="formCustomerEmail">
-              <Form.Label>Telephone</Form.Label>
+              <Form.Label className="invoice-label">Telephone</Form.Label>
               <Form.Control
                 type="number"
                 value={telephone}
@@ -201,7 +203,7 @@ const AddInvoice = ({ owner, productList }) => {
           </Col>
           <Col>
             <Form.Group controlId="formInvoiceDate">
-              <Form.Label>Invoice Date</Form.Label>
+              <Form.Label className="invoice-label">Invoice Date</Form.Label>
               <Form.Control
                 type="date"
                 value={invoiceDate}
@@ -209,7 +211,7 @@ const AddInvoice = ({ owner, productList }) => {
               />
             </Form.Group>
             <Form.Group controlId="formExpirationDate">
-              <Form.Label>Expiration Date</Form.Label>
+              <Form.Label className="invoice-label">Expiration Date</Form.Label>
               <Form.Control
                 type="date"
                 value={expirationDate}
@@ -218,7 +220,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
 
             <Form.Group controlId="formCustomerEmail">
-              <Form.Label>Country</Form.Label>
+              <Form.Label className="invoice-label">Country</Form.Label>
               <Form.Control
                 type="string"
                 value={country}
@@ -228,7 +230,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
 
             <Form.Group controlId="formCustomerEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label className="invoice-label">Email</Form.Label>
               <Form.Control
                 type="email"
                 value={email}
@@ -247,16 +249,53 @@ const AddInvoice = ({ owner, productList }) => {
         </Row>
         <Row>
           {items.length > 0 ? (
-            <Items items={items} onDelete={deleteItem} />
+            <Table striped bordered hover variant="dark">
+              <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Amount</th>
+                <th>Unit Price</th>
+                <th>Price</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              {items.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>{item.amount}</td>
+                  <td>{item.price} kr/st</td>
+                  <td>{item.price * item.amount} kr</td>
+                  <td>
+                    <FaTimes
+                      style={{color: 'red', cursor: 'pointer', margin: 3}}
+                      onClick={() => deleteItem(item.name)}
+                    />
+                  </td>
+                </tr>
+
+              ))}
+              </tbody>
+            </Table>
+
           ) : (
-            "No Items To Show "
+            <p className={'invoice-label'}>
+              No Items To Show
+            </p>
+
           )}
         </Row>
 
-        <Row>{"Total: " + sumOfProducts(items)}</Row>
+        <Row className="invoice-label">{"Total: " + sumOfProducts(items)}</Row>
 
         <Row>
-          <Button variant="primary" type="submit" onClick={onSubmit}>
+          <Button disabled={!(name && city &&
+            address && zipcode &&
+            email && country &&
+            invoiceDate && expirationDate
+            && telephone && (items.length !== 0))}
+                  variant="primary" type='submit' onClick={onSubmit} className={'marginBottom'}>
             Send invoice
           </Button>
         </Row>

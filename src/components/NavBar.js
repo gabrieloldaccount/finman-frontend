@@ -1,9 +1,9 @@
 import "./NavBar.css";
 import logo from "../logo.png";
 import dot from "../dot.png";
-import { useLocation } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
-import { Navbar, Nav } from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 
 const NavBar = () => {
   const location = useLocation();

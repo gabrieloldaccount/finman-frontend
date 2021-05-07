@@ -1,6 +1,5 @@
 import Product from "./Product";
-import { Table } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import {Table} from "react-bootstrap";
 
 const Products = ({ products, onDelete }) => {
   return (

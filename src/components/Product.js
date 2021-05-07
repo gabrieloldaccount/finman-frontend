@@ -1,4 +1,4 @@
-import { FaTimes, FaPencilAlt } from "react-icons/fa";
+import {FaTimes} from "react-icons/fa";
 
 const Product = ({ product, onDelete }) => {
   return (
