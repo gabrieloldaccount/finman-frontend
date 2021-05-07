@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text, View} from "@react-pdf/renderer";
+import { StyleSheet, Text, View } from "@react-pdf/renderer";
 
 const borderColor = "#90e5fc";
 const styles = StyleSheet.create({

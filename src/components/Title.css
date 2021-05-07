@@ -1,25 +1,25 @@
 .header {
-    display: flex;
-    position: fixed;
-    right: 200px;
-    top: 100px;
-    max-height: 150px;
+  display: flex;
+  position: fixed;
+  right: 200px;
+  top: 100px;
+  max-height: 150px;
 }
 
 .smallTitle {
-    position: relative;
-    text-transform: uppercase;
-    color: antiquewhite;
-    font-size: 30px;
-    bottom: 0px;
-    margin-right: 10px;
+  position: relative;
+  text-transform: uppercase;
+  color: antiquewhite;
+  font-size: 30px;
+  bottom: 0px;
+  margin-right: 10px;
 }
 
 .largeTitle {
-    position: relative;
-    /*position: relative;*/
-    color: rgba(23, 98, 167, 1);
-    text-transform: uppercase;
-    font-size: 50px;
-    bottom: 23px;
+  position: relative;
+  /*position: relative;*/
+  color: rgba(23, 98, 167, 1);
+  text-transform: uppercase;
+  font-size: 50px;
+  bottom: 23px;
 }

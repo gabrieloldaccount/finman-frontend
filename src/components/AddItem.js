@@ -1,8 +1,8 @@
-import {useState} from "react";
+import { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import {Row} from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 const AddItem = ({ owner, productList, onAddItem }) => {
   const [selectedProduct, setSelectedProduct] = useState("");
@@ -31,32 +31,40 @@ const AddItem = ({ owner, productList, onAddItem }) => {
     setSelectedProduct("");
   };
 
-    return (
-        //TODO: Implement proper product list read-in from db here.
-        <div className={'marginLeft'}>
-            <Row>
-                <Dropdown className={'addItem'}>
-                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                        {selectedProduct === '' ? "Select Product" : selectedProduct.name}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        {productList.map((product, index) => (
-                            <Dropdown.Item key={product.name} onClick={() => setSelectedProduct(product)}>{product.name}</Dropdown.Item>
-                        ))}
-                    </Dropdown.Menu>
-                </Dropdown>
+  return (
+    //TODO: Implement proper product list read-in from db here.
+    <div className={"marginLeft"}>
+      <Row>
+        <Dropdown className={"addItem"}>
+          <Dropdown.Toggle variant="primary" id="dropdown-basic">
+            {selectedProduct === "" ? "Select Product" : selectedProduct.name}
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            {productList.map((product, index) => (
+              <Dropdown.Item
+                key={product.name}
+                onClick={() => setSelectedProduct(product)}
+              >
+                {product.name}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
 
-                <Form.Group className={'addItem'} controlId="formQuantity">
-                    <Form.Control
-                                  type="number"
-                                  placeholder='Enter quantity'
-                                  value={amount}
-                                  onChange={(e) => setAmount(e.target.value)}/>
-                </Form.Group>
-                <Button variant='primary' onClick={(e) => addItem(e)}>Add item</Button>
-            </Row>
-        </div>
-    )
-}
+        <Form.Group className={"addItem"} controlId="formQuantity">
+          <Form.Control
+            type="number"
+            placeholder="Enter quantity"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+        </Form.Group>
+        <Button variant="primary" onClick={(e) => addItem(e)}>
+          Add item
+        </Button>
+      </Row>
+    </div>
+  );
+};
 
 export default AddItem;

@@ -1,20 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 .container {
-    max-width: 500px;
-    background-color: rgba(217,59,129,0.1);
-    overflow: auto;
-    min-height: 300px;
-    /*border: 1px solid steelblue;*/
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 5px;
+  max-width: 500px;
+  background-color: rgba(217, 59, 129, 0.1);
+  overflow: auto;
+  min-height: 300px;
+  /*border: 1px solid steelblue;*/
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 body > #root > div {
-    background-color: #2f3038;
-    background-image: url("bubbles.png");
-    min-height: 100vh;
+  background-color: #2f3038;
+  background-image: url("bubbles.png");
+  min-height: 100vh;
 }
 
 h1 {
@@ -27,35 +27,34 @@ tr {
 }
 
 .invoice-label {
-    color: antiquewhite;
+  color: antiquewhite;
 }
 
 .addItem {
-    margin-right: 20px;
-    margin-bottom: 8px;
-    border: 0px solid #1762A7;
-    border-radius: 5px;
-    min-height: 38px;
-    align-self: auto;
+  margin-right: 20px;
+  margin-bottom: 8px;
+  border: 0px solid #1762a7;
+  border-radius: 5px;
+  min-height: 38px;
+  align-self: auto;
 }
 
 .marginLeft {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .marginBottom {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .returnButton {
-    position: relative;
-    left: 200px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  position: relative;
+  left: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .returnArrow {
-    width: 30px;
-    height: 47px;
-
+  width: 30px;
+  height: 47px;
 }

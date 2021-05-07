@@ -1,7 +1,7 @@
-import {Container, Table} from "react-bootstrap";
-import React, {useState} from "react";
+import { Container, Table } from "react-bootstrap";
+import React, { useState } from "react";
 import "react-responsive-modal/styles.css";
-import {Modal} from "react-responsive-modal";
+import { Modal } from "react-responsive-modal";
 import PreviewInvoice from "./PreviewInvoice";
 import "./pdfStyling.css";
 import ReturnButton from "../ReturnButton";
@@ -48,63 +48,63 @@ const InvoiceList = ({ props, invoiceList }) => {
     onOpenModal();
   };
 
-    return (
-        <div>
-            <Modal
-                open={open}
-                onClose={onCloseModal}
-                center
-                classNames={{
-                    overlay: "customOverlay",
-                    modal: "customModal",
-                }}
-            >
-                {open ? (
-                    <PreviewInvoice invoice={invoice}/>
-                ) : (
-                    console.log("PREVIEW_INVOICE HIDDEN")
-                )}
-            </Modal>
-            <Container>
-                <Table striped bordered hover variant="dark">
-                    <thead>
-                    <tr>
-                        <th>Sent</th>
-                        <th>Expires</th>
-                        <th>Status</th>
-                        <th>Serial Number</th>
-                        <th>Buyer</th>
-                        <th>Price</th>
-                    </tr>
-                    </thead>
+  return (
+    <div>
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        center
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModal",
+        }}
+      >
+        {open ? (
+          <PreviewInvoice invoice={invoice} />
+        ) : (
+          console.log("PREVIEW_INVOICE HIDDEN")
+        )}
+      </Modal>
+      <Container>
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th>Sent</th>
+              <th>Expires</th>
+              <th>Status</th>
+              <th>Serial Number</th>
+              <th>Buyer</th>
+              <th>Price</th>
+            </tr>
+          </thead>
 
-                    <tbody>
-                    {invoiceList.map((invoice) => (
-                        <tr key={invoice.source}>
-                            <td>{invoice.invoiceDate}</td>
-                            {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
-                            <td>{invoice.expiryDate}</td>
-                            {/*TODO: Add status when backend has it*/}
-                            <td>PENDING</td>
-                            <td>{invoice.serialNumber}</td>
-                            <td>{invoice.customer.name}</td>
-                            <td>{sumOfProducts(invoice.items)}</td>
-                            <td>
-                                <button
-                                    className="btn btn-info"
-                                    onClick={() => loadPreview(invoice)}
-                                >
-                                    Preview
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </Table>
-                <ReturnButton className="returnButton" />
-            </Container>
-        </div>
-    );
+          <tbody>
+            {invoiceList.map((invoice) => (
+              <tr key={invoice.source}>
+                <td>{invoice.invoiceDate}</td>
+                {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
+                <td>{invoice.expiryDate}</td>
+                {/*TODO: Add status when backend has it*/}
+                <td>PENDING</td>
+                <td>{invoice.serialNumber}</td>
+                <td>{invoice.customer.name}</td>
+                <td>{sumOfProducts(invoice.items)}</td>
+                <td>
+                  <button
+                    className="btn btn-info"
+                    onClick={() => loadPreview(invoice)}
+                  >
+                    Preview
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        <ReturnButton className="returnButton" />
+      </Container>
+    </div>
+  );
 };
 
 export default InvoiceList;

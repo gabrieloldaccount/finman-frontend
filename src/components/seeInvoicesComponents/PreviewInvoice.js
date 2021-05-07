@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-import {PDFViewer} from "@react-pdf/renderer";
+import { PDFViewer } from "@react-pdf/renderer";
 import PdfDocument from "./pdfComponents/PdfDocument";
 
 const PreviewInvoice = ({ invoice }) => {

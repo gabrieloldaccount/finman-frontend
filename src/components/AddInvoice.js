@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import AddItem from "./AddItem";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import {Col, Container, Row, Table} from "react-bootstrap";
-import {number} from "prop-types";
+import { Col, Container, Row, Table } from "react-bootstrap";
+import { number } from "prop-types";
 import InvoiceService from "../api-services/InvoiceService";
-import {pdf} from "@react-pdf/renderer";
+import { pdf } from "@react-pdf/renderer";
 import PdfDocument from "./seeInvoicesComponents/pdfComponents/PdfDocument";
-import '../index.css'
-import {FaTimes} from "react-icons/fa";
+import "../index.css";
+import { FaTimes } from "react-icons/fa";
 
 const blobToPdf = (blob, fileName) => {
   blob.lastModifiedDate = new Date();
@@ -21,7 +21,6 @@ const blobToPdf = (blob, fileName) => {
 const hasNumber = (text) => {
   return /\d/.test(text);
 };
-
 
 const hasLetters = (text) => {
   return /[a-zA-Z]/.test(text);
@@ -62,7 +61,7 @@ const validateTelephone = (number) => {
   return false;
 };
 
-const AddInvoice = ({owner, productList}) => {
+const AddInvoice = ({ owner, productList }) => {
   const [name, setName] = useState("TestPerson Persson");
   const [address, setAddress] = useState("Hellroad");
   const [zipcode, setZipCode] = useState("54512");
@@ -104,7 +103,7 @@ const AddInvoice = ({owner, productList}) => {
       !hasNumber(city)
     ) {
       // Extract pdf
-      let pdfBlob = await pdf(<PdfDocument invoice={invoiceData}/>).toBlob();
+      let pdfBlob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
       pdfBlob = blobToPdf(pdfBlob, "invoice.pdf");
 
       // Create and send Invoice
@@ -136,7 +135,7 @@ const AddInvoice = ({owner, productList}) => {
 
   //Deletes an item from the invoice's items list
   const deleteItem = (name) => {
-    setItems(items.filter((item) => item.name !== name))
+    setItems(items.filter((item) => item.name !== name));
   };
 
   const sumOfProducts = (items) => {
@@ -251,51 +250,60 @@ const AddInvoice = ({owner, productList}) => {
           {items.length > 0 ? (
             <Table striped bordered hover variant="dark">
               <thead>
-              <tr>
-                <th>Product Name</th>
-                <th>Amount</th>
-                <th>Unit Price</th>
-                <th>Price</th>
-                <th>Delete</th>
-              </tr>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Amount</th>
+                  <th>Unit Price</th>
+                  <th>Price</th>
+                  <th>Delete</th>
+                </tr>
               </thead>
 
               <tbody>
-              {items.map((item) => (
-                <tr key={item.name}>
-                  <td>{item.name}</td>
-                  <td>{item.amount}</td>
-                  <td>{item.price} kr/st</td>
-                  <td>{item.price * item.amount} kr</td>
-                  <td>
-                    <FaTimes
-                      style={{color: 'red', cursor: 'pointer', margin: 3}}
-                      onClick={() => deleteItem(item.name)}
-                    />
-                  </td>
-                </tr>
-
-              ))}
+                {items.map((item) => (
+                  <tr key={item.name}>
+                    <td>{item.name}</td>
+                    <td>{item.amount}</td>
+                    <td>{item.price} kr/st</td>
+                    <td>{item.price * item.amount} kr</td>
+                    <td>
+                      <FaTimes
+                        style={{ color: "red", cursor: "pointer", margin: 3 }}
+                        onClick={() => deleteItem(item.name)}
+                      />
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
-
           ) : (
-            <p className={'invoice-label'}>
-              No Items To Show
-            </p>
-
+            <p className={"invoice-label"}>No Items To Show</p>
           )}
         </Row>
 
         <Row className="invoice-label">{"Total: " + sumOfProducts(items)}</Row>
 
         <Row>
-          <Button disabled={!(name && city &&
-            address && zipcode &&
-            email && country &&
-            invoiceDate && expirationDate
-            && telephone && (items.length !== 0))}
-                  variant="primary" type='submit' onClick={onSubmit} className={'marginBottom'}>
+          <Button
+            disabled={
+              !(
+                name &&
+                city &&
+                address &&
+                zipcode &&
+                email &&
+                country &&
+                invoiceDate &&
+                expirationDate &&
+                telephone &&
+                items.length !== 0
+              )
+            }
+            variant="primary"
+            type="submit"
+            onClick={onSubmit}
+            className={"marginBottom"}
+          >
             Send invoice
           </Button>
         </Row>

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import AddInvoice from "./components/AddInvoice";
 import About from "./components/About";
@@ -9,7 +9,7 @@ import HomePage from "./components/HomePage";
 import InvoiceService from "./api-services/InvoiceService";
 import InvoiceList from "./components/seeInvoicesComponents/InvoiceList";
 import ProductService from "./api-services/ProductService";
-import './index.css'
+import "./index.css";
 
 //TODO: Remove Items-state here. It is in AddInvoice instead .
 
@@ -62,7 +62,7 @@ const App = () => {
       <div className="background">
         <NavBar />
         <Header />
-        <Route path="/" exact render={(props) => <HomePage props={props}/>} />
+        <Route path="/" exact render={(props) => <HomePage props={props} />} />
         <Route
           path="/all-invoices"
           render={(props) => (
@@ -89,7 +89,6 @@ const App = () => {
           render={() => <AddInvoice owner={owner} productList={products} />}
         />
         <Route path="/about" component={About} />
-
       </div>
     </Router>
   );

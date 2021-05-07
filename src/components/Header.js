@@ -1,52 +1,44 @@
-import PropTypes from 'prop-types'
-import {useLocation} from 'react-router-dom'
-import './Title.css'
+import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
+import "./Title.css";
 
 const Header = () => {
   const location = useLocation();
 
-    // Switches title to correspond to tab selected in NavBar
-    function titleSwitchSmall() {
-        switch (location.pathname) {
-            case '/':
-                return 'Home';
-            case '/products':
-                return 'Product ';
-            case '/NewInvoice':
-                return 'Create ';
-            case '/all-invoices':
-                return 'All'
-        }
+  // Switches title to correspond to tab selected in NavBar
+  function titleSwitchSmall() {
+    switch (location.pathname) {
+      case "/":
+        return "Home";
+      case "/products":
+        return "Product ";
+      case "/NewInvoice":
+        return "Create ";
+      case "/all-invoices":
+        return "All";
     }
+  }
 
-    function titleSwitchLarge() {
-        switch (location.pathname) {
-            case '/':
-                return 'page';
-            case '/products':
-                return 'Catalog';
-            case '/NewInvoice':
-                return 'Invoice';
-            case '/all-invoices':
-                return ' Invoices'
-        }
+  function titleSwitchLarge() {
+    switch (location.pathname) {
+      case "/":
+        return "page";
+      case "/products":
+        return "Catalog";
+      case "/NewInvoice":
+        return "Invoice";
+      case "/all-invoices":
+        return " Invoices";
     }
+  }
 
-    return (
-        <header className='header'>
-                <span className='smallTitle'>
-                    {
-                        titleSwitchSmall()
-                    }
-                </span>
-                <span className='largeTitle'>
-                    {
-                        titleSwitchLarge()
-                    }
-                </span>
-        </header>
-    );
-}
+  return (
+    <header className="header">
+      <span className="smallTitle">{titleSwitchSmall()}</span>
+      <span className="largeTitle">{titleSwitchLarge()}</span>
+    </header>
+  );
+};
 
 Header.defaultProps = {
   title: "Welcome to A.Finman ",

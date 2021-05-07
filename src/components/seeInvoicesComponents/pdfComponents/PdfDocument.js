@@ -1,5 +1,12 @@
 import logo from "./../../../logo.png";
-import {Document, Font, Image, Page, StyleSheet, View,} from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  Image,
+  Page,
+  StyleSheet,
+  View,
+} from "@react-pdf/renderer";
 import InvoiceTitle from "./InvoiceTitle";
 import InvoiceNo from "./InvoiceNo";
 import BillTo from "./BillTo";
