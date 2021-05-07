@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom'
 import './Title.css'
 
 const Header = () => {
-    const location = useLocation()
+  const location = useLocation();
 
     // Switches title to correspond to tab selected in NavBar
     function titleSwitchSmall() {
@@ -49,11 +49,11 @@ const Header = () => {
 }
 
 Header.defaultProps = {
-    title: 'Welcome to A.Finman ',
-}
+  title: "Welcome to A.Finman ",
+};
 
 Header.propTypes = {
-    title: PropTypes.string.isRequired,
-}
+  title: PropTypes.string.isRequired,
+};
 
-export default Header
+export default Header;

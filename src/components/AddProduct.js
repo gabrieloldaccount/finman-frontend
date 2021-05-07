@@ -1,28 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
 import {Button} from "react-bootstrap";
-
 import '../index.css'
 
-const AddProduct = ({owner, onAdd}) => {
+const AddProduct = ({ owner, onAdd }) => {
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
 
 
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState('')
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-    const onSubmit = (e) => {
-        e.preventDefault()
+    onAdd({
+      owner: owner,
+      name: name,
+      price: price,
+    });
 
-        onAdd({
-            owner: owner,
-            name: name,
-            price: price,
-        })
-
-        //Reset local state
-        setName('')
-        setPrice('')
-    }
+    //Reset local state
+    setName("");
+    setPrice("");
+  };
 
     return (
         <div>

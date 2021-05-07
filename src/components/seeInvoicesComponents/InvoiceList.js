@@ -1,53 +1,52 @@
-import {Table} from "react-bootstrap";
+import {Container, Table} from "react-bootstrap";
 import React, {useState} from "react";
 import "react-responsive-modal/styles.css";
 import {Modal} from "react-responsive-modal";
 import PreviewInvoice from "./PreviewInvoice";
 import "./pdfStyling.css";
-import {Col, Container, Row} from "react-bootstrap";
 import ReturnButton from "../ReturnButton";
 
-const InvoiceList = ({props, invoiceList}) => {
-    const [open, setOpen] = useState(false);
-    const [invoice, setInvoice] = useState({
-        source: "",
-        serialNumber: "",
-        vat: "",
-        ocr: "",
-        invoiceDate: "",
-        expiryDate: "",
-        bankgiro: "",
-        seller: "",
-        customer: {
-            name: "",
-            address: "",
-            zipCode: "",
-            city: "",
-            country: "",
-            telephone: "",
-            email: ""
-        },
-        isPaid: "",
-        items: [],
-    });
+const InvoiceList = ({ props, invoiceList }) => {
+  const [open, setOpen] = useState(false);
+  const [invoice, setInvoice] = useState({
+    source: "",
+    serialNumber: "",
+    vat: "",
+    ocr: "",
+    invoiceDate: "",
+    expiryDate: "",
+    bankgiro: "",
+    seller: "",
+    customer: {
+      name: "",
+      address: "",
+      zipCode: "",
+      city: "",
+      country: "",
+      telephone: "",
+      email: "",
+    },
+    isPaid: "",
+    items: [],
+  });
 
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
-    const sumOfProducts = (items) => {
-        let sum = 0;
-        items.forEach((product) => (sum += product.price * product.amount));
-        return sum;
-    };
+  const sumOfProducts = (items) => {
+    let sum = 0;
+    items.forEach((product) => (sum += product.price * product.amount));
+    return sum;
+  };
 
-    const goBackToHomePage = () => {
-        props.history.push("/");
-    };
+  const goBackToHomePage = () => {
+    props.history.push("/");
+  };
 
-    const loadPreview = (invoice) => {
-        setInvoice(invoice);
-        onOpenModal();
-    };
+  const loadPreview = (invoice) => {
+    setInvoice(invoice);
+    onOpenModal();
+  };
 
     return (
         <div>
@@ -60,7 +59,6 @@ const InvoiceList = ({props, invoiceList}) => {
                     modal: "customModal",
                 }}
             >
-                {}
                 {open ? (
                     <PreviewInvoice invoice={invoice}/>
                 ) : (

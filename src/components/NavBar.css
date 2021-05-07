@@ -1,63 +1,63 @@
 .title {
-    position: absolute;
-    left: 150px;
-    color: antiquewhite;
-    font-size: 40px;
+  position: absolute;
+  left: 150px;
+  color: antiquewhite;
+  font-size: 40px;
 }
 
 .title:hover {
-    color: antiquewhite;
-    text-decoration: none;
+  color: antiquewhite;
+  text-decoration: none;
 }
 
 .link {
-    position: relative;
-    left: 300px;
-    top: 10px;
-    color: antiquewhite;
-    font-size: 12px;
-    text-align: center;
-    padding-left: 20px;
+  position: relative;
+  left: 300px;
+  top: 10px;
+  color: antiquewhite;
+  font-size: 12px;
+  text-align: center;
+  padding-left: 20px;
 }
 
 .link:hover {
-    color: #DC3A80;
-    text-decoration: none;
+  color: #dc3a80;
+  text-decoration: none;
 }
 
 .collapsebar {
-    background-color: #DC3A80;
+  background-color: #dc3a80;
 }
 
 .signout {
-    position: absolute;
-    top: 60px;
-    right: 50px;
-    color: antiquewhite;
-    font-size: 12px;
-    text-align: center;
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  color: antiquewhite;
+  font-size: 12px;
+  text-align: center;
 }
 
 .signout:hover {
-    color: #DC3A80;
-    text-decoration: none;
+  color: #dc3a80;
+  text-decoration: none;
 }
 
 .dot {
-    position: relative;
-    top: 11px;
-    left: 305px;
+  position: relative;
+  top: 11px;
+  left: 305px;
 }
 
 .navbar {
-    font-family: inherit;
-    height: 140px;
+  font-family: inherit;
+  height: 140px;
 }
 
 .logo {
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    left: 40px;
-    top: 12px;
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  left: 40px;
+  top: 12px;
 }

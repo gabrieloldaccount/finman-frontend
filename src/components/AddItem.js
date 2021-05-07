@@ -1,30 +1,35 @@
-import {useState} from 'react'
+import {useState} from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import {Container, Row} from "react-bootstrap";
+import {Row} from "react-bootstrap";
 
-const AddItem = ({owner, productList, onAddItem}) => {
-    const [selectedProduct, setSelectedProduct] = useState('')
-    const [amount, setAmount] = useState('')
+const AddItem = ({ owner, productList, onAddItem }) => {
+  const [selectedProduct, setSelectedProduct] = useState("");
+  const [amount, setAmount] = useState("");
 
-    //The submit method for AddItems. Checks, submits and resets the internal state.
-    const addItem = (e) => {
-        e.preventDefault()
+  //The submit method for AddItems. Checks, submits and resets the internal state.
+  const addItem = (e) => {
+    e.preventDefault();
 
-        //Input checking.
-        if (!amount) {
-            alert('Please add an amount of items')
-            return
-        }
-
-        //Passes values to AddInvoice where state is handled.
-        onAddItem({owner: owner, amount: amount, name: selectedProduct.name, price: selectedProduct.price})
-
-        //Resets the internal state.
-        setAmount('')
-        setSelectedProduct('')
+    //Input checking.
+    if (!amount || amount < 0) {
+      alert("Please add an amount of items");
+      return;
     }
+
+    //Passes values to AddInvoice where state is handled.
+    onAddItem({
+      owner: owner,
+      amount: amount,
+      name: selectedProduct.name,
+      price: selectedProduct.price,
+    });
+
+    //Resets the internal state.
+    setAmount("");
+    setSelectedProduct("");
+  };
 
     return (
         //TODO: Implement proper product list read-in from db here.
@@ -54,4 +59,4 @@ const AddItem = ({owner, productList, onAddItem}) => {
     )
 }
 
-export default AddItem
+export default AddItem;

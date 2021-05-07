@@ -1,22 +1,21 @@
-import React from 'react';
-import {StyleSheet, View} from '@react-pdf/renderer';
+import React from "react";
+import {StyleSheet, View} from "@react-pdf/renderer";
 import InvoiceTableHeader from "./TableItems/InvoiceTableHeader.js";
 import InvoiceTableRow from "./TableItems/InvoiceTableRow";
 import InvoiceTableBlankSpace from "./TableItems/InvoiceTableBlankSpace";
 import InvoiceTableFooter from "./TableItems/InvoiceTableFooter";
 import InvoiceTableMoms from "./TableItems/InvoiceTableMoms";
 
-
 const tableRowsCount = 11;
 
 const styles = StyleSheet.create({
-    tableContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginTop: 24,
-        borderWidth: 2.5,
-        borderColor: '#bff0fd',
-    },
+  tableContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 24,
+    borderWidth: 2.5,
+    borderColor: "#bff0fd",
+  },
 });
 
 const InvoiceItemsTable = ({invoice}) => (
@@ -29,4 +28,4 @@ const InvoiceItemsTable = ({invoice}) => (
     </View>
 );
 
-export default InvoiceItemsTable
+export default InvoiceItemsTable;

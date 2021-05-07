@@ -33,28 +33,28 @@
 }
 
 .bigpart {
-    position: relative;
-    color: rgba(220, 58, 128, 0.6);
-    text-transform: uppercase;
-    font-size: 50px;
-    bottom: 2px;
+  position: relative;
+  color: rgba(220, 58, 128, 0.6);
+  text-transform: uppercase;
+  font-size: 50px;
+  bottom: 2px;
 }
 
 .bigpart:hover {
-    color: rgba(220, 58, 128, 0.6);
-    text-decoration: none;
+  color: rgba(220, 58, 128, 0.6);
+  text-decoration: none;
 }
 
 .smallpart {
-    position: relative;
-    color: antiquewhite;
-    text-transform: uppercase;
-    font-size: 30px;
-    left: 10px;
-    bottom: 2px;
+  position: relative;
+  color: antiquewhite;
+  text-transform: uppercase;
+  font-size: 30px;
+  left: 10px;
+  bottom: 2px;
 }
 
 .smallpart:hover {
-    color: antiquewhite;
-    text-decoration: none;
+  color: antiquewhite;
+  text-decoration: none;
 }

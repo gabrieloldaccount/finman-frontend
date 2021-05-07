@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {StyleSheet, Text, View} from '@react-pdf/renderer';
+import {StyleSheet, Text} from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
     billTo: {
