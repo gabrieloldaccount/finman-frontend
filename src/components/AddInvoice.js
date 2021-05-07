@@ -260,29 +260,29 @@ const AddInvoice = ({owner, productList}) => {
               </tr>
               </thead>
 
-                                <tbody>
-                                {items.map((item) =>(
-                                    <tr>
-                                        <td>{item.name}</td>
-                                        <td>{item.amount}</td>
-                                        <td>{item.price} kr/st</td>
-                                        <td>{item.price * item.amount} kr</td>
-                                        <td>
-                                            <FaTimes
-                                                style={{color: 'red', cursor: 'pointer', margin: 3}}
-                                                onClick={() => deleteItem(item.id)}
-                                            />
-                                        </td>
-                                    </tr>
+              <tbody>
+              {items.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>{item.amount}</td>
+                  <td>{item.price} kr/st</td>
+                  <td>{item.price * item.amount} kr</td>
+                  <td>
+                    <FaTimes
+                      style={{color: 'red', cursor: 'pointer', margin: 3}}
+                      onClick={() => deleteItem(item.name)}
+                    />
+                  </td>
+                </tr>
 
-                                ))}
-                                </tbody>
-                            </Table>
+              ))}
+              </tbody>
+            </Table>
 
-                        ) : (
-                            <p className={'invoice-label'}>
-                                No Items To Show
-                            </p>
+          ) : (
+            <p className={'invoice-label'}>
+              No Items To Show
+            </p>
 
           )}
         </Row>

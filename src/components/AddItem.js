@@ -41,7 +41,7 @@ const AddItem = ({ owner, productList, onAddItem }) => {
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         {productList.map((product, index) => (
-                            <Dropdown.Item onClick={() => setSelectedProduct(product)}>{product.name}</Dropdown.Item>
+                            <Dropdown.Item key={product.name} onClick={() => setSelectedProduct(product)}>{product.name}</Dropdown.Item>
                         ))}
                     </Dropdown.Menu>
                 </Dropdown>
