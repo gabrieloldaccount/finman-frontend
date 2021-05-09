@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 .container {
-  max-width: 500px;
+  min-width: 500px;
   background-color: rgba(217, 59, 129, 0.1);
   overflow: auto;
   min-height: 300px;
