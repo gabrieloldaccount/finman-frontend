@@ -2,7 +2,7 @@ import { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const AddItem = ({ owner, productList, onAddItem }) => {
   const [selectedProduct, setSelectedProduct] = useState("");
@@ -32,8 +32,9 @@ const AddItem = ({ owner, productList, onAddItem }) => {
   };
 
   return (
-      <Row>
-        <Dropdown className={"addItem"}>
+    <Row md={10} style={{ marginTop: 20, marginBottom: 20 }}>
+      <Col md={2} >
+        <Dropdown>
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
             {selectedProduct === "" ? "Select Product" : selectedProduct.name}
           </Dropdown.Toggle>
@@ -48,7 +49,9 @@ const AddItem = ({ owner, productList, onAddItem }) => {
             ))}
           </Dropdown.Menu>
         </Dropdown>
-        <Form.Group className={"addItem"} controlId="formQuantity">
+      </Col>
+      <Col md={3}>
+        <Form.Group controlId="formQuantity">
           <Form.Control
             type="number"
             placeholder="Enter quantity"
@@ -56,10 +59,13 @@ const AddItem = ({ owner, productList, onAddItem }) => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </Form.Group>
+      </Col>
+      <Col sm={4}>
         <Button variant="primary" onClick={(e) => addItem(e)}>
           Add item
         </Button>
-      </Row>
+      </Col>
+    </Row>
   );
 };
 

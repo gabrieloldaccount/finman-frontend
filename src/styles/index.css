@@ -30,14 +30,6 @@ tr {
   color: antiquewhite;
 }
 
-.addItem {
-  margin-right: 20px;
-  margin-bottom: 8px;
-  /*border: 2px solid #1762a7;*/
-  border-radius: 5px;
-  min-height: 38px;
-}
-
 .marginLeft {
   margin-left: 20px;
 }
