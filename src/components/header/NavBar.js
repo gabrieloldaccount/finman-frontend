@@ -14,8 +14,8 @@ const NavBar = () => {
         return "product catalog";
       case "/NewInvoice":
         return "newinvoice";
-      case "/invoices":
-        return "invoices";
+      case "/all-invoices":
+        return "all-invoices";
       case "/profile":
         return "profile";
       default:
@@ -35,48 +35,48 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <span>
-            <a className="link" href="/">
-              Home
-            </a>
             {dotSwitch() === "home" && (
               <img src={dot} alt="dot" className="dot" />
             )}
+            <a className="link" href="/">
+              Home
+            </a>
           </span>
 
           <span>
-            <a className="link" href="/products">
-              Product Catalog
-            </a>
             {dotSwitch() === "product catalog" && (
               <img src={dot} alt="dot" className="dot" />
             )}
+            <a className="link" href="/products">
+              Product Catalog
+            </a>
           </span>
 
           <span>
-            <a className="link" href="/NewInvoice">
-              Create Invoice
-            </a>
             {dotSwitch() === "newinvoice" && (
               <img src={dot} alt="dot" className="dot" />
             )}
+            <a className="link" href="/NewInvoice">
+              Create Invoice
+            </a>
           </span>
 
           <span>
+            {dotSwitch() === "all-invoices" && (
+              <img src={dot} alt="dot" className="dot" />
+            )}
             <a className="link" href="/all-invoices">
               All Invoices
             </a>
-            {dotSwitch() === "invoices" && (
-              <img src={dot} alt="dot" className="dot" />
-            )}
           </span>
 
           <span>
-            <a className="link" href="/profile">
-              Profile
-            </a>
             {dotSwitch() === "profile" && (
               <img src={dot} alt="dot" className="dot" />
             )}
+            <a className="link" href="/profile">
+              Profile
+            </a>
           </span>
 
           <a className="signout" href="/">
