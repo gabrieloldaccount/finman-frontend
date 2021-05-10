@@ -3,6 +3,7 @@
   left: 150px;
   color: antiquewhite;
   font-size: 40px;
+  text-decoration: none;
 }
 
 .title:hover {
@@ -12,12 +13,13 @@
 
 .link {
   position: relative;
-  left: 300px;
+  left: 350px;
   top: 10px;
   color: antiquewhite;
   font-size: 12px;
   text-align: center;
   padding-left: 20px;
+  text-decoration: none;
 }
 
 .link:hover {

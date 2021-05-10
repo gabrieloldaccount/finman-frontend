@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "@react-pdf/renderer";
-import InvoiceTableHeader from "./TableItems/InvoiceTableHeader.js";
-import InvoiceTableRow from "./TableItems/InvoiceTableRow";
-import InvoiceTableBlankSpace from "./TableItems/InvoiceTableBlankSpace";
-import InvoiceTableFooter from "./TableItems/InvoiceTableFooter";
-import InvoiceTableMoms from "./TableItems/InvoiceTableMoms";
+import InvoiceTableHeader from "./table-items/InvoiceTableHeader.js";
+import InvoiceTableRow from "./table-items/InvoiceTableRow";
+import InvoiceTableBlankSpace from "./table-items/InvoiceTableBlankSpace";
+import InvoiceTableFooter from "./table-items/InvoiceTableFooter";
+import InvoiceTableMoms from "./table-items/InvoiceTableMoms";
 
 const tableRowsCount = 11;
 

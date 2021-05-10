@@ -2,9 +2,8 @@ import { Container, Table } from "react-bootstrap";
 import React, { useState } from "react";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
-import PreviewInvoice from "./PreviewInvoice";
-import "./pdfStyling.css";
-import ReturnButton from "../ReturnButton";
+import PreviewInvoice from "../pdf/PreviewInvoice";
+import ReturnButton from "../util/ReturnButton";
 
 const InvoiceList = ({ props, invoiceList }) => {
   const [open, setOpen] = useState(false);
@@ -39,10 +38,6 @@ const InvoiceList = ({ props, invoiceList }) => {
     return sum;
   };
 
-  const goBackToHomePage = () => {
-    props.history.push("/");
-  };
-
   const loadPreview = (invoice) => {
     setInvoice(invoice);
     onOpenModal();
@@ -75,6 +70,7 @@ const InvoiceList = ({ props, invoiceList }) => {
               <th>Serial Number</th>
               <th>Buyer</th>
               <th>Price</th>
+              <th> </th>
             </tr>
           </thead>
 
@@ -82,9 +78,7 @@ const InvoiceList = ({ props, invoiceList }) => {
             {invoiceList.map((invoice) => (
               <tr key={invoice.source}>
                 <td>{invoice.invoiceDate}</td>
-                {/*TODO: Change invoice.expirationDate to invoice.expiryDate when axios is implemented*/}
                 <td>{invoice.expiryDate}</td>
-                {/*TODO: Add status when backend has it*/}
                 <td>PENDING</td>
                 <td>{invoice.serialNumber}</td>
                 <td>{invoice.customer.name}</td>

@@ -32,8 +32,6 @@ const AddItem = ({ owner, productList, onAddItem }) => {
   };
 
   return (
-    //TODO: Implement proper product list read-in from db here.
-    <div className={"marginLeft"}>
       <Row>
         <Dropdown className={"addItem"}>
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -50,7 +48,6 @@ const AddItem = ({ owner, productList, onAddItem }) => {
             ))}
           </Dropdown.Menu>
         </Dropdown>
-
         <Form.Group className={"addItem"} controlId="formQuantity">
           <Form.Control
             type="number"
@@ -63,7 +60,6 @@ const AddItem = ({ owner, productList, onAddItem }) => {
           Add item
         </Button>
       </Row>
-    </div>
   );
 };
 

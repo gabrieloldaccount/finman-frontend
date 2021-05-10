@@ -2,8 +2,8 @@ import React from "react";
 import Products from "./Products";
 import { Container } from "react-bootstrap";
 import AddProduct from "./AddProduct";
-import ReturnButton from "./ReturnButton";
-import "../index.css";
+import ReturnButton from "../util/ReturnButton";
+import "../../styles/index.css";
 
 const ProductPage = ({ owner, products, onAdd, onDelete }) => {
   return (

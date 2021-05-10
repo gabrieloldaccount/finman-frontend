@@ -4,10 +4,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { number } from "prop-types";
-import InvoiceService from "../api-services/InvoiceService";
+import InvoiceService from "../../services/InvoiceService";
 import { pdf } from "@react-pdf/renderer";
-import PdfDocument from "./seeInvoicesComponents/pdfComponents/PdfDocument";
-import "../index.css";
+import PdfDocument from "../pdf/PdfDocument";
+import "../../styles/index.css";
 import { FaTimes } from "react-icons/fa";
 
 const blobToPdf = (blob, fileName) => {
@@ -93,7 +93,6 @@ const AddInvoice = ({ owner, productList }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    //TODO: Add more error-checking here.
     if (
       validateEmail(email) &&
       validateZipcode(zipcode) &&
@@ -146,7 +145,6 @@ const AddInvoice = ({ owner, productList }) => {
 
   return (
     <Container>
-      {/*TODO: Format this whole Form-thing into just plain stuff instead. Don't think we gain anything from the form format.*/}
       <Form>
         <Row>
           <Col>
