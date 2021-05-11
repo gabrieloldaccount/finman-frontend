@@ -13,10 +13,6 @@ const Product = ({ product, onDelete }) => {
           style={{ color: "red", cursor: "pointer", margin: 3 }}
           onClick={() => onDelete(product.name)}
         />
-        {/*            Implement this EDIT funcitons later.
-                <FaPencilAlt
-                style={{cursor: 'pointer', margin: 3}}
-            />*/}
       </td>
     </tr>
   );

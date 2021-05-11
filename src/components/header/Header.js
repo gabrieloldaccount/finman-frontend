@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
-import "./Title.css";
+import "../../styles/Title.css";
 
 const Header = () => {
   const location = useLocation();
@@ -8,27 +8,27 @@ const Header = () => {
   // Switches title to correspond to tab selected in NavBar
   function titleSwitchSmall() {
     switch (location.pathname) {
-      case "/":
-        return "Home";
       case "/products":
         return "Product ";
       case "/NewInvoice":
         return "Create ";
       case "/all-invoices":
         return "All";
+      default:
+        return "Home";
     }
   }
 
   function titleSwitchLarge() {
     switch (location.pathname) {
-      case "/":
-        return "page";
       case "/products":
         return "Catalog";
       case "/NewInvoice":
         return "Invoice";
       case "/all-invoices":
         return " Invoices";
+      default:
+        return "page";
     }
   }
 

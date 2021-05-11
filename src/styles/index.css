@@ -13,7 +13,7 @@
 
 body > #root > div {
   background-color: #2f3038;
-  background-image: url("bubbles.png");
+  background-image: url("../assets/bubbles.png");
   min-height: 100vh;
 }
 
@@ -28,15 +28,6 @@ tr {
 
 .invoice-label {
   color: antiquewhite;
-}
-
-.addItem {
-  margin-right: 20px;
-  margin-bottom: 8px;
-  border: 0px solid #1762a7;
-  border-radius: 5px;
-  min-height: 38px;
-  align-self: auto;
 }
 
 .marginLeft {

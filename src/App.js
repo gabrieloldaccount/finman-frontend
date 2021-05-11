@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Header from "./components/Header";
-import AddInvoice from "./components/AddInvoice";
-import About from "./components/About";
-import NavBar from "./components/NavBar";
-import ProductPage from "./components/ProductPage";
-import HomePage from "./components/HomePage";
-import InvoiceService from "./api-services/InvoiceService";
-import InvoiceList from "./components/seeInvoicesComponents/InvoiceList";
-import ProductService from "./api-services/ProductService";
-import "./index.css";
+import AddInvoice from "./components/invoices/AddInvoice";
+import NavBar from "./components/header/NavBar";
+import ProductPage from "./components/products/ProductPage";
+import HomePage from "./components/home/HomePage";
+import InvoiceService from "./services/InvoiceService";
+import InvoiceList from "./components/invoices/InvoiceList";
+import ProductService from "./services/ProductService";
+import "./styles/index.css";
+import Header from "./components/header/Header";
 
-//TODO: Remove Items-state here. It is in AddInvoice instead .
 
 const App = () => {
-  const [owner, setOwner] = useState("appa@gmail.se");
+  const owner = "appa@gmail.se";
   const [invoices, setInvoices] = useState([]);
   const [products, setProducts] = useState([]);
 
@@ -42,20 +40,6 @@ const App = () => {
         : alert("Error Deleting This Product");
     });
   };
-
-  // Add Invoice (is handled by components directly)
-  /*  const addInvoice = async (invoiceJson, pdfBlob, email) => {
-      console.log("JSON: " + JSON.stringify(invoiceJson));
-      console.log("EMAIL: " + email);
-
-      await InvoiceService.createInvoice(invoiceJson, pdfBlob, email).then(
-        (res) => {
-          res.status === 201
-            ? setInvoices([...invoices, invoiceJson])
-            : alert("Error creating this product");
-        }
-      );
-    };*/
 
   return (
     <Router>
@@ -88,7 +72,6 @@ const App = () => {
           exact
           render={() => <AddInvoice owner={owner} productList={products} />}
         />
-        <Route path="/about" component={About} />
       </div>
     </Router>
   );

@@ -1,6 +1,6 @@
-import "./NavBar.css";
-import logo from "../logo.png";
-import dot from "../dot.png";
+import "../../styles/NavBar.css";
+import logo from "../../assets/logo.png";
+import dot from "../../assets/dot.png";
 import { useLocation } from "react-router-dom";
 
 import { Nav, Navbar } from "react-bootstrap";
@@ -10,8 +10,6 @@ const NavBar = () => {
   // function that tells were to put the dot depending on path
   function dotSwitch() {
     switch (location.pathname) {
-      case "/":
-        return "home";
       case "/products":
         return "product catalog";
       case "/NewInvoice":
@@ -20,6 +18,8 @@ const NavBar = () => {
         return "all-invoices";
       case "/profile":
         return "profile";
+      default:
+        return "home";
     }
   }
 
@@ -34,50 +34,50 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <a>
+          <span>
+            {dotSwitch() === "home" && (
+              <img src={dot} alt="dot" className="dot" />
+            )}
             <a className="link" href="/">
               Home
             </a>
-            {dotSwitch() == "home" && (
+          </span>
+
+          <span>
+            {dotSwitch() === "product catalog" && (
               <img src={dot} alt="dot" className="dot" />
             )}
-          </a>
-
-          <a>
             <a className="link" href="/products">
               Product Catalog
             </a>
-            {dotSwitch() == "product catalog" && (
+          </span>
+
+          <span>
+            {dotSwitch() === "newinvoice" && (
               <img src={dot} alt="dot" className="dot" />
             )}
-          </a>
-
-          <a>
             <a className="link" href="/NewInvoice">
               Create Invoice
             </a>
-            {dotSwitch() == "newinvoice" && (
+          </span>
+
+          <span>
+            {dotSwitch() === "all-invoices" && (
               <img src={dot} alt="dot" className="dot" />
             )}
-          </a>
-
-          <a>
             <a className="link" href="/all-invoices">
               All Invoices
             </a>
-            {dotSwitch() == "all-invoices" && (
+          </span>
+
+          <span>
+            {dotSwitch() === "profile" && (
               <img src={dot} alt="dot" className="dot" />
             )}
-          </a>
-
-          <a>
             <a className="link" href="/profile">
               Profile
             </a>
-            {dotSwitch() == "profile" && (
-              <img src={dot} alt="dot" className="dot" />
-            )}
-          </a>
+          </span>
 
           <a className="signout" href="/">
             Sign out

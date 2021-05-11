@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Button } from "react-bootstrap";
-import "../index.css";
+import "../../styles/index.css";
 
 const AddProduct = ({ owner, onAdd }) => {
   const [name, setName] = useState("");

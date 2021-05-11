@@ -1,5 +1,5 @@
-import returnArrow from "../returnArrow.png";
-import "../index.css";
+import returnArrow from "../../assets/returnArrow.png";
+import "../../styles/index.css";
 
 const ReturnButton = () => {
   return (
