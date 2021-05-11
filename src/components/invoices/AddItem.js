@@ -33,7 +33,7 @@ const AddItem = ({ owner, productList, onAddItem }) => {
 
   return (
     <Row md={10} style={{ marginTop: 20, marginBottom: 20 }}>
-      <Col md={2} >
+      <Col md={2}>
         <Dropdown>
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
             {selectedProduct === "" ? "Select Product" : selectedProduct.name}
