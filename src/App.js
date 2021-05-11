@@ -9,6 +9,7 @@ import InvoiceList from "./components/invoices/InvoiceList";
 import ProductService from "./services/ProductService";
 import "./styles/index.css";
 import Header from "./components/header/Header";
+import CustomerPage from "./components/customers/CustomerPage"
 
 const App = () => {
   const owner = "appa@gmail.se";
@@ -71,6 +72,14 @@ const App = () => {
           exact
           render={() => <AddInvoice owner={owner} productList={products} />}
         />
+
+        <Route
+            path="/customers"
+            exact
+            render={() => <CustomerPage/>}
+        />
+
+
       </div>
     </Router>
   );
