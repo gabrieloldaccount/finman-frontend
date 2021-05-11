@@ -2,12 +2,12 @@ import React from "react";
 import AddCustomer from "./AddCustomer"
 import Customers from "./Customers";
 
-const CustomerPage = () => {
+const CustomerPage = ({customers}) => {
 
     return (
         <div>
             <AddCustomer/>
-            <Customers/>
+            <Customers customers={customers}/>
         </div>
     )
 }

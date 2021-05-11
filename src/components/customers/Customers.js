@@ -1,21 +1,23 @@
 import {Table} from "react-bootstrap";
 import Customer from "./Customer"
 
-const Customers = ({ customers, onDelete }) => {
+//TODO: Implement onDelete in App.js and DB
+const Customers = ({customers, onDelete}) => {
 
-    return(
+    return (
         <Table striped bordered hover size="sm" variant="dark">
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th> </th>
-                </tr>
+            <tr>
+                <th>Name</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
             </thead>
             <tbody>
-                <Customer/>
+            {customers.map((customer, index) => (
+                <Customer key={index} customer={customer}/>
+            ))}
             </tbody>
         </Table>
     )

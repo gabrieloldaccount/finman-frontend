@@ -1,8 +1,7 @@
 import Form from "react-bootstrap/Form";
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
-import { Col, Container, Row, Table } from "react-bootstrap";
-
+import {Col, Container, Row} from "react-bootstrap";
 
 const AddCustomer = ({ onAdd }) => {
     const [name, setName] = useState("TestPerson Persson");
