@@ -9,6 +9,8 @@ import InvoiceList from "./components/invoices/InvoiceList";
 import ProductService from "./services/ProductService";
 import "./styles/index.css";
 import Header from "./components/header/Header";
+import FacebookLogin from "react-facebook-login";
+import FacebookService from "./services/FacebookService";
 
 const App = () => {
   const owner = "appa@gmail.se";
@@ -40,11 +42,45 @@ const App = () => {
     });
   };
 
+  const responseFacebook = (response) => {
+    /*console.log(response);
+    localStorage.setItem("ACCESS_TOKEN", response.accessToken);*/
+
+    console.log("BACKATITAGAIN: " + JSON.stringify(FacebookService.getFeed()));
+    /*window.FB.api("/me/feed", function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+    /* console.log("FEED:");
+        console.log(JSON.stringify(response));
+        response.data.forEach((element) => {
+          window.FB.api(
+            `/${element.id}/reactions?summary=total_count`,
+            "GET",
+            function (response) {
+              if (response && !response.error) {
+                /* handle the result */
+    //       console.log("WOOHOO BABY THATS WHAT IM TALKING ABOUT");
+    //      console.log(JSON.stringify(response));
+    /*      }
+            }
+          );
+        });
+      }
+    });*/
+  };
+
   return (
     <Router>
       <div className="background">
         <NavBar />
         <Header />
+        <FacebookLogin
+          appId="470469467364255"
+          autoLoad={true}
+          fields="name,email,picture"
+          callback={responseFacebook}
+          version="10.0"
+        />
         <Route path="/" exact render={(props) => <HomePage props={props} />} />
         <Route
           path="/all-invoices"
