@@ -9,8 +9,6 @@ import InvoiceList from "./components/invoices/InvoiceList";
 import ProductService from "./services/ProductService";
 import "./styles/index.css";
 import Header from "./components/header/Header";
-import FacebookLogin from "react-facebook-login";
-import FacebookService from "./services/FacebookService";
 
 const App = () => {
   const owner = "appa@gmail.se";
@@ -42,24 +40,12 @@ const App = () => {
     });
   };
 
-  const responseFacebook = async (response) => {
-    console.log(
-      "BACKATITAGAIN: " + JSON.stringify(await FacebookService.getFeed())
-    );
-  };
 
   return (
     <Router>
       <div className="background">
         <NavBar />
         <Header />
-        <FacebookLogin
-          appId="470469467364255"
-          autoLoad={true}
-          fields="name,email,picture"
-          callback={responseFacebook}
-          version="10.0"
-        />
         <Route path="/" exact render={(props) => <HomePage props={props} />} />
         <Route
           path="/all-invoices"

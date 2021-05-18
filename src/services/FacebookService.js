@@ -7,6 +7,7 @@ class FacebookService {
           appId: 470469467364255,
           cookie: true,
           xfbml: true,
+          status: true,
           version: "v10.0",
         });
       };
@@ -24,6 +25,13 @@ class FacebookService {
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "facebook-jssdk");
     });
+  }
+
+  isLoggedIn() {
+    window.FB.getLoginStatus(function (response) {
+      console.log("STATUS:" + JSON.stringify(response));
+    });
+    return false;
   }
 
   getFeed() {
@@ -54,8 +62,9 @@ class FacebookService {
           (result) => {
             if (result && !result.error) {
               reactions = {
+                name: postId,
+                price: 1,
                 likes: result.summary.total_count,
-                id: postId,
               };
               resolve(reactions);
             }
