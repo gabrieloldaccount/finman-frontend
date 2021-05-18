@@ -42,31 +42,10 @@ const App = () => {
     });
   };
 
-  const responseFacebook = (response) => {
-    /*console.log(response);
-    localStorage.setItem("ACCESS_TOKEN", response.accessToken);*/
-
-    console.log("BACKATITAGAIN: " + JSON.stringify(FacebookService.getFeed()));
-    /*window.FB.api("/me/feed", function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-    /* console.log("FEED:");
-        console.log(JSON.stringify(response));
-        response.data.forEach((element) => {
-          window.FB.api(
-            `/${element.id}/reactions?summary=total_count`,
-            "GET",
-            function (response) {
-              if (response && !response.error) {
-                /* handle the result */
-    //       console.log("WOOHOO BABY THATS WHAT IM TALKING ABOUT");
-    //      console.log(JSON.stringify(response));
-    /*      }
-            }
-          );
-        });
-      }
-    });*/
+  const responseFacebook = async (response) => {
+    console.log(
+      "BACKATITAGAIN: " + JSON.stringify(await FacebookService.getFeed())
+    );
   };
 
   return (

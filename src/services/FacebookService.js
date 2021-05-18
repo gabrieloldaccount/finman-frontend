@@ -26,62 +26,52 @@ class FacebookService {
     });
   }
 
-  // getPosts(postIds) {
-  //   let json = [];
-  //   postIds.forEach((post) => {
-  //     window.FB.api(
-  //       `/${post.id}/reactions?summary=total_count`,
-  //       "GET",
-  //       function (reactions) {
-  //         if (reactions && !reactions.error) {
-  //           console.log("REACTIONS: " + JSON.stringify(reactions));
-  //           const tempJson = {
-  //             likes: reactions.summary.total_count,
-  //             id: post.id,
-  //           };
-  //           console.log("TEMPJSON: " + JSON.stringify(tempJson));
-  //           json.push(tempJson);
-  //         }
-  //       }
-  //     );
-  //   });
-  //   json.forEach((prod) => console.log("PRODS: " + JSON.stringify(prod)));
-  //   return json;
-  // }
-
   getFeed() {
-    const convertPost = async (posts) => {
-      let json = [];
+    // nested function to convert the posts to our own objects
+    const convertPost = (posts) => {
+      return new Promise(async (resolve) => {
+        let json = [];
 
-      // for (const post of posts) {
-      //   console.log("CURRENT_POST: " + JSON.stringify(post));
-      //   await window.FB.api(
-      //     `/${post.id}/reactions?summary=total_count`,
-      //     "GET",
-      //    function (reactions) {
-      //       if (reactions && !reactions.error) {
-      //         console.log("CURRENT_REACTION: " + JSON.stringify(reactions));
-      //         const tempJson = {
-      //           likes: reactions.summary.total_count,
-      //           id: post.id,
-      //         };
-      //         json.push(tempJson);
-      //       }
-      //     }
-      //   );
-      // }
+        for (const post of posts) {
+          console.log(JSON.stringify(post));
+          const reactions = await getReactions(post.id);
+          json.push(reactions);
+        }
 
-      // REAL SCUFFED SOLUTION SINCE JAVASCRIPT SUCKS PENIS
-      // OTHERWISE IT WILL RETURN EMPTY ARRAY
-      //await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-      //console.log("AFTER STATE: " + JSON.stringify(json));
-      //return json;
+        console.log("AFTER STATE: " + JSON.stringify(json));
+        resolve(json);
+      });
     };
 
-    window.FB.api("/me/feed", function (feed) {
-      if (feed && !feed.error) {
-        return convertPost(feed.data);
-      }
+    // given an id of a post, retrieve the reaction total count
+    const getReactions = (postId) => {
+      return new Promise((resolve) => {
+        let reactions;
+
+        window.FB.api(
+          `/${postId}/reactions?summary=total_count`,
+          "GET",
+          (result) => {
+            if (result && !result.error) {
+              reactions = {
+                likes: result.summary.total_count,
+                id: postId,
+              };
+              resolve(reactions);
+            }
+          }
+        );
+      });
+    };
+
+    return new Promise((resolve) => {
+      let feed;
+      window.FB.api("/me/feed", function (result) {
+        if (result && !result.error) {
+          feed = convertPost(result.data);
+          resolve(feed);
+        }
+      });
     });
   }
 }
