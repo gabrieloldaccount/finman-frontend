@@ -10,17 +10,13 @@ import ProductService from "./services/ProductService";
 import "./styles/index.css";
 import Header from "./components/header/Header";
 import CustomerPage from "./components/customers/CustomerPage"
+import CustomerService from "./services/CustomerService";
 
 const App = () => {
     const owner = "appa@gmail.se";
     const [invoices, setInvoices] = useState([]);
     const [products, setProducts] = useState([]);
-
-    //Todo: Data fetch from DB for customers.
-    const [customers, setCustomers] = useState([{name: "Filip", telephone: "075-432323"}, {
-        name: "Per",
-        telephone: "025-424443"
-    }, {name: "Laila", telephone: "072-452328"}]);
+    const [customers, setCustomers] = useState([]);
 
     useEffect(() => {
         InvoiceService.getInvoice("appa@gmail.se").then((res) => {
@@ -29,6 +25,9 @@ const App = () => {
         ProductService.getProducts("appa@gmail.se").then((res) => {
             setProducts(res.data);
         });
+        CustomerService.getCustomers("appa@gmail.se").then((res) => {
+            setCustomers(res.data);
+        })
     }, []);
 
     // Add a product
@@ -44,6 +43,22 @@ const App = () => {
                 products.filter((product) => product.name !== productName)
                 )
                 : alert("Error Deleting This Product");
+        });
+    };
+
+    // Add a customer
+    const addCustomer = async (customer) => {
+        await CustomerService.createCustomer(customer).then((res) => console.log(res));
+    };
+
+    // Delete a customer
+    const deleteCustomer = async (customerName) => {
+        await CustomerService.deleteCustomer(owner, customerName).then((res) => {
+            res.status === 204
+                ? setCustomers(
+                customers.filter((customer) => customer.name !== customerName)
+                )
+                : alert("Error Deleting This Customer");
         });
     };
 
@@ -82,7 +97,13 @@ const App = () => {
                 <Route
                     path="/customers"
                     exact
-                    render={() => <CustomerPage customers={customers}/>}
+                    render={() =>
+                        <CustomerPage
+                            customers={customers}
+                            onAdd={addCustomer}
+                            onDelete={deleteCustomer}
+                        />
+                    }
                 />
 
 

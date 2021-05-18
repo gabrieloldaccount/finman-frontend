@@ -16,7 +16,7 @@ const Customers = ({customers, onDelete}) => {
             </thead>
             <tbody>
             {customers.map((customer, index) => (
-                <Customer key={index} customer={customer}/>
+                <Customer key={index} customer={customer} onDelete={onDelete}/>
             ))}
             </tbody>
         </Table>

@@ -2,12 +2,15 @@ import React from "react";
 import AddCustomer from "./AddCustomer"
 import Customers from "./Customers";
 
-const CustomerPage = ({customers}) => {
+const CustomerPage = ({customers, onAdd, onDelete}) => {
 
     return (
         <div>
-            <AddCustomer/>
-            <Customers customers={customers}/>
+            <AddCustomer onAdd={onAdd}/>
+            <Customers
+                customers={customers}
+                onDelete={onDelete}
+            />
         </div>
     )
 }
