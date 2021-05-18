@@ -26,40 +26,6 @@ const hasLetters = (text) => {
   return /[a-zA-Z]/.test(text);
 };
 
-const validateEmail = (email) => {
-  if (
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-      email
-    )
-  ) {
-    return true;
-  }
-  alert("You have entered an invalid email address!");
-  return false;
-};
-
-const validateZipcode = (zipcode) => {
-  const formatted = zipcode.trim().replace(/[-]/g, "").replaceAll(" ", "");
-
-  if (!hasLetters(formatted) && formatted.length === 5) {
-    return true;
-  }
-  alert("You have entered an invalid zipcode!");
-  return false;
-};
-
-const validateTelephone = (number) => {
-  const formatted = number
-    .toString()
-    .trim()
-    .replace(/[-]/g, "")
-    .replaceAll(" ", "");
-
-  if (hasLetters(formatted)) return true;
-
-  alert("You have entered an invalid email address!");
-  return false;
-};
 
 const AddInvoice = ({ owner, productList }) => {
   const [name, setName] = useState("TestPerson Persson");
@@ -211,14 +177,7 @@ const AddInvoice = ({ owner, productList }) => {
             </Form.Group>
           </Col>
           <Col>
-            <Form.Group controlId="formInvoiceDate">
-              <Form.Label className="invoice-label">Invoice Date</Form.Label>
-              <Form.Control
-                type="date"
-                value={invoiceDate}
-                onChange={(e) => setInvoiceDate(e.target.value)}
-              />
-            </Form.Group>
+
             <Form.Group controlId="formExpirationDate">
               <Form.Label className="invoice-label">Expiration Date</Form.Label>
               <Form.Control
