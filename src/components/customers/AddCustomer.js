@@ -94,7 +94,7 @@ const AddCustomer = ({onAdd}) => {
     }
 
     return (
-        <Container>
+        <div>
             <Row>
                 <Col>
                     <Form.Label className="invoice-label">Customer Name</Form.Label>
@@ -150,7 +150,7 @@ const AddCustomer = ({onAdd}) => {
                     </Button>
                 </Col>
             </Row>
-        </Container>
+        </div>
     )
 }
 

@@ -1,17 +1,20 @@
 import React from "react";
 import AddCustomer from "./AddCustomer"
 import Customers from "./Customers";
+import {Container} from "react-bootstrap";
 
 const CustomerPage = ({customers, onAdd, onDelete}) => {
 
     return (
-        <div>
+
+            <Container>
             <AddCustomer onAdd={onAdd}/>
             <Customers
                 customers={customers}
                 onDelete={onDelete}
             />
-        </div>
+            </Container>
+
     )
 }
 

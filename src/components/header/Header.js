@@ -28,7 +28,9 @@ const Header = () => {
       case "/NewInvoice":
         return "Invoice";
       case "/all-invoices":
-        return " Invoices";
+        return "Invoices";
+      case "/customer":
+        return "Catalog";
       default:
         return "page";
     }

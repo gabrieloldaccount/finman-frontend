@@ -18,26 +18,17 @@ const blobToPdf = (blob, fileName) => {
   return blob;
 };
 
-const hasNumber = (text) => {
-  return /\d/.test(text);
-};
-
 const hasLetters = (text) => {
   return /[a-zA-Z]/.test(text);
 };
 
 
 const AddInvoice = ({ owner, productList }) => {
-  const [name, setName] = useState("TestPerson Persson");
-  const [address, setAddress] = useState("Hellroad");
-  const [zipcode, setZipCode] = useState("54512");
-  const [email, setEmail] = useState("hellmail@devil.com");
+
   const [invoiceDate, setInvoiceDate] = useState("2021-04-30");
   const [expirationDate, setExpirationDate] = useState("2021-05-02");
   const [items, setItems] = useState([]);
-  const [city, setCity] = useState("Gothenburg");
-  const [country, setCountry] = useState("Norway");
-  const [telephone, setTelephone] = useState("06535342");
+
 
   const invoiceData = {
     source: owner,
@@ -59,14 +50,7 @@ const AddInvoice = ({ owner, productList }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      validateEmail(email) &&
-      validateZipcode(zipcode) &&
-      validateTelephone(number) &&
-      !hasNumber(name) &&
-      !hasNumber(country) &&
-      !hasNumber(city)
-    ) {
+
       // Extract pdf
       let pdfBlob = await pdf(<PdfDocument invoice={invoiceData} />).toBlob();
       pdfBlob = blobToPdf(pdfBlob, "invoice.pdf");
@@ -88,9 +72,7 @@ const AddInvoice = ({ owner, productList }) => {
       setCountry("");
       setCity("");
       setItems([]);
-    } else {
-      alert("Please fill in the correct input");
-    }
+
   };
 
   //Adds an item to this invoice's items list
@@ -126,53 +108,12 @@ const AddInvoice = ({ owner, productList }) => {
       <Form>
         <Row>
           <Col>
-            <Form.Group controlId="formCustomerName">
-              <Form.Label className="invoice-label">Customer Name</Form.Label>
+            <Form.Group controlId="formInvoiceDate">
+              <Form.Label className="invoice-label">Invoice Date</Form.Label>
               <Form.Control
-                type="string"
-                value={name}
-                placeholder="Enter customer name"
-                onChange={(e) => setName(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formCustomerEmail">
-              <Form.Label className="invoice-label">Address</Form.Label>
-              <Form.Control
-                type="string"
-                value={address}
-                placeholder="Enter address"
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formCustomerEmail">
-              <Form.Label className="invoice-label">Zipcode</Form.Label>
-              <Form.Control
-                type="string"
-                value={zipcode}
-                placeholder="Enter zip code"
-                onChange={(e) => setZipCode(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formCustomerEmail">
-              <Form.Label className="invoice-label">City</Form.Label>
-              <Form.Control
-                type="string"
-                value={city}
-                placeholder="Enter city"
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formCustomerEmail">
-              <Form.Label className="invoice-label">Telephone</Form.Label>
-              <Form.Control
-                type="number"
-                value={telephone}
-                placeholder="Enter telephone number"
-                onChange={(e) => setTelephone(e.target.value)}
+                  type="date"
+                  value={invoiceDate}
+                  onChange={(e) => setInvoiceDate(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -184,26 +125,6 @@ const AddInvoice = ({ owner, productList }) => {
                 type="date"
                 value={expirationDate}
                 onChange={(e) => setExpirationDate(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formCustomerEmail">
-              <Form.Label className="invoice-label">Country</Form.Label>
-              <Form.Control
-                type="string"
-                value={country}
-                placeholder="Enter country"
-                onChange={(e) => setCountry(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formCustomerEmail">
-              <Form.Label className="invoice-label">Email</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                placeholder="Enter Customer Email"
-                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -256,15 +177,8 @@ const AddInvoice = ({ owner, productList }) => {
           <Button
             disabled={
               !(
-                name &&
-                city &&
-                address &&
-                zipcode &&
-                email &&
-                country &&
                 invoiceDate &&
                 expirationDate &&
-                telephone &&
                 items.length !== 0
               )
             }

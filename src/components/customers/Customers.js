@@ -6,12 +6,12 @@ const Customers = ({customers, onDelete}) => {
 
     return (
         <Table striped bordered hover size="sm" variant="dark">
-            <thead>
+            <thead >
             <tr>
-                <th>Name</th>
-                <th>Telephone</th>
-                <th>Email</th>
-                <th>Address</th>
+                <th width="300px" >Name</th>
+                <th width="200px" >Telephone</th>
+                <th width="300px">Email</th>
+                <th width="450px">Address</th>
             </tr>
             </thead>
             <tbody>
