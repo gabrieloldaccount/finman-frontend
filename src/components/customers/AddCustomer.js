@@ -1,8 +1,7 @@
 import Form from "react-bootstrap/Form";
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
-import {Col, Container, Row} from "react-bootstrap";
-import {number} from "prop-types";
+import {Col, Row} from "react-bootstrap";
 
 const hasNumber = (text) => {
     return /\d/.test(text);

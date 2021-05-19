@@ -1,53 +1,41 @@
-import { useState } from "react";
+import {useState} from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import {Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
-const CustomerDropdown = ({ owner, customerList, onAddCustomer}) => {
+const CustomerDropdown = ({customerList, onAddCustomer}) => {
     const [selectedCustomer, setSelectedCustomer] = useState("");
 
     const addCustomer = (e) => {
         e.preventDefault();
-
-        onAddCustomer({
-            owner: owner,
-            customer: {
-                name: selectedCustomer.name,
-                address: selectedCustomer.address,
-                zipCode: selectedCustomer.zipCode,
-                city: selectedCustomer.city,
-                country: selectedCustomer.country,
-                telephone: selectedCustomer.telephone,
-                email: selectedCustomer.email,
-            },
-        });
-
-        setSelectedCustomer("");
+        onAddCustomer(selectedCustomer);
     }
 
     return (
-        <Row md={10} style={{ marginTop: 20, marginBottom: 20 }}>
+        <Row md={10} style={{marginTop: 20, marginBottom: 20}}>
             <Col md={2}>
                 <Dropdown>
                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                         {selectedCustomer === "" ? "Select Customer" : selectedCustomer.name}
                     </Dropdown.Toggle>
+
+                    {/*Lists all the pre-defined customers in the dropdown.*/}
                     <Dropdown.Menu>
-
-                            <Dropdown.Item
-                                customerList={customerList}
-                                onClick={() => setSelectedCustomer(customerList.name)}
-                            >
-                                Stina
+                        {customerList.map((customer, index) => (
+                            <Dropdown.Item key={index} onClick={() => setSelectedCustomer(customer)}>
+                                {customer.name}
                             </Dropdown.Item>
-
+                        ))}
                     </Dropdown.Menu>
                 </Dropdown>
             </Col>
+            <Col>
 
-            <Col sm={4}>
-                <Button variant="primary" onClick={(e) => addCustomer(e)}>
-                    Add Customer
+                {/*TODO: Make this instant on selection in dropdown instead.*/}
+                <Button
+                    disabled={(selectedCustomer === '')}
+                    onClick={(e) => addCustomer(e)}>
+                    Use selected customer's info
                 </Button>
             </Col>
         </Row>

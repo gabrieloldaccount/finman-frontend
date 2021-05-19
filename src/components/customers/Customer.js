@@ -1,4 +1,5 @@
 import {FaTimes} from "react-icons/fa";
+import React from "react";
 
 const Customer = ({ customer, onDelete }) => {
     return (
@@ -6,13 +7,13 @@ const Customer = ({ customer, onDelete }) => {
             <td>{customer.name}</td>
             <td>{customer.telephone}</td>
             <td>{customer.email}</td>
-            <td>{customer.address}
-                {customer.zipCode}
-                {customer.city}
+            <td>{customer.address}{", "}
+                {customer.zipCode}{", "}
+                {customer.city}{", "}
                 {customer.country}</td>
 
             <FaTimes
-                style={{color: "red", cursor: "pointer", margin: 3, width: "30px", height:"30px"}}
+                style={{color: "red", cursor: "pointer", margin: 3, width: "30px", height: "30px"}}
                 onClick={() => onDelete(customer.name)}
             />
         </tr>

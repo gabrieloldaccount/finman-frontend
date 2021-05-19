@@ -16,7 +16,24 @@ const App = () => {
     const owner = "appa@gmail.se";
     const [invoices, setInvoices] = useState([]);
     const [products, setProducts] = useState([]);
-    const [customers, setCustomers] = useState([]);
+    const [customers, setCustomers] = useState([{
+        name: "Kalle",
+        address: "storgatan",
+        zipCode: "45343",
+        city: "Göteborg",
+        country: "Sweden",
+        telephone: "075-474638",
+        email: "fksdjfalkj@gfkog.com",
+    }, {
+        name: "Challe",
+        address: "storgatan",
+        zipCode: "45343",
+        city: "Göteborg",
+        country: "Sweden",
+        telephone: "075-474638",
+        email: "fksdjfalkj@gfkog.com",
+    }
+    ]);
 
     useEffect(() => {
         InvoiceService.getInvoice("appa@gmail.se").then((res) => {
@@ -25,9 +42,9 @@ const App = () => {
         ProductService.getProducts("appa@gmail.se").then((res) => {
             setProducts(res.data);
         });
-        CustomerService.getCustomers("appa@gmail.se").then((res) => {
-            setCustomers(res.data);
-        })
+        /*        CustomerService.getCustomers("appa@gmail.se").then((res) => {
+                    setCustomers(res.data);
+                })*/
     }, []);
 
     // Add a product
