@@ -47,10 +47,10 @@ const validateTelephone = (number) => {
     return false;
 };
 
-const AddCustomer = ({onAdd}) => {
+const AddCustomer = ({ owner, onAdd}) => {
     const [name, setName] = useState("TestPerson Persson");
     const [address, setAddress] = useState("Hellroad");
-    const [zipcode, setZipCode] = useState("54512");
+    const [zipCode, setZipCode] = useState("54512");
     const [email, setEmail] = useState("hellmail@devil.com");
     const [city, setCity] = useState("Gothenburg");
     const [country, setCountry] = useState("Norway");
@@ -62,17 +62,18 @@ const AddCustomer = ({onAdd}) => {
 
         if (
             validateEmail(email) &&
-            validateZipcode(zipcode) &&
-            validateTelephone(number) &&
+            validateZipcode(zipCode) &&
+            validateTelephone(telephone) &&
             !hasNumber(name) &&
             !hasNumber(country) &&
             !hasNumber(city)
         ) {
             onAdd({
+                owner: owner,
                 customer: {
                     name: name,
                     address: address,
-                    zipCode: zipcode,
+                    zipCode: zipCode,
                     city: city,
                     country: country,
                     telephone: telephone,
@@ -116,7 +117,7 @@ const AddCustomer = ({onAdd}) => {
                                   onChange={(e) => setAddress(e.target.value)}/>
 
                     <Form.Label className="invoice-label">Zipcode</Form.Label>
-                    <Form.Control type="string" value={zipcode} placeholder="Enter zip code"
+                    <Form.Control type="string" value={zipCode} placeholder="Enter zip code"
                                   onChange={(e) => setZipCode(e.target.value)}/>
 
                     <Form.Label className="invoice-label">City</Form.Label>
@@ -136,7 +137,7 @@ const AddCustomer = ({onAdd}) => {
                                 name &&
                                 city &&
                                 address &&
-                                zipcode &&
+                                zipCode &&
                                 email &&
                                 country &&
                                 telephone

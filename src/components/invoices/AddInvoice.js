@@ -9,6 +9,7 @@ import { pdf } from "@react-pdf/renderer";
 import PdfDocument from "../pdf/PdfDocument";
 import "../../styles/index.css";
 import { FaTimes } from "react-icons/fa";
+import CustomerDropdown from "./CustomerDropdown";
 
 const blobToPdf = (blob, fileName) => {
   blob.lastModifiedDate = new Date();
@@ -23,11 +24,12 @@ const hasLetters = (text) => {
 };
 
 
-const AddInvoice = ({ owner, productList }) => {
+const AddInvoice = ({ customerList, owner, productList }) => {
 
   const [invoiceDate, setInvoiceDate] = useState("2021-04-30");
   const [expirationDate, setExpirationDate] = useState("2021-05-02");
   const [items, setItems] = useState([]);
+  const [customers, setCustomers] = useState("");
 
 
   const invoiceData = {
@@ -35,15 +37,7 @@ const AddInvoice = ({ owner, productList }) => {
     invoiceDate: invoiceDate,
     expiryDate: expirationDate,
     seller: "finman@block.chain",
-    customer: {
-      name: name,
-      address: address,
-      zipCode: zipcode,
-      city: city,
-      country: country,
-      telephone: telephone,
-      email: email,
-    },
+    customer: customers,
     items: items,
   };
 
@@ -62,16 +56,10 @@ const AddInvoice = ({ owner, productList }) => {
         invoiceData.customer.email
       );
 
-      setName("");
-      setAddress("");
-      setZipCode("");
-      setEmail("");
       setInvoiceDate("");
       setExpirationDate("");
-      setTelephone("");
-      setCountry("");
-      setCity("");
       setItems([]);
+      setCustomers("");
 
   };
 
@@ -105,6 +93,7 @@ const AddInvoice = ({ owner, productList }) => {
 
   return (
     <Container>
+      <CustomerDropdown/>
       <Form>
         <Row>
           <Col>

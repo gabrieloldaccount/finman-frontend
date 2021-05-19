@@ -91,7 +91,7 @@ const App = () => {
                 <Route
                     path="/newinvoice"
                     exact
-                    render={() => <AddInvoice owner={owner} productList={products}/>}
+                    render={() => <AddInvoice owner={owner} productList={products} customerList={customers}/>}
                 />
 
                 <Route
