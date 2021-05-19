@@ -24,8 +24,8 @@ const validateEmail = (email) => {
     return false;
 };
 
-const validateZipcode = (zipcode) => {
-    const formatted = zipcode.trim().replace(/[-]/g, "").replaceAll(" ", "");
+const validateZipcode = (zipCode) => {
+    const formatted = zipCode.trim().replace(/[-]/g, "").replaceAll(" ", "");
 
     if (!hasLetters(formatted) && formatted.length === 5) {
         return true;
