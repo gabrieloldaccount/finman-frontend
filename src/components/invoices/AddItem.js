@@ -61,7 +61,11 @@ const AddItem = ({ owner, productList, onAddItem }) => {
         </Form.Group>
       </Col>
       <Col sm={4}>
-        <Button variant="primary" onClick={(e) => addItem(e)}>
+        <Button
+          variant="primary"
+          onClick={(e) => addItem(e)}
+          disabled={selectedProduct.name ? false : true}
+        >
           Add item
         </Button>
       </Col>

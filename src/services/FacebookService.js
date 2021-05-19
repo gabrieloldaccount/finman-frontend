@@ -41,12 +41,9 @@ class FacebookService {
         let json = [];
 
         for (const post of posts) {
-          console.log(JSON.stringify(post));
           const reactions = await getReactions(post.id);
           json.push(reactions);
         }
-
-        console.log("AFTER STATE: " + JSON.stringify(json));
         resolve(json);
       });
     };

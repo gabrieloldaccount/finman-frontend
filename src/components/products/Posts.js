@@ -9,7 +9,6 @@ const Posts = () => {
 
   const responseFacebook = async (response) => {
     setPosts(await FacebookService.getFeed());
-    console.log("BACKATITAGAIN: " + JSON.stringify(posts));
   };
 
   return (
