@@ -12,11 +12,11 @@ const hasLetters = (text) => {
 };
 
 const validateEmail = (email) => {
-    if (
+     if (
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
             email
         )
-    ) {
+    )  {
         return true;
     }
     alert("You have entered an invalid email address!");
@@ -33,16 +33,16 @@ const validateZipcode = (zipCode) => {
     return false;
 };
 
-const validateTelephone = (number) => {
-    const formatted = number
+const validateTelephone = (telephone) => {
+    const formatted = telephone
         .toString()
         .trim()
         .replace(/[-]/g, "")
         .replaceAll(" ", "");
 
-    if (hasLetters(formatted)) return true;
+    if (!hasLetters(formatted)) return true;
 
-    alert("You have entered an invalid email address!");
+    alert("You have entered an invalid telephone number!");
     return false;
 };
 
@@ -60,9 +60,9 @@ const AddCustomer = ({ owner, onAdd}) => {
         e.preventDefault();
 
         if (
-            validateEmail(email) &&
-            validateZipcode(zipCode) &&
-            validateTelephone(telephone) &&
+             validateEmail(email) &&
+             validateZipcode(zipCode) &&
+             validateTelephone(telephone) &&
             !hasNumber(name) &&
             !hasNumber(country) &&
             !hasNumber(city)
