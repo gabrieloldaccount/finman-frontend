@@ -1,5 +1,5 @@
 import { Table } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import FacebookLogin from "react-facebook-login";
 import FacebookService from "../../services/FacebookService";
