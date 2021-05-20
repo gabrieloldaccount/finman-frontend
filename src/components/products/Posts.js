@@ -1,5 +1,5 @@
 import { Table } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import FacebookLogin from "react-facebook-login";
 import FacebookService from "../../services/FacebookService";
@@ -11,8 +11,13 @@ const Posts = () => {
     setPosts(await FacebookService.getFeed());
   };
 
+  const isPostEmpty = () => {
+    return !Array.isArray(posts) || posts.length === 0;
+  };
+
   return (
     <>
+      {/* // TODO: hide the button when logged in */}
       <FacebookLogin
         appId="470469467364255"
         autoLoad={true}
@@ -20,22 +25,26 @@ const Posts = () => {
         callback={responseFacebook}
         version="10.0"
       />
-      <Table striped bordered hover size="sm" variant="dark">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Likes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {posts.map((post, index) => (
-            <tr key={post.name}>
-              <td>{post.name}</td>
-              <td>{post.likes}</td>
+      {isPostEmpty() ? (
+        <div style={{ marginTop: 20, marginBottom: 20 }}>No Posts to Show</div>
+      ) : (
+        <Table striped bordered hover size="sm" variant="dark">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Likes</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {posts.map((post, index) => (
+              <tr key={post.name}>
+                <td>{post.name}</td>
+                <td>{post.likes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      )}
     </>
   );
 };
