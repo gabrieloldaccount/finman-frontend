@@ -63,16 +63,16 @@ const validateTelephone = (number) => {
 };
 
 const AddInvoice = ({ owner, productList }) => {
-  const [name, setName] = useState("TestPerson Persson");
-  const [address, setAddress] = useState("Hellroad");
-  const [zipcode, setZipCode] = useState("54512");
-  const [email, setEmail] = useState("hellmail@devil.com");
+  const [name, setName] = useState("Dante");
+  const [address, setAddress] = useState("Hell District 678");
+  const [zipcode, setZipCode] = useState("66666");
+  const [email, setEmail] = useState("berti@hotmail.se");
   const [invoiceDate, setInvoiceDate] = useState("2021-04-30");
   const [expirationDate, setExpirationDate] = useState("2021-05-02");
   const [items, setItems] = useState([]);
-  const [city, setCity] = useState("Gothenburg");
-  const [country, setCountry] = useState("Norway");
-  const [telephone, setTelephone] = useState("06535342");
+  const [city, setCity] = useState("Heaven");
+  const [country, setCountry] = useState("Hell");
+  const [telephone, setTelephone] = useState("7012356671");
 
   const invoiceData = {
     source: owner,

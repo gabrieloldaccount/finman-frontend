@@ -31,14 +31,16 @@ const Posts = () => {
         <Table striped bordered hover size="sm" variant="dark">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Time Posted</th>
+              <th>Message</th>
               <th>Likes</th>
             </tr>
           </thead>
           <tbody>
             {posts.map((post, index) => (
               <tr key={post.name}>
-                <td>{post.name}</td>
+                <td>{post.time}</td>
+                <td>{post.message}</td>
                 <td>{post.likes}</td>
               </tr>
             ))}

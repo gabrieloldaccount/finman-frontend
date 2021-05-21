@@ -29,21 +29,27 @@ const InvoicePosts = ({ owner, onAddItem }) => {
     );
   };
 
+  const postName = (post) => {
+    const dateTime = new Date(post.time);
+    const convertedTime = dateTime.toLocaleString("en-US");
+    return `Posted: [${convertedTime}], Message: [${post.message}], Likes: [${post.likes}]`;
+  };
+
   const postDropdown = () => {
     return (
       <Row md={7} style={{ marginTop: 20, marginBottom: 20 }}>
         <Col md="auto">
           <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
-              {!selectedPost.name ? "Select post" : selectedPost.name}
+              {!selectedPost.id ? "Select post" : postName(selectedPost)}
             </Dropdown.Toggle>
             <Dropdown.Menu>
               {posts.map((_post, index) => (
                 <Dropdown.Item
-                  key={_post.name}
+                  key={_post.id}
                   onClick={() => setSelectedPost(_post)}
                 >
-                  {_post.name}
+                  {postName(_post)}
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>
@@ -53,7 +59,7 @@ const InvoicePosts = ({ owner, onAddItem }) => {
           <Button
             variant="primary"
             onClick={(e) => addItem(e)}
-            disabled={selectedPost.name ? false : true}
+            disabled={selectedPost.id ? false : true}
           >
             Add item
           </Button>
@@ -66,11 +72,10 @@ const InvoicePosts = ({ owner, onAddItem }) => {
     e.preventDefault();
 
     //Passes values to AddInvoice where state is handled.
-    if (selectedPost.name) {
+    if (selectedPost.id) {
       onAddItem({
-        owner: owner,
         amount: 1,
-        name: selectedPost.name,
+        name: postName(selectedPost),
         price: selectedPost.price,
       });
     }

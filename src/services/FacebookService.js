@@ -41,7 +41,7 @@ class FacebookService {
         let json = [];
 
         for (const post of posts) {
-          const reactions = await getReactions(post.id);
+          const reactions = await getReactions(post);
           json.push(reactions);
         }
         resolve(json);
@@ -49,21 +49,23 @@ class FacebookService {
     };
 
     // given an id of a post, retrieve the reaction total count
-    const getReactions = (postId) => {
+    const getReactions = (post) => {
       return new Promise((resolve) => {
-        let reactions;
+        let postWithReactions;
 
         window.FB.api(
-          `/${postId}/reactions?summary=total_count`,
+          `/${post.id}/reactions?summary=total_count`,
           "GET",
           (result) => {
             if (result && !result.error) {
-              reactions = {
-                name: postId,
+              postWithReactions = {
+                id: post.id,
+                time: post.created_time,
+                message: post.message,
                 price: 1,
                 likes: result.summary.total_count,
               };
-              resolve(reactions);
+              resolve(postWithReactions);
             }
           }
         );
