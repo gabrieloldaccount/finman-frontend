@@ -24,14 +24,14 @@ To see the backend, refer to the following link:
 
 <p align="center">
   <a href="#folder-structure">Folder Structure</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#how-to-use">How To Use</a>
 </p>
 
 ## Folder Structure
 
 ```
 src
-├── assets                      # Images
+├── assets                      # Images, resource files etc.
 ├── components                  # UI components
 │   ├── customers
 │   ├── header
