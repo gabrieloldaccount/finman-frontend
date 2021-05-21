@@ -201,7 +201,14 @@ const AddInvoice = ({ owner, productList, customerList }) => {
         <Row className="invoice-label">{"Total: " + sumOfProducts(items)}</Row>
         <Row>
           <Button
-            disabled={!(invoiceDate && expirationDate && items.length !== 0 && selectedCustomer)}
+            disabled={
+              !(
+                invoiceDate &&
+                expirationDate &&
+                items.length !== 0 &&
+                selectedCustomer
+              )
+            }
             variant="primary"
             type="submit"
             onClick={onSubmit}
