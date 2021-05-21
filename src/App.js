@@ -9,11 +9,33 @@ import InvoiceList from "./components/invoices/InvoiceList";
 import ProductService from "./services/ProductService";
 import "./styles/index.css";
 import Header from "./components/header/Header";
+import CustomerPage from "./components/customers/CustomerPage";
+import CustomerService from "./services/CustomerService";
 
 const App = () => {
   const owner = "appa@gmail.se";
   const [invoices, setInvoices] = useState([]);
   const [products, setProducts] = useState([]);
+  const [customers, setCustomers] = useState([
+    {
+      name: "Kalle",
+      address: "storgatan",
+      zipCode: "45343",
+      city: "Göteborg",
+      country: "Sweden",
+      telephone: "075-474638",
+      email: "fksdjfalkj@gfkog.com",
+    },
+    {
+      name: "Challe",
+      address: "storgatan",
+      zipCode: "45343",
+      city: "Göteborg",
+      country: "Sweden",
+      telephone: "075-474638",
+      email: "fksdjfalkj@gfkog.com",
+    },
+  ]);
 
   useEffect(() => {
     InvoiceService.getInvoice("appa@gmail.se").then((res) => {
@@ -21,6 +43,9 @@ const App = () => {
     });
     ProductService.getProducts("appa@gmail.se").then((res) => {
       setProducts(res.data);
+    });
+    CustomerService.getCustomers("appa@gmail.se").then((res) => {
+      setCustomers(res.data.map((_cust) => _cust.customer));
     });
   }, []);
 
@@ -40,6 +65,24 @@ const App = () => {
     });
   };
 
+  // Add a customer
+  const addCustomer = async (customer) => {
+    await CustomerService.createCustomer(customer).then((res) =>
+      console.log(res)
+    );
+  };
+
+  // Delete a customer
+  const deleteCustomer = async (customerName) => {
+    alert("Action not supported!");
+    // await CustomerService.deleteCustomer(owner, customerName).then((res) => {
+    //     res.status === 204
+    //         ? setCustomers(
+    //         customers.filter((customer) => customer.name !== customerName)
+    //         )
+    //         : alert("Error Deleting This Customer");
+    // });
+  };
 
   return (
     <Router>
@@ -70,7 +113,26 @@ const App = () => {
         <Route
           path="/newinvoice"
           exact
-          render={() => <AddInvoice owner={owner} productList={products} />}
+          render={() => (
+            <AddInvoice
+              owner={owner}
+              productList={products}
+              customerList={customers}
+            />
+          )}
+        />
+
+        <Route
+          path="/customers"
+          exact
+          render={() => (
+            <CustomerPage
+              owner={owner}
+              customers={customers}
+              onAdd={addCustomer}
+              onDelete={deleteCustomer}
+            />
+          )}
         />
       </div>
     </Router>

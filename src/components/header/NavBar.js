@@ -16,6 +16,8 @@ const NavBar = () => {
         return "newinvoice";
       case "/all-invoices":
         return "all-invoices";
+      case "/customers":
+        return "customers";
       case "/profile":
         return "profile";
       default:
@@ -67,6 +69,15 @@ const NavBar = () => {
             )}
             <a className="link" href="/all-invoices">
               All Invoices
+            </a>
+          </span>
+
+          <span>
+            {dotSwitch() === "customers" && (
+              <img src={dot} alt="dot" className="dot" />
+            )}
+            <a className="link" href="/customers">
+              Customers
             </a>
           </span>
 
