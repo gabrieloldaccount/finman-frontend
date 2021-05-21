@@ -74,7 +74,7 @@ const NavBar = () => {
 
           <span>
             {dotSwitch() === "customers" && (
-                <img src={dot} alt="dot" className="dot" />
+              <img src={dot} alt="dot" className="dot" />
             )}
             <a className="link" href="/customers">
               Customers
@@ -89,8 +89,6 @@ const NavBar = () => {
               Profile
             </a>
           </span>
-
-
 
           <a className="signout" href="/">
             Sign out

@@ -1,21 +1,15 @@
 import React from "react";
-import AddCustomer from "./AddCustomer"
+import AddCustomer from "./AddCustomer";
 import Customers from "./Customers";
-import {Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
-const CustomerPage = ({owner, customers, onAdd, onDelete}) => {
+const CustomerPage = ({ owner, customers, onAdd, onDelete }) => {
+  return (
+    <Container>
+      <AddCustomer owner={owner} onAdd={onAdd} />
+      <Customers customers={customers} onDelete={onDelete} />
+    </Container>
+  );
+};
 
-    return (
-
-            <Container>
-            <AddCustomer owner={owner} onAdd={onAdd}/>
-            <Customers
-                customers={customers}
-                onDelete={onDelete}
-            />
-            </Container>
-
-    )
-}
-
-export default CustomerPage
+export default CustomerPage;
