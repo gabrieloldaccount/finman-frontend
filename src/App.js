@@ -42,9 +42,9 @@ const App = () => {
         ProductService.getProducts("appa@gmail.se").then((res) => {
             setProducts(res.data);
         });
-        /*        CustomerService.getCustomers("appa@gmail.se").then((res) => {
-                    setCustomers(res.data);
-                })*/
+        CustomerService.getCustomers("appa@gmail.se").then((res) => {
+            setCustomers(res.data.map((_cust) => _cust.customer));
+        });
     }, []);
 
     // Add a product
@@ -70,13 +70,14 @@ const App = () => {
 
     // Delete a customer
     const deleteCustomer = async (customerName) => {
-        await CustomerService.deleteCustomer(owner, customerName).then((res) => {
-            res.status === 204
-                ? setCustomers(
-                customers.filter((customer) => customer.name !== customerName)
-                )
-                : alert("Error Deleting This Customer");
-        });
+        alert("Action not supported!");
+        // await CustomerService.deleteCustomer(owner, customerName).then((res) => {
+        //     res.status === 204
+        //         ? setCustomers(
+        //         customers.filter((customer) => customer.name !== customerName)
+        //         )
+        //         : alert("Error Deleting This Customer");
+        // });
     };
 
     return (
@@ -116,6 +117,7 @@ const App = () => {
                     exact
                     render={() =>
                         <CustomerPage
+                            owner={owner}
                             customers={customers}
                             onAdd={addCustomer}
                             onDelete={deleteCustomer}

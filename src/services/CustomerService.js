@@ -15,9 +15,10 @@ class CustomerService {
         });
     }
 
-    deleteCustomer(ownerId, customerName) {
-        return axios.delete(CUSTOMER_API_BASE_URL + ownerId + "/" + customerName);
-    }
+    // Feature not implemented in backend so good luck lol
+    // deleteCustomer(ownerId, customerName) {
+    //     return axios.delete(CUSTOMER_API_BASE_URL + ownerId + "/" + customerName);
+    // }
 }
 
 export default new CustomerService();

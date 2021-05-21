@@ -3,12 +3,12 @@ import AddCustomer from "./AddCustomer"
 import Customers from "./Customers";
 import {Container} from "react-bootstrap";
 
-const CustomerPage = ({customers, onAdd, onDelete}) => {
+const CustomerPage = ({owner, customers, onAdd, onDelete}) => {
 
     return (
 
             <Container>
-            <AddCustomer onAdd={onAdd}/>
+            <AddCustomer owner={owner} onAdd={onAdd}/>
             <Customers
                 customers={customers}
                 onDelete={onDelete}

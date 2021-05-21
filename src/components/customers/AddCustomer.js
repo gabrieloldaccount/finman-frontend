@@ -68,7 +68,7 @@ const AddCustomer = ({ owner, onAdd}) => {
             !hasNumber(city)
         ) {
             onAdd({
-                owner: owner,
+                email: owner,
                 customer: {
                     name: name,
                     address: address,
