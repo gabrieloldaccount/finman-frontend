@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import AddItem from "./AddItem";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Col, Container, Row, Table } from "react-bootstrap";
+import { Col, Container, Row, Tab, Table, Tabs } from "react-bootstrap";
 import InvoiceService from "../../services/InvoiceService";
 import { pdf } from "@react-pdf/renderer";
 import PdfDocument from "../pdf/PdfDocument";
 import "../../styles/index.css";
 import { FaTimes } from "react-icons/fa";
+import InvoicePosts from "./InvoicePosts";
 import CustomerDropdown from "./CustomerDropdown";
 
 const blobToPdf = (blob, fileName) => {
@@ -139,13 +140,25 @@ const AddInvoice = ({ owner, productList, customerList }) => {
             </Form.Group>
           </Col>
         </Row>
-        <Row className="row-create-item">
-          <AddItem
-            owner={owner}
-            productList={productList}
-            onAddItem={addItem}
-          />
-        </Row>
+
+        <Tabs defaultActiveKey="products">
+          <Tab eventKey="products" title="Products">
+            <Row className="row-create-item">
+              <AddItem
+                owner={owner}
+                productList={productList}
+                onAddItem={addItem}
+              />
+            </Row>
+          </Tab>
+
+          <Tab eventKey="posts" title="Posts">
+            <Row className="row-create-item">
+              <InvoicePosts owner={owner} onAddItem={addItem} />
+            </Row>
+          </Tab>
+        </Tabs>
+
         <Row>
           {items.length > 0 ? (
             <Table striped bordered hover variant="dark">
@@ -168,7 +181,11 @@ const AddInvoice = ({ owner, productList, customerList }) => {
                     <td>{item.price * item.amount} kr</td>
                     <td>
                       <FaTimes
-                        style={{ color: "red", cursor: "pointer", margin: 3 }}
+                        style={{
+                          color: "red",
+                          cursor: "pointer",
+                          margin: 3,
+                        }}
                         onClick={() => deleteItem(item.name)}
                       />
                     </td>

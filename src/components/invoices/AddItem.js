@@ -20,7 +20,6 @@ const AddItem = ({ owner, productList, onAddItem }) => {
 
     //Passes values to AddInvoice where state is handled.
     onAddItem({
-      owner: owner,
       amount: amount,
       name: selectedProduct.name,
       price: selectedProduct.price,
@@ -61,7 +60,11 @@ const AddItem = ({ owner, productList, onAddItem }) => {
         </Form.Group>
       </Col>
       <Col sm={4}>
-        <Button variant="primary" onClick={(e) => addItem(e)}>
+        <Button
+          variant="primary"
+          onClick={(e) => addItem(e)}
+          disabled={selectedProduct.name ? false : true}
+        >
           Add item
         </Button>
       </Col>
