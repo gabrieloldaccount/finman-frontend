@@ -51,6 +51,7 @@ const AddInvoice = ({ owner, productList, customerList }) => {
     setInvoiceDate("");
     setExpirationDate("");
     setItems([]);
+    setSelectedCustomer("");
   };
 
   //Adds an item to this invoice's items list
@@ -200,7 +201,7 @@ const AddInvoice = ({ owner, productList, customerList }) => {
         <Row className="invoice-label">{"Total: " + sumOfProducts(items)}</Row>
         <Row>
           <Button
-            disabled={!(invoiceDate && expirationDate && items.length !== 0)}
+            disabled={!(invoiceDate && expirationDate && items.length !== 0 && selectedCustomer)}
             variant="primary"
             type="submit"
             onClick={onSubmit}
