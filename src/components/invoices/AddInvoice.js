@@ -18,11 +18,6 @@ const blobToPdf = (blob, fileName) => {
     return blob;
 };
 
-const hasLetters = (text) => {
-    return /[a-zA-Z]/.test(text);
-};
-
-
 const AddInvoice = ({owner, productList, customerList}) => {
 
     const [invoiceDate, setInvoiceDate] = useState("2021-04-30");
