@@ -33,6 +33,7 @@ To see the backend, refer to the following link:
 src
 ├── assets                      # Images
 ├── components                  # UI components
+│   ├── customers
 │   ├── header
 │   ├── home
 │   ├── invoices
